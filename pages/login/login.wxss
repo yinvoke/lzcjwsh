@@ -1,0 +1,36 @@
+/* pages/login/login.wxss */
+.bg{
+  background: url('http://119.3.46.32/yinvoker/lzcj/images/bg.jpg');
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-size:cover;
+}
+
+.cc{
+  display:flex; 
+  justify-content:center; 
+  align-items:center;
+}
+
+.logo{
+  padding-top: 40px;
+  padding-bottom: 40px;
+  width: 160px;
+  height: 160px;
+}
+
+form{
+  margin-top: 100px;
+}
+
+.ib{
+  border-top-style: none; 
+  border-left-style: none; 
+  border-right-style: none; 
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgba(173, 173, 173, 0.534);
+}
