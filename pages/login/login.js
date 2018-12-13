@@ -83,12 +83,14 @@ Page({
     }
 
   },
+
   /**
    * 用户名读取
    */
   usernameInput: function (event) {
     this.setData({ username: event.detail.value })
   },
+
   /**
    * 密码读取
    */
