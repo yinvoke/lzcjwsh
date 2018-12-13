@@ -69,5 +69,14 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  /**
+   * 课程表跳转
+   */
+  tableBtn: function(){
+    wx.navigateTo({
+      url: '../table/table',
+    })
   }
 })

@@ -1,2 +1,3 @@
 <!--pages/user/user.wxml-->
 <text>欢迎，{{username}}！</text>
+<button bindtap='tableBtn'>课程表</button>

@@ -1,12 +1,13 @@
 {
   "pages": [
+    
     "pages/user/user",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/table/table"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   }
 }
