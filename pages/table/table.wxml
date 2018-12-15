@@ -1,11 +1,13 @@
 <!--pages/table/table.wxml-->
+<view class="choose" bindtap='change'>{{year}}学年{{semester}}学期第{{week}}周 ↗</view>
+
 <view class="top">
   <view wx:for="{{['一','二','三','四','五','六','日']}}" class="top-text">周{{item}}</view>
 </view>
 
 <scroll-view scroll-y="true" class="scroll">
   <view style="height:1560rpx;width:730rpx;display:flex;">
-    <view style="background-color:#D2E6B3;color:#7cba23;">
+    <view style="background-color:  rgb(0, 0, 0);color:rgb(255, 255, 255);">
       <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}" class="left">
         {{item}}
       </view>
@@ -15,8 +17,8 @@
       </view>
     </view>
     <!--课表-->
-    <view wx:for="{{wlist}}">
-      <view class="flex-item kcb-item" bindtap="showCardView" data-statu="open" data-index="{{index}}" style="margin-left:{{(item.xqj-1)*100}}rpx;margin-top:{{(item.skjc-1)*130+5}}rpx;height:{{item.skcd*130-5}}rpx;background-color:{{colorArrays[index%9]}}">
+    <view wx:for="{{wlist}}" class='margin-left:150rpx;'>
+      <view class="flex-item kcb-item" bindtap="showCardView" data-statu="open" data-index="{{index}}" style="margin-left:{{(item.xqj-1)*102}}rpx;margin-top:{{(item.skjc-1)*130+5}}rpx;height:{{item.skcd*130-5}}rpx;background-color:{{colorArrays[index%9]}};">
         <view class="smalltext" >{{item.kcmc}}</view>
       </view>
     </view>

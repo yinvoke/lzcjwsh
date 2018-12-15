@@ -1,1 +1,5 @@
-{}
+{
+  "navigationBarTitleText": "课程表",
+  "navigationBarBackgroundColor": "#000000",
+  "navigationBarTextStyle": "white"
+}

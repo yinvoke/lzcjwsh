@@ -5,12 +5,11 @@
 }
 
 .kcb-item {
-
   position: absolute;
   justify-content: center;
   display: flex;
   align-items: center;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
 .smalltext {
@@ -20,15 +19,16 @@
 }
 
 .top {
+  padding-top: 10rpx;
   display: flex;
   flex-direction: row;
-  margin-left: 35rpx;
-  background-color: #d2e6b3;
-  color: #7cba23;
+  background-color: rgb(0, 0, 0);
+  color:rgb(255, 255, 255);
+  padding-left: 35rpx;
 }
 
 .top-text {
-  width: 100rpx;
+  width: 103rpx;
   height: 35rpx;
   font-size: 9pt;
   justify-content: center;
@@ -37,7 +37,7 @@
 }
 
 .scroll {
-  height: 1170rpx;
+  height: 2278rpx;
   z-index: 101;
   position: fixed;
 }
@@ -49,6 +49,13 @@
   justify-content: center;
   display: flex;
   align-items: center;
+}
+
+.choose{
+  padding-bottom: 10rpx;
+  text-align: center;
+  background-color: rgb(0, 0, 0);
+  color:rgb(255, 255, 255);
 }
 
 ::-webkit-scrollbar

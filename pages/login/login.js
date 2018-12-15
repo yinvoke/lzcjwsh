@@ -8,6 +8,7 @@ Page({
   data: {
     username: null,
     userpwd: null,
+    judge:false,
     src: 'http://119.3.46.32/yinvoker/lzcj/images/logo.png'
   },
 
@@ -96,5 +97,12 @@ Page({
    */
   userpwdInput: function (event) {
     this.setData({ userpwd: event.detail.value })
+  },
+
+  /**
+   * 输入跳转
+   */
+  inputJump: function(event){
+    this.setData({judge:true})
   }
 })

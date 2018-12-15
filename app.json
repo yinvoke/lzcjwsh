@@ -1,9 +1,9 @@
 {
   "pages": [
-    
+    "pages/table/table",
     "pages/user/user",
-    "pages/login/login",
-    "pages/table/table"
+    "pages/login/login"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
