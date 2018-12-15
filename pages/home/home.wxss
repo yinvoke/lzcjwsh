@@ -1,0 +1,6 @@
+/* pages/user/user.wxss */
+.test{
+  margin-top: 500rpx;
+  width: 250rpx;
+  height: 330rpx;
+}

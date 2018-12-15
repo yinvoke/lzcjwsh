@@ -1,9 +1,10 @@
 {
   "pages": [
-    "pages/table/table",
+    "pages/home/home",
     "pages/user/user",
-    "pages/login/login"
-    
+    "pages/login/login",
+    "pages/table/table",
+    "pages/aides/aides"
   ],
   "window": {
     "backgroundTextStyle": "light",

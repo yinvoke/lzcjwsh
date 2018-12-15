@@ -75,7 +75,7 @@ Page({
     if (this.data.username == 'ceshi' && this.data.userpwd == 'ceshi') {
       app.globalData.userInfo = { username: this.data.username, userpwd: this.data.userpwd };
       wx.redirectTo({
-        url: '../user/user',
+        url: '../home/home',
       })
     } else {
       wx.redirectTo({

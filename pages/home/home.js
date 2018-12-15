@@ -1,18 +1,25 @@
 // pages/user/user.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    username: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    if (app.globalData.userInfo == null) {
+      wx.redirectTo({
+        url: '../login/login',
+      })
+    } else {
+      this.setData({ username: app.globalData.userInfo.username })
+    }
   },
 
   /**
@@ -62,5 +69,32 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  /**
+   * 课程表跳转
+   */
+  kcb: function(){
+    wx.navigateTo({
+      url: '../table/table',
+    })
+  },
+
+  /**
+   * 蹭课小助手跳转
+   */
+  ckxzs: function () {
+    wx.navigateTo({
+      url: '../aides/aides',
+    })
+  },
+
+  /**
+   * 个人中心跳转
+   */
+  grzx: function () {
+    wx.navigateTo({
+      url: '../user/user',
+    })
   }
 })
