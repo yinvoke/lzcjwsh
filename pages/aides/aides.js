@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    searchContent : null
   },
 
   /**
@@ -62,5 +62,17 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  /**
+   * 搜索功能
+   */
+  searchInput: function(e){
+    this.setData({searchContent:e.detail.value})
+  },
+  searchBtn: function(e){
+    //处理
   }
+
+
 })

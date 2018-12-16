@@ -1,11 +1,14 @@
 // pages/user/user.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    username: "测试用例用户名",//app.global.username
+    userdepartment: "测试用例学院",//app.global.username
+    userspecialty: "测试用例专业"//app.global.username
   },
 
   /**

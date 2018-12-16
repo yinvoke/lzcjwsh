@@ -29,6 +29,6 @@ App({
     
   },
   globalData: {
-    userInfo: {username:"ceshi",userpwd:"ceshi"}
+    userInfo: null
   }
 })
