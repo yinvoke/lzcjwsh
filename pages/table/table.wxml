@@ -1,5 +1,10 @@
 <!--pages/table/table.wxml-->
-<view class="choose" bindtap='change'>{{year}}学年{{semester}}学期第{{week}}周 ↗</view>
+<view style='justify-content: center;display: flex;align-items: center;background-color:#e0c7c2;'>
+  <view class="choose">
+    <picker bindchange='bindSemesterChange' value='{{semesterIndex}}' range='{{semesters}}'>{{semesters[semesterIndex]}}</picker><text style='width:20rpx;'></text>
+    <picker bindchange='bindWeekChange' value='{{weekIndex}}' range='{{weeks}}'>{{weeks[weekIndex]}}</picker>
+  </view>
+</view>
 
 <view class="top">
   <view wx:for="{{['一','二','三','四','五','六','日']}}" class="top-text">周{{item}}</view>
@@ -7,13 +12,13 @@
 
 <scroll-view scroll-y="true" class="scroll">
   <view style="height:1560rpx;width:730rpx;display:flex;">
-    <view style="background-color:  rgb(0, 0, 0);color:rgb(255, 255, 255);">
+    <view style="background-color:#e3e2da;color:#a7748a;">
       <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}" class="left">
         {{item}}
       </view>
     </view>
     <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}">
-      <view style="width:750rpx;margin-top:{{(index+1)*130}}rpx;  position: absolute;border-bottom:1rpx solid;color:lightgray;">
+      <view style="width:750rpx;margin-top:{{(index+1)*130}}rpx;  position: absolute;border-bottom:1rpx solid;color:#a7748a;">
       </view>
     </view>
     <!--课表-->

@@ -14,7 +14,7 @@
 
 .smalltext {
   font-size: 8pt;
-  color: #fff;
+  color: #1f1a3b;
   padding-left: 2px;
 }
 
@@ -22,8 +22,8 @@
   padding-top: 10rpx;
   display: flex;
   flex-direction: row;
-  background-color: rgb(0, 0, 0);
-  color:rgb(255, 255, 255);
+  background-color:#e0c7c2;
+  color:#a7748a;
   padding-left: 35rpx;
 }
 
@@ -52,10 +52,12 @@
 }
 
 .choose{
+  display: flex;
   padding-bottom: 10rpx;
   text-align: center;
-  background-color: rgb(0, 0, 0);
-  color:rgb(255, 255, 255);
+  background-color: #e0c7c2;
+  color:#1f1a3b;
+  font-size:16px;
 }
 
 ::-webkit-scrollbar

@@ -1,0 +1,2 @@
+<!--pages/feedback/feedback.wxml-->
+<textarea placeholder='为了给您带来更好的用户体验，快来这里吐槽吧' class='fankui'></textarea>

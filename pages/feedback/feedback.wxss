@@ -1,0 +1,6 @@
+/* pages/feedback/feedback.wxss */
+.fankui{
+  border: 1rpx solid #d0d0d0;
+  padding: 3%;
+  width: 95%;
+}

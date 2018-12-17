@@ -1,6 +1,6 @@
 /* pages/login/login.wxss */
 .bg{
-  background: url('http://119.3.46.32/yinvoker/lzcj/images/bg.jpg');
+  background: url('http://119.3.46.32/yinvoker/lzcj/images/bg2.jpg');
   position:fixed;
   top:0;
   left:0;
@@ -32,5 +32,5 @@ form{
   border-right-style: none; 
   border-bottom-style: solid;
   border-bottom-width: 1px;
-  border-bottom-color: rgba(173, 173, 173, 0.534);
+  border-bottom-color: #1f1a3b;
 }

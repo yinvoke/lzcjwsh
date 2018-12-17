@@ -9,7 +9,7 @@ Page({
     username: null,
     userpwd: null,
     judge:false,
-    src: 'http://119.3.46.32/yinvoker/lzcj/images/logo.png'
+    logosrc: 'http://119.3.46.32/yinvoker/lzcj/images/logo.png',
   },
 
   /**

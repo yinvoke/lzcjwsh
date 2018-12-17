@@ -1,12 +1,7 @@
 <!--pages/user/user.wxml-->
-<text style='font-size:50px;'>用户信息</text>
+<text style='font-size:30px;'>您好，{{username}}！</text>
 <view style='margin-top:80rpx;'>
-  <text>用户名</text>
-  <input placeholder='{{username}}'/>
-  <text>学院</text>
-  <input placeholder='{{userdepartment}}'/>
-  <text>专业</text>
-  <input placeholder='{{userspecialty}}'/>
-  <button>意见反馈</button>
-  <button>关于兰州财经大学微生活</button>
+  <button bindtap='warning'>信息完善</button>
+  <button bindtap='jumpFeedback'>意见反馈</button>
+  <button bindtap='warning'>关于兰州财经大学微生活</button>
 </view>

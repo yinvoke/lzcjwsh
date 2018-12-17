@@ -6,7 +6,36 @@ Page({
    * 页面的初始数据
    */
   data: {
-    colorArrays: ["#85B8CF", "#90C652", "#D8AA5A", "#FC9F9D", "#0A9A84", "#61BC69", "#12AEF3", "#E29AAD"],
+    semesters: [
+      "2017-2018学年春季学期", 
+      "2017-2018学年秋季学期", 
+      "2018-2019学年春季学期", 
+      "2018-2019学年秋季学期"
+    ],
+    semesterIndex:0,
+
+    weeks:[
+      "第一周",
+      "第二周",
+      "第三周",
+      "第四周",
+      "第五周",
+      "第六周",
+      "第七周",
+      "第八周",
+      "第九周",
+      "第十周",
+      "第十一周",
+      "第十二周",
+      "第十三周",
+      "第十四周",
+      "第十五周",
+      "第十六周",
+      "第十七周"
+    ],
+    weekIndex:0,
+
+    colorArrays: ["#a1b3cf", "#6f83ad", "#f3f8ed", "#d4d9db", "#97b9d8", "#c1d9ea", "#dcecf2", "#c1d9ea"],
     wlist: [
       { "xqj": 1, "skjc": 1, "skcd": 3, "kcmc": "高等数学@教A-303" },
       { "xqj": 1, "skjc": 10, "skcd": 3, "kcmc": "高等数学@教A-301" },
@@ -19,6 +48,7 @@ Page({
       { "xqj": 4, "skjc": 10, "skcd": 12, "kcmc": "高等数学@教A-301" },
       { "xqj": 5, "skjc": 1, "skcd": 2, "kcmc": "高等数学@教A-301" },
       { "xqj": 6, "skjc": 3, "skcd": 2, "kcmc": "高等数学@教A-301" },
+      { "xqj": 6, "skjc": 5, "skcd": 2, "kcmc": "高等数学@教A-301" },
       { "xqj": 7, "skjc": 5, "skcd": 3, "kcmc": "高等数学@教A-301" },
     ]
   },
@@ -77,5 +107,23 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  /**
+   * 设置学期
+   */
+  bindSemesterChange: function (e) {
+    this.setData({
+      semesterIndex:e.detail.value
+    })
+  },
+
+  /**
+   * 设置星期
+   */
+  bindWeekChange: function(e) {
+    this.setData({
+      weekIndex:e.detail.value
+    })
   }
 })

@@ -1,14 +1,11 @@
-// pages/user/user.js
-var app = getApp();
+// pages/feedback/feedback.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    username: "测试用例用户名",//app.global.username
-    userdepartment: "测试用例学院",//app.global.username
-    userspecialty: "测试用例专业"//app.global.username
+
   },
 
   /**
@@ -65,25 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  /**
-   * 提示
-   */
-  warning:function(){
-    wx.showToast({
-      title: '敬请期待',
-      icon: 'loading',
-      duration: 1000
-    })
-  },
-
-  /**
-   * 意见反馈跳转
-   */
-  jumpFeedback:function(){
-    wx.navigateTo({
-      url: '../feedback/feedback',
-    })
   }
 })

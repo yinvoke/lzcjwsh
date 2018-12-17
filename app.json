@@ -1,8 +1,8 @@
 {
   "pages": [
-    
-    "pages/home/home",
+    "pages/feedback/feedback",
     "pages/user/user",
+    "pages/home/home",
     "pages/login/login",
     "pages/table/table",
     "pages/aides/aides"
@@ -10,7 +10,7 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#e0c7c2",
+    "navigationBarTextStyle": "white"
   }
 }
