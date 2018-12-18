@@ -81,6 +81,11 @@ Page({
       wx.redirectTo({
         url: '../login/login',
       })
+      wx.showToast({
+        title: '登录失败',
+        icon: 'loading',
+        duration: 2000
+      })
     }
 
   },

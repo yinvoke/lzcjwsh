@@ -1,7 +1,13 @@
 <!--pages/user/user.wxml-->
 <view style="background-image: url('../../images/bg2.jpg');position:fixed;top:0;left:0;width:100%;height:100%;background-size:cover;">
-  <text>欢迎，{{username}}！</text>
-  <button bindtap='kcb'>课程表</button>
-  <button bindtap='ckxzs'>蹭课小助手</button>
-  <button bindtap='grzx'>个人中心</button>
+  <swiper indicator-dots='true' autoplay='true' interval='4000' class='lunbo'>
+    <swiper-item><image src='../../images/1.jpg'></image></swiper-item>
+    <swiper-item><image src='../../images/2.jpg'></image></swiper-item>
+    <swiper-item><image src='../../images/3.jpg'></image></swiper-item>
+    <swiper-item><image src='../../images/4.jpg'></image></swiper-item>
+  </swiper>
+  <button bindtap='kcb' class='b1'>课程表</button>
+  <button bindtap='ckxzs' class='b2'>蹭课小助手</button>
+  <button bindtap='grzx' class='b3'>个人中心</button>
+  <button bindtap='grzx' class='b4'>敬请期待</button>
 </view>
