@@ -11,3 +11,7 @@
 4.课表页 table
 
 5.蹭课助手页 aides
+
+6.反馈页 feedback
+
+7.关于信息页 about
