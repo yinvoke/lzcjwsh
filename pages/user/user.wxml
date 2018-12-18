@@ -3,5 +3,5 @@
 <view style='margin-top:80rpx;'>
   <button bindtap='warning'>信息完善</button>
   <button bindtap='jumpFeedback'>意见反馈</button>
-  <button bindtap='warning'>关于兰州财经大学微生活</button>
+  <button bindtap='jumpAbout'>关于我们</button>
 </view>

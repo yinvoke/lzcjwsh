@@ -1,0 +1,13 @@
+<!--pages/about/about.wxml-->
+<text>本软件由树袋熊出品</text>
+<view style='padding:30rpx'>
+  <text>开发人员\n</text>
+  <view style='font-size:19px'>
+    <text>UI设计：Yinvoker\n</text>
+    <text>程序开发：Yinvoker\n</text>
+    <text>数据采集：zekdot\n</text>
+    <text>信息管理：zekdot\n</text>
+    <text>监制：Yinvoker、zekdot\n</text>
+    <text style='font-size:15px'>责任人：谢景旭（俗称谢二狗，出了一切问题都找他）</text>
+  </view>
+</view>
