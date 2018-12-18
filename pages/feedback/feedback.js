@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    fb:null
   },
 
   /**
@@ -62,5 +62,24 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  /**
+   * 内容读取
+   */
+  tucao:function(e){
+    this.setData({fb:e.detail.value})
+  },
+
+  /**
+   * 内容提交
+   */
+  submit:function(){
+    wx.showToast({
+      title: '提交成功',
+      icon: 'success',
+      duration: 2000
+    })
   }
+
 })
