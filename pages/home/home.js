@@ -96,5 +96,16 @@ Page({
     wx.navigateTo({
       url: '../user/user',
     })
+  },
+
+  /**
+   * 敬请期待
+   */
+  test: function(){
+    wx.showToast({
+      title: '敬请期待',
+      icon: 'loading',
+      duration: 1500
+    })
   }
 })

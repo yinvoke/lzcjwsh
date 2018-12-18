@@ -9,5 +9,5 @@
   <button bindtap='kcb' class='b1'>课程表</button>
   <button bindtap='ckxzs' class='b2'>蹭课小助手</button>
   <button bindtap='grzx' class='b3'>个人中心</button>
-  <button bindtap='grzx' class='b4'>敬请期待</button>
+  <button bindtap='test' class='b4'>敬请期待</button>
 </view>

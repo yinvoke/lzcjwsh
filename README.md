@@ -6,7 +6,7 @@
 
 2.登录页 login
 
-3.用户信息页 user
+3.用户页 user
 
 4.课表页 table
 
@@ -14,4 +14,6 @@
 
 6.反馈页 feedback
 
-7.关于信息页 about
+7.关于我们页 about
+
+8.用户个人信息页 information

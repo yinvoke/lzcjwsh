@@ -29,6 +29,6 @@ App({
     
   },
   globalData: {
-    userInfo: {username:"test"}
+    userInfo: null
   }
 })
