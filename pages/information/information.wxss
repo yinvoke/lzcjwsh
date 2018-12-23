@@ -1,1 +1,5 @@
 /* pages/information/information.wxss */
+input{
+  border: solid 1rpx;
+  margin-bottom: 30rpx;
+}

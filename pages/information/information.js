@@ -1,18 +1,27 @@
 // pages/information/information.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    username:null,
+    sex: null,
+    age: null,
+    department: null,
+    specialty: null,
+    grade: null,
+    description: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      username: app.globalData.userInfo.username
+    })
   },
 
   /**

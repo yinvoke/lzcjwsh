@@ -5,6 +5,9 @@
   height: 330rpx;
 }
 
+button{
+  background-color: #c3b09a;
+}
 .b1{
   top: 38%;
   left: 10%;

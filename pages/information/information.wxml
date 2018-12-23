@@ -1,2 +1,10 @@
 <!--pages/information/information.wxml-->
-<text>pages/information/information.wxml</text>
+<view>
+  <text>姓名</text><input placeholder='{{username}}'/>
+  <text>年龄</text><input placeholder='{{sex}}'/>
+  <text>性别</text><input placeholder='{{age}}'/>
+  <text>院系</text><input placeholder='{{department}}'/>
+  <text>专业</text><input placeholder='{{specialty}}'/>
+  <text>年级</text><input placeholder='{{grade}}'/>
+  <text>个人描述</text><input placeholder='{{description}}'/>
+</view>

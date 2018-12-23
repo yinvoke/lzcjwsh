@@ -7,10 +7,10 @@
   <view class='cc'><text style='margin-top:-30px;color:#1f1a3b'>一款属于你的校园app</text></view>
   <form class='cc'>
     <view style='margin-bottom:30px;display:{{display}};bottom:{{bottom}}rpx'>
-      <input class="ib" cursor-spacing="50" bindinput='usernameInput' placeholder='学号' adjust-position='{{true}}' bindblur='inputJump'/>
+      <input class="ib" cursor-spacing="50" bindinput='useridInput' placeholder='学号' adjust-position='{{true}}' />
     </view>
     <view style='margin-bottom:80rpx;display:{{display}};bottom:{{bottom}}rpx'>
-      <input class="ib" password='true' cursor-spacing="10" bindinput='userpwdInput' placeholder='个人门户密码' adjust-position='{{true}}' focus='{{judge}}' />
+      <input class="ib" password='true' cursor-spacing="10" bindinput='userpwdInput' placeholder='个人门户密码' adjust-position='{{true}}'/>
     </view>
     <button bindtap='startBtn' plain='true'>开始旅程</button>
   </form>

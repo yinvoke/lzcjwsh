@@ -6,16 +6,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    username: "测试用例用户名",//app.global.username
-    userdepartment: "测试用例学院",//app.global.username
-    userspecialty: "测试用例专业"//app.global.username
+    username: null,//app.global.username
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      username:app.globalData.userInfo.username
+    })
   },
 
   /**

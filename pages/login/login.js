@@ -6,9 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    username: null,
+    userid: null,
     userpwd: null,
-    judge:false,
     logosrc: 'http://119.3.46.32/yinvoker/lzcj/images/logo.png',
   },
 
@@ -72,8 +71,8 @@ Page({
    * 登录事件
    */
   startBtn: function () {
-    if (this.data.username == 'ceshi' && this.data.userpwd == 'ceshi') {
-      app.globalData.userInfo = { username: this.data.username, userpwd: this.data.userpwd };
+    if (this.data.userid == '2016' && this.data.userpwd == 'ceshi') {
+      app.globalData.userInfo = { userid: this.data.userid, userpwd: this.data.userpwd, username: this.data.userid};
       wx.redirectTo({
         url: '../home/home',
       })
@@ -93,8 +92,8 @@ Page({
   /**
    * 用户名读取
    */
-  usernameInput: function (event) {
-    this.setData({ username: event.detail.value })
+  useridInput: function (event) {
+    this.setData({ userid: event.detail.value })
   },
 
   /**
@@ -103,11 +102,4 @@ Page({
   userpwdInput: function (event) {
     this.setData({ userpwd: event.detail.value })
   },
-
-  /**
-   * 输入跳转
-   */
-  inputJump: function(event){
-    this.setData({judge:true})
-  }
 })

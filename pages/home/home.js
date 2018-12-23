@@ -6,7 +6,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    username: null
   },
 
   /**
@@ -17,8 +16,6 @@ Page({
       wx.redirectTo({
         url: '../login/login',
       })
-    } else {
-      this.setData({ username: app.globalData.userInfo.username })
     }
   },
 
