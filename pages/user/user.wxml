@@ -1,7 +1,14 @@
 <!--pages/user/user.wxml-->
-<text style='font-size:30px;'>您好，{{username}}！</text>
-<view style='margin-top:80rpx;'>
-  <button bindtap='warning'>信息完善</button>
-  <button bindtap='jumpFeedback'>意见反馈</button>
-  <button bindtap='jumpAbout'>关于我们</button>
+<view class='top'>
+  <image class="logo" src="{{logosrc}}" style='margin:10rpx;'></image>
+  <view class='top2'>
+  <text>您好，{{username}}！</text>
+  <button bindtap='jumpInformation'>编辑个人信息</button>
+  </view>
+</view>
+
+
+<view style='margin-top:200rpx;' class='other'>
+  <button bindtap='jumpFeedback' class='meihua'><text style='float:left'>意见反馈</text><text style='float:right'>></text></button>
+  <button bindtap='jumpAbout' class='meihua'><text style='float:left'>关于我们</text><text style='float:right'>></text></button>
 </view>

@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userid:null,
     username:null,
     sex: null,
     age: null,
@@ -20,7 +21,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      username: app.globalData.userInfo.username
+      userid: app.globalData.userInfo.id
     })
   },
 

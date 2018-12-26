@@ -3,3 +3,53 @@ input{
   border: 1px solid #d0d0d0;  
   margin-bottom: 100rpx;
 }
+
+.logo{
+  padding-top: 30rpx;
+  padding-left: 30rpx;
+  width: 280rpx;
+  height: 280rpx;
+}
+
+.top{
+  display: flex;
+}
+
+.top2{
+  margin-left: 45rpx;
+  margin-top:60rpx;
+}
+
+
+.top .top2 button{
+  margin-top:20rpx;
+  width: 200rpx;
+  height: 40rpx;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: solid 1rpx;
+}
+
+
+.meihua{
+  color: #6f83ad; 
+  border-color: #6f83ad;
+  background:transparent;
+  
+}
+
+button::after{
+  border:none;
+}
+
+.other{
+  border-bottom-style: none; 
+  border-left-style: none; 
+  border-right-style: none; 
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #1f1a3b;
+}

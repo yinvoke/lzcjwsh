@@ -7,6 +7,7 @@ Page({
    */
   data: {
     username: null,//app.global.username
+    logosrc: 'http://119.3.46.32/yinvoker/lzcj/images/logo.png'
   },
 
   /**
@@ -70,7 +71,7 @@ Page({
   /**
    * 提示
    */
-  warning:function(){
+  jumpInformation:function(){
     wx.navigateTo({
       url: '../information/information',
     })
