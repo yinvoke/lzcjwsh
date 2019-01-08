@@ -9,7 +9,7 @@ button{
   background-color: #c3b09a;
 }
 .b1{
-  top: 38%;
+  top: 42%;
   left: 10%;
   width: 35%;
   height: 18%;
@@ -19,7 +19,7 @@ button{
 }
 
 .b2{
-  top: 38%;
+  top: 42%;
   left: 55%;
   width: 35%;
   height: 18%;
@@ -29,7 +29,7 @@ button{
 }
 
 .b3{
-  top: 60%;
+  top: 65%;
   left: 10%;
   width: 35%;
   height: 18%;
@@ -39,7 +39,7 @@ button{
 }
 
 .b4{
-  top: 60%;
+  top: 65%;
   left: 55%;
   width: 35%;
   height: 18%;
@@ -50,7 +50,7 @@ button{
 
 .lunbo{
   width: 100%;
-  height: 30%;
+  height: 35%;
 }
 
 .lunbo image{
