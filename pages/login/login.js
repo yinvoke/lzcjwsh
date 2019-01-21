@@ -71,21 +71,38 @@ Page({
    * 登录事件
    */
   startBtn: function () {
-    if (this.data.userid == '2016' && this.data.userpwd == 'ceshi') {
-      app.globalData.userInfo = { userid: this.data.userid, userpwd: this.data.userpwd, username: this.data.userid};
-      wx.redirectTo({
-        url: '../home/home',
-      })
-    } else {
-      wx.redirectTo({
-        url: '../login/login',
-      })
-      wx.showToast({
-        title: '登录失败',
-        icon: 'loading',
-        duration: 2000
-      })
-    }
+    var un = this.data.userid;
+    var up = this.data.userpwd;
+    wx.request({
+      url: 'http://iot.wduozhi.xyz/api/user/login',
+      data:{
+        "username": un,
+        "password": up
+      },
+      method: 'POST',
+      header:{
+        'content-type':'application/x-www-form-urlencoded; charset=utf-8'
+      },
+      success: function(res){
+        var status = res.data.status;
+        if (status == "success") {
+          app.globalData.userInfo = { userid: un, userpwd: up, username: un };
+          wx.redirectTo({
+            url: '../home/home',
+          })
+        } else {
+          wx.redirectTo({
+            url: '../login/login',
+          })
+          wx.showToast({
+            title: '登录失败',
+            icon: 'loading',
+            duration: 2000
+          })
+        }
+      }
+    })
+    
 
   },
 
