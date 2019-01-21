@@ -1,0 +1,27 @@
+<!--pages/user/user.wxml-->
+<view class="container">
+  <view class="wx-cells">
+    <view class="wx-cell" data-route="../information/information" bindtap="jumpInformation">
+      <image class="wx-cell-icon user-avatar" src="{{userInfo.avatarUrl}}"></image>
+      <view class="user-info">
+        <text class="user-info-text">{{userInfo.nickName}}</text>
+        <text class="user-info-text user-info-uid">欢迎您， {{username}}</text>
+      </view>
+      <image class="wx-cell-arrow" src="../../assets/right-gray.png"></image>
+    </view>
+  </view>
+  <view class="wx-cells">
+    <view class="wx-cell" data-route="../feedback/feedback" bindtap="jumpFeedback">
+      <image class="wx-cell-icon" src="../../assets/more/issue.png"></image>
+      <text class="wx-cell-text">意见反馈</text>
+      <image class="wx-cell-arrow" src="../../assets/right-gray.png"></image>
+    </view>
+  </view>
+  <view class="wx-cells">
+    <view class="wx-cell" data-route="../about/about" bindtap="jumpAbout">
+      <image class="wx-cell-icon" src="../../assets/more/about.png"></image>
+      <text class="wx-cell-text">关于我们</text>
+      <image class="wx-cell-arrow" src="../../assets/right-gray.png"></image>
+    </view>
+  </view>
+</view>

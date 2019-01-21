@@ -88,7 +88,7 @@ Page({
         if (status == "success") {
           app.globalData.userInfo = { userid: un, userpwd: up, username: un };
           wx.redirectTo({
-            url: '../home/home',
+            url: '../index/index',
           })
         } else {
           wx.redirectTo({

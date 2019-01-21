@@ -1,0 +1,32 @@
+<!--pages/user/user.wxml-->
+<button bindtap='kcb' >课程表</button>
+<button bindtap='ckxzs' >蹭课小助手</button>
+<button bindtap='grzx'>个人中心</button>
+<button bindtap='test'>敬请期待</button>
+<view class="container">
+  <!--功能导航-->
+  <view class="main-core">
+    <block wx:for="{{core}}" wx:key="id">
+      <navigator wx:if="{{remind !== '未绑定' && !item.disabled && (!user.teacher || !item.teacher_disabled) }}" class="main-core-item" url="{{'/pages/core/'+item.id+'/'+item.id}}">
+        <image class="core-item-icon" src="/images/core/{{item.id}}.png"></image>
+        <text class="core-item-name">{{item.name}}</text>
+      </navigator>
+      <view wx:else class="main-core-item disabled" bindtap="disabled_item">
+        <image class="core-item-icon" src="/images/core/{{item.id}}@disabled.png"></image>
+        <text class="core-item-name">{{item.name}}</text>
+      </view>
+    </block>
+    <view class="fix_tip {{disabledItemTap?'active':''}}">
+        <text wx:if="{{remind == '未绑定'}}">请先绑定帐号</text>
+        <text wx:else>该服务不可用</text>
+    </view>
+  </view>
+  <view wx:if="{{remind}}" class="remind-box">
+    <image wx:if="{{remind == '加载中'}}" class="remind-img" src="/images/index/loading.gif"></image>
+    <block wx:else>
+      <image class="remind-img" src="/images/index/nothing.png"></image>
+      <text class="remind-text">{{remind}}</text>
+      <navigator wx:if="{{remind == '未绑定'}}" url="/pages/more/login" class="remind-btn">前往绑定</navigator>
+    </block>
+  </view>
+</view>
