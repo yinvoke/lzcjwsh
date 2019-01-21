@@ -7,7 +7,7 @@ Page({
    */
   data: {
     userid:null,
-    username:null,
+    username:'yzw',
     sex: null,
     age: null,
     department: null,

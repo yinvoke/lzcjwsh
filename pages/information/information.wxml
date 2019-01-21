@@ -1,10 +1,78 @@
 <!--pages/information/information.wxml-->
-<view>
-  <text>姓名</text><input placeholder='{{username}}'/>
-  <text>年龄</text><input placeholder='{{sex}}'/>
-  <text>性别</text><input placeholder='{{age}}'/>
-  <text>院系</text><input placeholder='{{department}}'/>
-  <text>专业</text><input placeholder='{{specialty}}'/>
-  <text>年级</text><input placeholder='{{grade}}'/>
-  <text>个人描述</text><input placeholder='{{description}}'/>
+<view class="container">
+  <view class="wx-cells">
+    <view class="wx-cell-inner flex-row">
+      <view class="wx-cell-left flex-row flex-rest-width">
+        <text class="wx-cell-left-text">修改头像</text>
+      </view>
+      <view class="wx-cell-right flex-row">
+         <image class="user-avatar" src="{{userInfo.avatarUrl}}"></image>
+        <image class="wx-cell-arrow" src="../../assets/right-gray.png"></image>
+      </view>
+    </view>
+    <view class="wx-cell-inner flex-row no-border">
+      <view class="wx-cell-left flex-row flex-rest-width">
+        <text class="wx-cell-left-text">姓名</text>
+      </view>
+      <view class="wx-cell-right flex-row">
+        <text class="wx-cell-right-text">{{username}}</text>
+      </view>
+    </view>
+    <view class="wx-cell-inner flex-row no-border">
+      <view class="wx-cell-left flex-row flex-rest-width">
+        <text class="wx-cell-left-text">学号</text>
+      </view>
+      <view class="wx-cell-right flex-row">
+        <text class="wx-cell-right-text">{{username}}</text>
+      </view>
+    </view>
+    <view class="wx-cell-inner flex-row no-border">
+      <view class="wx-cell-left flex-row flex-rest-width">
+        <text class="wx-cell-left-text">密码</text>
+      </view>
+      <view class="wx-cell-right flex-row">
+        <text class="wx-cell-right-text">{{username}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="wx-cells">
+    <view class="wx-cell-inner flex-row no-border">
+      <view class="wx-cell-left flex-row flex-rest-width">
+        <text class="wx-cell-left-text">昵称</text>
+      </view>
+      <view class="wx-cell-right flex-row">
+        <text class="wx-cell-right-text">{{userInfo.gender}}</text>
+        <image class="wx-cell-arrow" src="../../assets/right-gray.png"></image>
+      </view>
+    </view>
+    <view class="wx-cell-inner flex-row no-border">
+      <view class="wx-cell-left flex-row flex-rest-width">
+        <text class="wx-cell-left-text">性别</text>
+      </view>
+      <view class="wx-cell-right flex-row">
+        <text class="wx-cell-right-text">{{userInfo.city}}, {{userInfo.province}}</text>
+        <image class="wx-cell-arrow" src="../../assets/right-gray.png"></image>
+      </view>
+    </view>
+    <view class="wx-cell-inner flex-row no-border">
+      <view class="wx-cell-left flex-row flex-rest-width">
+        <text class="wx-cell-left-text">学院</text>
+      </view>
+      <view class="wx-cell-right flex-row">
+        <text class="wx-cell-right-text">{{userInfo.city}}, {{userInfo.province}}</text>
+        <image class="wx-cell-arrow" src="../../assets/right-gray.png"></image>
+      </view>
+    </view>
+    <view class="wx-cell-inner flex-row no-border">
+      <view class="wx-cell-left flex-row flex-rest-width">
+        <text class="wx-cell-left-text">专业</text>
+      </view>
+      <view class="wx-cell-right flex-row">
+        <text class="wx-cell-right-text">{{userInfo.city}}, {{userInfo.province}}</text>
+        <image class="wx-cell-arrow" src="../../assets/right-gray.png"></image>
+      </view>
+    </view>
+  </view>
+
 </view>

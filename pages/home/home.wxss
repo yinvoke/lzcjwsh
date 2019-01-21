@@ -6,7 +6,7 @@
 }
 
 button{
-  background-color: #c3b09a;
+  background-color: #ffffff;
 }
 .b1{
   top: 42%;

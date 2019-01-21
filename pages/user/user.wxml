@@ -1,14 +1,27 @@
 <!--pages/user/user.wxml-->
-<view class='top'>
-  <image class="logo" src="{{logosrc}}" style='margin:10rpx;'></image>
-  <view class='top2'>
-  <text>您好，{{username}}！</text>
-  <button bindtap='jumpInformation'>编辑个人信息</button>
+<view class="container">
+  <view class="wx-cells">
+    <view class="wx-cell" data-route="../information/information" bindtap="jumpInformation">
+      <image class="wx-cell-icon user-avatar" src="{{userInfo.avatarUrl}}"></image>
+      <view class="user-info">
+        <text class="user-info-text">{{userInfo.nickName}}</text>
+        <text class="user-info-text user-info-uid">欢迎您， {{username}}</text>
+      </view>
+      <image class="wx-cell-arrow" src="../../assets/right-gray.png"></image>
+    </view>
   </view>
-</view>
-
-
-<view style='margin-top:200rpx;' class='other'>
-  <button bindtap='jumpFeedback' class='meihua'><text style='float:left'>意见反馈</text><text style='float:right'>></text></button>
-  <button bindtap='jumpAbout' class='meihua'><text style='float:left'>关于我们</text><text style='float:right'>></text></button>
+  <view class="wx-cells">
+    <view class="wx-cell" data-route="../feedback/feedback" bindtap="jumpFeedback">
+      <image class="wx-cell-icon" src="../../assets/feedback.png"></image>
+      <text class="wx-cell-text">意见反馈</text>
+      <image class="wx-cell-arrow" src="../../assets/right-gray.png"></image>
+    </view>
+  </view>
+  <view class="wx-cells">
+    <view class="wx-cell" data-route="../about/about" bindtap="jumpAbout">
+      <image class="wx-cell-icon" src="../../assets/about.png"></image>
+      <text class="wx-cell-text">关于我们</text>
+      <image class="wx-cell-arrow" src="../../assets/right-gray.png"></image>
+    </view>
+  </view>
 </view>
