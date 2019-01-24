@@ -1,0 +1,6 @@
+/* pages/function/user/about/disclaimer/disclaimer.wxss */
+.bottom-container{
+  font-size: 30rpx;
+  text-align: center;
+  padding-top: 500rpx;
+}

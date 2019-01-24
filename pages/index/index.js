@@ -9,8 +9,9 @@ Page({
     core: [
       { id: 'table', name: '课表查询' },
       { id: 'aides', name: '蹭课助手' },
-      { id: 'table', name: '失误招领' },
-      { id: 'wall', name: '表白墙' }
+      { id: 'lost', name: '失误招领' },
+      { id: 'confession', name: '表白墙' },
+      { id: 'user', name: '用户中心' }
     ]
   },
 
@@ -77,7 +78,7 @@ Page({
   /**
    * 课程表跳转
    */
-  kcb: function(){
+  tableBtn: function(){
     wx.navigateTo({
       url: '../function/table/table',
     })
@@ -86,7 +87,7 @@ Page({
   /**
    * 蹭课小助手跳转
    */
-  ckxzs: function () {
+  aidesBtn: function () {
     wx.navigateTo({
       url: '../function/aides/aides',
     })
@@ -95,9 +96,27 @@ Page({
   /**
    * 个人中心跳转
    */
-  grzx: function () {
+  userBtn: function () {
     wx.navigateTo({
       url: '../function/user/user',
+    })
+  },
+
+  /**
+   * 表白墙跳转
+   */
+  confessionBtn: function () {
+    wx.navigateTo({
+      url: '../function/confession/confession',
+    })
+  },
+
+  /**
+   * 失物招领跳转
+   */
+  lostBtn: function () {
+    wx.navigateTo({
+      url: '../function/lost/lost',
     })
   },
 

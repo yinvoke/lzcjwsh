@@ -72,7 +72,7 @@ Page({
    */
   jumpInformation:function(){
     wx.navigateTo({
-      url: '../function/user/information/information',
+      url: '../user/information/information',
     })
   },
 
@@ -81,7 +81,7 @@ Page({
    */
   jumpFeedback:function(){
     wx.navigateTo({
-      url: '../function/user/feedback/feedback',
+      url: '../user/feedback/feedback',
     })
   },
 
@@ -90,7 +90,23 @@ Page({
    */
   jumpAbout: function () {
     wx.navigateTo({
-      url: '../function/user/about/about',
+      url: '../user/about/about',
+    })
+  },
+  /**
+   * 产品信息跳转
+   */
+  jumpProduct: function () {
+    wx.navigateTo({
+      url: '../user/product/product',
+    })
+  },
+  /**
+   * 注销账号跳转
+   */
+  jumpProduct: function () {
+    wx.navigateTo({
+      url: '../user/product/product',
     })
   }
 })

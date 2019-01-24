@@ -1,3 +1,4 @@
+/* pages/function/user/product/product.wxss */
 .container{
   color: #666;
 }
@@ -41,4 +42,15 @@
   font-size: 25rpx;
   text-align: center;
   padding-top: 300rpx;
+}
+
+.about-button{
+  font-size: 32rpx;
+  margin-bottom:40rpx;
+  border: solid 1rpx #1488CC;
+  background-color: #fff;
+  color: #1488CC;
+  width: 200rpx;
+  height: 60rpx;
+  line-height: 185%;
 }

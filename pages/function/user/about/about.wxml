@@ -2,13 +2,15 @@
 <view class="container flex-column">
   <view class="top-container flex-rest-height">
     <view class="logo">
-      <image src="../../assets/logo.png" class="logo-image"></image>
+      <image src="/assets/user/logo.png" class="logo-image"></image>
     </view>
     <view class="name">
       <text>树袋熊</text>
     </view>
     <view class="about">
+      <text class="about-text">产品经理：Tiger_Knight</text>
       <text class="about-text">开发人员：Yinvoker、zekdot</text>
+      <text class="about-text">设计人员：Yinvoker</text>
       <text class="about-text">Email: koalabears@yandex.com</text>
       <text class="about-text">工作室成立日期：2013-8-7</text>
     </view>

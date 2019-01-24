@@ -1,0 +1,50 @@
+<!--pages/function/confession/confession.wxml-->
+<scroll-view scroll-y="true" bindscrolltolower="scrollToLower" class="timeline">
+  <view class="main-core">
+    <navigator class="main-core-item">
+      <image class="core-item-icon" src="/assets/core/confession.png"></image>
+      <text class="core-item-name">表白墙</text>
+      <image class="core-item-icon" src="/assets/core/confession.png"></image>
+      <text class="core-item-name">一键匹配</text>
+      <image class="core-item-icon" src="/assets/core/confession.png"></image>
+      <text class="core-item-name">消息提醒</text>
+    </navigator>
+  </view>
+  <view>
+    <text>帖子列表</text>
+    <text style='padding-left:520rpx'>最新回复 ></text>
+  </view>
+  <view class=" main-core">
+    <text class="zhiding">[置顶]：测试测试测试！</text>
+    <text class="zhiding">[置顶]：测试测试测试！</text>
+    <text class="zhiding">[置顶]：测试测试测试！</text>
+  </view>
+  <view class="tweet-container" wx:for="{{timeline}}" wx:key="id">
+    <view class="top-container flex-row">
+      <image class="card-avatar" src="{{item.avatar}}"></image>                
+      <view class="user-container">
+        <text class="card-name">写给：{{item.nickname}}</text>
+        <text class="card-time">#{{item.id}} {{item.time}}</text>
+      </view>
+    </view>
+    <view class="middle-container flex-column">
+      <text class="message-text">{{item.text}}</text>
+      <image class="message-image"
+        data-original-pic="{{item.original_pic}}" 
+        wx:if="{{item.original_pic}}" 
+        src="{{item.original_pic}}" 
+        mode="aspectFill"
+        catchtap="previewImage"
+      ></image>
+    </view>
+    <view class="bottom-container flex-row">
+      <view class="bottom-tool flex-row flex-rest-width">
+        <text class="bottom-tool-text">喜欢（12）</text>
+      </view>
+      <view class="bottom-tool flex-row flex-rest-width">
+        <text class="bottom-tool-text">评论数（32）</text>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+

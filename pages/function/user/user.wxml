@@ -1,27 +1,70 @@
 <!--pages/user/user.wxml-->
 <view class="container">
   <view class="wx-cells">
-    <view class="wx-cell" data-route="../information/information" bindtap="jumpInformation">
+    <view class="wx-cell-inner flex-row " data-route="../information/information" bindtap="jumpInformation">
       <image class="wx-cell-icon user-avatar" src="{{userInfo.avatarUrl}}"></image>
       <view class="user-info">
-        <text class="user-info-text">{{userInfo.nickName}}</text>
+        <text class="user-info-text">昵称</text>
         <text class="user-info-text user-info-uid">欢迎您， {{username}}</text>
       </view>
-      <image class="wx-cell-arrow" src="../../assets/right-gray.png"></image>
+      <view class="wx-cell-left flex-row ">
+        <text style='font-size:25rpx'>点击修改信息</text>
+        <image class="wx-cell-arrow" src="/assets/user/right-gray.png"></image>
+      </view>
+    </view>
+    <view class="wx-cell-inner flex-row">
+      <view class="wx-cell-left flex-row flex-rest-width">
+        <text class="wx-cell-left-text">姓名</text>
+      </view>
+      <view class="wx-cell-right flex-row">
+        <text class="wx-cell-right-text">{{username}}</text>
+      </view>
+    </view>
+    <view class="wx-cell-inner flex-row ">
+      <view class="wx-cell-left flex-row flex-rest-width">
+        <text class="wx-cell-left-text">学号</text>
+      </view>
+      <view class="wx-cell-right flex-row">
+        <text class="wx-cell-right-text">{{username}}</text>
+      </view>
+    </view>
+    <view class="wx-cell-inner flex-row">
+      <view class="wx-cell-left flex-row flex-rest-width">
+        <text class="wx-cell-left-text">学院</text>
+      </view>
+      <view class="wx-cell-right flex-row">
+        <text class="wx-cell-right-text">信息科学与工程</text>
+      </view>
+    </view>
+    <view class="wx-cell-inner flex-row">
+      <view class="wx-cell-left flex-row flex-rest-width">
+        <text class="wx-cell-left-text">专业</text>
+      </view>
+      <view class="wx-cell-right flex-row">
+        <text class="wx-cell-right-text">软件工程</text>
+      </view>
     </view>
   </view>
   <view class="wx-cells">
     <view class="wx-cell" data-route="../feedback/feedback" bindtap="jumpFeedback">
-      <image class="wx-cell-icon" src="../../assets/more/issue.png"></image>
+      <image class="wx-cell-icon" src="/assets/user/issue.png"></image>
       <text class="wx-cell-text">意见反馈</text>
-      <image class="wx-cell-arrow" src="../../assets/right-gray.png"></image>
+      <image class="wx-cell-arrow" src="/assets/user/right-gray.png"></image>
     </view>
-  </view>
-  <view class="wx-cells">
-    <view class="wx-cell" data-route="../about/about" bindtap="jumpAbout">
-      <image class="wx-cell-icon" src="../../assets/more/about.png"></image>
+    <view class="wx-cell" data-route="../about/about" bindtap="jumpAbout" style='border-top: 1rpx solid #d9d9d9;'>
+      <image class="wx-cell-icon" src="/assets/user/about.png"></image>
       <text class="wx-cell-text">关于我们</text>
-      <image class="wx-cell-arrow" src="../../assets/right-gray.png"></image>
+      <image class="wx-cell-arrow" src="/assets/user/right-gray.png"></image>
+    </view>
+    <view class="wx-cell" data-route="../product/product" bindtap="jumpProduct" style='border-top: 1rpx solid #d9d9d9;'>
+      <image class="wx-cell-icon" src="/assets/user/product.png"></image>
+      <text class="wx-cell-text">产品信息</text>
+      <image class="wx-cell-arrow" src="/assets/user/right-gray.png"></image>
+    </view>
+    <view class="wx-cell" data-route="../about/about" bindtap="jumpLogin" style='border-top: 1rpx solid #d9d9d9;'>
+      <image class="wx-cell-icon" src="/assets/user/exit.png"></image>
+      <text class="wx-cell-text">注销账号</text>
+      <image class="wx-cell-arrow" src="/assets/user/right-gray.png"></image>
     </view>
   </view>
 </view>

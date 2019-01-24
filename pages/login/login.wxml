@@ -1,20 +1,59 @@
 <!--pages/login/login.wxml-->
-<view class='bg'>
-  <view class='cc'>
-    <image class="logo" src="{{logosrc}}"></image>
-    
+<view class="container">
+  <view class="remind-box" wx:if="{{remind}}">
+    <image class="remind-img" src="/assets/more/loading.gif"></image>
   </view>
-  <view class='cc'><text style='margin-top:-30px;color:#1f1a3b'>一款属于你的校园app</text></view>
-  <form class='cc'>
-    <view style='margin-bottom:30px;display:{{display}};bottom:{{bottom}}rpx'>
-      <input class="ib" cursor-spacing="50" bindinput='useridInput' placeholder='学号' adjust-position='{{true}}' />
-    </view>
-    <view style='margin-bottom:80rpx;display:{{display}};bottom:{{bottom}}rpx'>
-      <input class="ib" password='true' cursor-spacing="10" bindinput='userpwdInput' placeholder='个人门户密码' adjust-position='{{true}}'/>
-    </view>
-    <button bindtap='startBtn' plain='true'>开始旅程</button>
-  </form>
+  <block wx:else>
+    <image class="title" src="/assets/more/title.png"></image>
+    <view class="content">
+      <view class="hd" style="transform:rotateZ({{angle}}deg);">
+          <image class="logo" src="/assets/more/logo.png"></image>
+          <image class="wave" src="/assets/more/wave.png" mode="aspectFill"></image>
+          <image class="wave wave-bg" src="/assets/more/wave.png" mode="aspectFill"></image>
+      </view>
+      <view class="bd">
+        <form class="login-form">
+          <view class="input-group {{userid_focus ? 'active' : ''}}">
+            <text class="input-label">帐号</text>
+            <input type="number" id="userid" placeholder="请输入学号" bindinput="useridInput" bindfocus="inputFocus" bindblur="inputBlur" />
+          </view>
+          <view class="input-group {{passwd_focus ? 'active' : ''}}">
+            <text class="input-label">密码</text>
+            <input password="true" id="passwd" placeholder="默认为初始密码" bindinput="passwdInput" bindfocus="inputFocus" bindblur="inputBlur" />
+          </view>
+          <view class="login-help" bindtap="showHelp">
+            <text>帮助</text>
+            <image class="login-help-img" src="/assets/more/help.png"></image>
+          </view>
+        </form>
+        <view class="confirm-btn" bindtap="bind">
+            <text>开始旅程</text>
+        </view>
+      </view>
 
+      <view class="help" id="help" wx:if="{{help_status}}" bindtap="tapHelp">
+        <view class="box">
+          <view class="box-hd">
+            <text class="box-title">帮助</text>
+            <image class="box-close" src="/assets/more/close.png" bindtap="hideHelp"></image>
+          </view>
+          <view class="box-bd">
+            <view class="help-q">1、帐号和密码是什么？</view>
+            <view class="help-a">
+              <text>帐号：学号（校园一卡通卡号）</text>
+              <text>密码：初始密码（身份证后六位或六个0）或者为已更改密码</text>
+            </view>
+            <view class="help-q">2、忘记密码？</view>
+            <view class="help-a">
+              <text>请访学校官网（http://www.lzufe.edu.cn/）进行忘记密码操作</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </block>
 
 </view>
+
 

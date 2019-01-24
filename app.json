@@ -1,17 +1,22 @@
 {
   "pages": [
-    "pages/login/login",
+    "pages/function/confession/confession",
     "pages/index/index",
+    "pages/login/login",
     "pages/function/aides/aides",
     "pages/function/table/table",
-    "pages/function/user/user",
     "pages/function/user/about/about",
+    "pages/function/user/information/information",
+    "pages/function/user/user",
     "pages/function/user/feedback/feedback",
-    "pages/function/user/information/information"
+    "pages/function/lost/lost",
+    "pages/function/user/product/disclaimer/disclaimer",
+    "pages/function/user/product/product",
+    "pages/function/confession/details/details"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#e0c7c2",
+    "navigationBarBackgroundColor": "#1488CC",
     "navigationBarTextStyle": "white"
   }
 }

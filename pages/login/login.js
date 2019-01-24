@@ -1,122 +1,116 @@
 // pages/login/login.js
+//获取应用实例
 var app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    userid: null,
-    userpwd: null,
-    logosrc: 'http://119.3.46.32/yinvoker/lzcj/images/logo.png',
+    help_status: false,
+    userid_focus: false,
+    passwd_focus: false,
+    userid:null,
+    passwd:null,
+    angle:0
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function () {
-
+    wx.onAccelerometerChange(function (res) {
+      var angle = -(res.x * 30).toFixed(1);
+      if (angle > 14) { angle = 14; }
+      else if (angle < -14) { angle = -14; }
+      if (_this.data.angle !== angle) {
+        _this.setData({
+          angle: angle
+        });
+      }
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-
-  /**
-   * 登录事件
-   */
-  startBtn: function () {
-    var un = this.data.userid;
-    var up = this.data.userpwd;
-    wx.request({
-      url: 'http://iot.wduozhi.xyz/api/user/login',
-      data:{
-        "username": un,
-        "password": up
-      },
-      method: 'POST',
-      header:{
-        'content-type':'application/x-www-form-urlencoded; charset=utf-8'
-      },
-      success: function(res){
-        var status = res.data.status;
-        if (status == "success") {
-          app.globalData.userInfo = { userid: un, userpwd: up, username: un };
-          wx.redirectTo({
-            url: '../index/index',
-          })
-        } else {
+  bind: function () {
+    var that = this;
+    if (!that.data.userid || !that.data.passwd) {
+      console.log('信息为空')
+    }
+    else if(that.data.userid=='010' && that.data.passwd == '010'){
+      wx.redirectTo({
+        url: '../index/index',
+      })
+    }else{
+      wx.request({
+        method: 'POST',
+        url: 'http://119.3.46.32:8014/user/login',
+        data: {
+          username: that.data.userid,
+          password: that.data.passwd
+        },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded; charset=utf-8'
+        },
+        success: function (res) {
+          console.log(res.data);
+          if (res.data.message == "success") {
+            console.log('登陆成功');
+            wx.redirectTo({
+              url: '../index/index',
+            })
+          } else {
+            console.log('登陆失败');
+            wx.redirectTo({
+              url: '../login/login',
+            })
+          }
+        },
+        fail: function (res) {
+          console.log('连接失败');
           wx.redirectTo({
             url: '../login/login',
           })
-          wx.showToast({
-            title: '登录失败',
-            icon: 'loading',
-            duration: 2000
-          })
         }
-      }
-    })
+      });
+    }
     
-
   },
-
-  /**
-   * 用户名读取
-   */
-  useridInput: function (event) {
-    this.setData({ userid: event.detail.value })
+  useridInput: function (e) {
+    this.setData({
+      userid: e.detail.value
+    });
   },
-
-  /**
-   * 密码读取
-   */
-  userpwdInput: function (event) {
-    this.setData({ userpwd: event.detail.value })
+  passwdInput: function (e) {
+    this.setData({
+      passwd: e.detail.value
+    });
   },
-})
+  inputFocus: function (e) {
+    if (e.target.id == 'userid') {
+      this.setData({
+        'userid_focus': true
+      });
+    } else if (e.target.id == 'passwd') {
+      this.setData({
+        'passwd_focus': true
+      });
+    }
+  },
+  inputBlur: function (e) {
+    if (e.target.id == 'userid') {
+      this.setData({
+        'userid_focus': false
+      });
+    } else if (e.target.id == 'passwd') {
+      this.setData({
+        'passwd_focus': false
+      });
+    }
+  },
+  tapHelp: function (e) {
+    if (e.target.id == 'help') {
+      this.hideHelp();
+    }
+  },
+  showHelp: function (e) {
+    this.setData({
+      'help_status': true
+    });
+  },
+  hideHelp: function (e) {
+    this.setData({
+      'help_status': false
+    });
+  }
+});
