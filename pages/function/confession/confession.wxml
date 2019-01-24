@@ -8,6 +8,8 @@
       <text class="core-item-name">一键匹配</text>
       <image class="core-item-icon" src="/assets/core/confession.png"></image>
       <text class="core-item-name">消息提醒</text>
+      <image class="core-item-icon" src="/assets/core/confession.png"></image>
+      <text class="core-item-name">发起表白</text>
     </navigator>
   </view>
   <view>

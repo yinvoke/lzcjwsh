@@ -13,16 +13,7 @@ Page({
       { id: 'user', name: '用户中心' }
     ],
     timeline:[
-      { id: 'table', nickname: '二狗', avatar: "/assets/core/aides.png", time: "3分钟前", text: '我是二狗', original_pic:"/images/1.jpg" },
-      { id: 'aides', nickname: '邪径须', avatar: "", time: "10分钟前", text: '', original_pic: "/images/2.jpg"  },
-      { id: 'lost', nickname: '谢景旭', avatar: "/assets/core/aides.png", time: "30分钟前", text: '我也不知道我喜欢谁', original_pic: ""  },
-      { id: 'confession', nickname: '谢景旭', avatar: '西二狗', avatar: "", time: "1小时前", text: '好无聊啊', original_pic: "/images/3.jpg" },
-      { id: 'confession', nickname: '谢景旭', avatar: '西二狗', avatar: "", time: "1小时前", text: '好无聊啊', original_pic: "/images/4.jpg" },
-      { id: 'confession', nickname: '谢景旭', avatar: '西二狗', avatar: "", time: "1小时前", text: '好无聊啊', original_pic: "/images/3.jpg" },
-      { id: 'confession', nickname: '谢景旭', avatar: '西二狗', avatar: "", time: "1小时前", text: '好无聊啊', original_pic: "/images/2.jpg" },
-      { id: 'confession', nickname: '谢景旭', avatar: '西二狗', avatar: "", time: "1小时前", text: '好无聊啊', original_pic: "/images/1.jpg" },
-      { id: 'confession', nickname: '谢景旭', avatar: '西二狗', avatar: "", time: "1小时前", text: '好无聊啊', original_pic: "/images/4.jpg" },
-      { id: 'user', nickname: '二狗单子', avatar: "", time: "1天前", text: '测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1测试文档1', original_pic: "/images/1.jpg"  }
+      { id: 'table', nickname: '二狗', avatar: "/assets/core/aides.png", time: "3分钟前", text: '我是二狗', original_pic:"/images/1.jpg" }
     ]
   },
 
