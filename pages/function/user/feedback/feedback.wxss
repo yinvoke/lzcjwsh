@@ -1,6 +1,16 @@
 /* pages/feedback/feedback.wxss */
-.fankui{
-  border: 1rpx solid #d0d0d0;
-  padding: 3%;
-  width: 95%;
+.container {
+  font-size: 15pt;
+  background-color: #f7f7f7
 }
+text{
+  margin: 15rpx 0;
+}
+.fankui{
+  border-top: 2rpx solid #afafaf;
+  border-bottom: 2rpx solid #afafaf;
+  padding: 3%;
+  width: 100%;
+  background-color: #fff;
+}
+

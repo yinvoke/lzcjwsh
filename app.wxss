@@ -91,3 +91,35 @@ page{
 .placeholder-class {
   color: #808080;
 }
+
+/*图片处理*/
+
+.img-upload{
+	padding: 20rpx;
+	font-size: 0;
+	overflow: hidden;
+}
+.img-upload .img-item,
+.img-upload .img-add{
+	width: 100rpx;
+	height: 100rpx;
+	float: left;
+	margin: 10rpx;
+	border: 1rpx solid transparent;
+}
+.img-upload .img-add{
+	border: 1rpx dashed #ddd;
+	background: url(../../images/add.png) no-repeat 50% 50% / 70% auto;
+}
+.img-upload .img-item image{
+	width: 100rpx;
+	height: 100rpx;
+}
+.img-upload .img-item{
+	position: relative;
+}
+.img-upload .img-item icon{
+	position: absolute;
+	right: -12rpx;
+	top: -12rpx;
+}
