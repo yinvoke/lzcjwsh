@@ -13,7 +13,7 @@ Page({
       { id: 'user', name: '用户中心' }
     ],
     timeline:[
-      { id: 'table', nickname: '二狗', avatar: "/assets/core/aides.png", time: "3分钟前", text: '我是二狗', original_pic:"/images/1.jpg"}
+      { id: '二狗', nickname: '刘薇', avatar: "/assets/core/aides.png", time: "3分钟前", text: '我是二狗，我爱你！', original_pic:"/images/1.jpg"}
     ],
     islike: false
   },

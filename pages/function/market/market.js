@@ -1,4 +1,4 @@
-// pages/function/lost/lost.js
+// pages/function/market/market.js
 Page({
 
   /**

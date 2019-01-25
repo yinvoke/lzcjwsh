@@ -9,7 +9,7 @@ Page({
     core: [
       { id: 'table', name: '课表查询' },
       { id: 'aides', name: '蹭课助手' },
-      { id: 'lost', name: '失误招领' },
+      { id: 'market', name: '跳蚤市场' },
       { id: 'confession', name: '表白墙' },
       { id: 'user', name: '用户中心' }
     ]
@@ -112,11 +112,11 @@ Page({
   },
 
   /**
-   * 失物招领跳转
+   * 跳蚤市场跳转
    */
   lostBtn: function () {
     wx.navigateTo({
-      url: '../function/lost/lost',
+      url: '../function/market/market',
     })
   },
 
