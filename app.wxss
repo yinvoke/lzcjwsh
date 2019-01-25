@@ -95,7 +95,7 @@ page{
 /*图片处理*/
 
 .img-upload{
-	padding: 20rpx;
+	padding: 10rpx;
 	font-size: 0;
 	overflow: hidden;
 }
@@ -109,7 +109,10 @@ page{
 }
 .img-upload .img-add{
 	border: 1rpx dashed #ddd;
-	background: url(../../images/add.png) no-repeat 50% 50% / 70% auto;
+}
+.img-upload .img-add image{
+  width: 100%;
+  height: 100%;
 }
 .img-upload .img-item image{
 	width: 100rpx;

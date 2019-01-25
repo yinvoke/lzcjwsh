@@ -22,7 +22,7 @@
   padding-top: 10rpx;
   display: flex;
   flex-direction: row;
-  background-color:#e0c7c2;
+  background-color:#73b4ef;
   color:#a7748a;
   padding-left: 35rpx;
 }
@@ -55,7 +55,7 @@
   display: flex;
   padding-bottom: 10rpx;
   text-align: center;
-  background-color: #e0c7c2;
+  background-color: #73b4ef;
   color:#1f1a3b;
   font-size:16px;
 }

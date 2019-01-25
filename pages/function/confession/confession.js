@@ -13,8 +13,9 @@ Page({
       { id: 'user', name: '用户中心' }
     ],
     timeline:[
-      { id: 'table', nickname: '二狗', avatar: "/assets/core/aides.png", time: "3分钟前", text: '我是二狗', original_pic:"/images/1.jpg" }
-    ]
+      { id: 'table', nickname: '二狗', avatar: "/assets/core/aides.png", time: "3分钟前", text: '我是二狗', original_pic:"/images/1.jpg"}
+    ],
+    islike: false
   },
 
   /**
@@ -97,5 +98,19 @@ Page({
       current: '',
       urls: [event.target.dataset.originalPic]
     })
-  } 
+  },
+
+  /**
+   * 喜欢和评论功能
+   */
+  likedislike:function(){
+    this.setData({
+      islike:!this.data.islike
+    })
+  },
+  jumpDetails:function(){
+    wx.navigateTo({
+      url: '../confession/details/details',
+    })
+  }
 })

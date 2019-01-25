@@ -1,10 +1,10 @@
 /* pages/feedback/feedback.wxss */
 .container {
-  font-size: 15pt;
+  font-size: 12pt;
   background-color: #f7f7f7
 }
 text{
-  margin: 15rpx 0;
+  margin: 18rpx 8rpx;
 }
 .fankui{
   border-top: 2rpx solid #afafaf;
@@ -13,4 +13,19 @@ text{
   width: 100%;
   background-color: #fff;
 }
+.fankui input{
+  padding-top: 9rpx;
+  padding-left: 3rpx;
+  width: 90%;
 
+}
+.sub{
+  margin-top: 20rpx;
+  margin-bottom:40rpx;
+  border: solid 1rpx #ffcb63;
+  background-color: #ffcb63;
+  color: #fff;
+  width: 95%;
+  height: 80rpx;
+  line-height: 250%;
+}

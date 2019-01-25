@@ -1,5 +1,5 @@
 <!--pages/table/table.wxml-->
-<view style='justify-content: center;display: flex;align-items: center;background-color:#e0c7c2;'>
+<view style='justify-content: center;display: flex;align-items: center;background-color:#73b4ef;'>
   <view class="choose">
     <picker bindchange='bindSemesterChange' value='{{semesterIndex}}' range='{{semesters}}'>{{semesters[semesterIndex]}}</picker><text style='width:20rpx;'></text>
     <picker bindchange='bindWeekChange' value='{{weekIndex}}' range='{{weeks}}'>{{weeks[weekIndex]}}</picker>

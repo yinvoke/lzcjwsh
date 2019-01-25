@@ -39,12 +39,15 @@
         catchtap="previewImage"
       ></image>
     </view>
-    <view class="bottom-container flex-row">
-      <view class="bottom-tool flex-row flex-rest-width">
-        <text class="bottom-tool-text">喜欢（12）</text>
+    <view class="bottom-container flex-row" >
+      <view class="bottom-tool flex-row flex-rest-width" style='border-right:solid 1px #e1e1e1' bindtap="likedislike">
+        <image wx:if="{{islike}}"  src='/assets/more/like.png' class='bottom-tool-image'></image>
+        <image wx:else  src='/assets/more/dislike.png' class='bottom-tool-image'></image>
+        <text class="bottom-tool-text">12</text>
       </view>
-      <view class="bottom-tool flex-row flex-rest-width">
-        <text class="bottom-tool-text">评论数（32）</text>
+      <view class="bottom-tool flex-row flex-rest-width" data-route="../details/details" bindtap="jumpDetails">
+        <image src='/assets/more/comment.png' class='bottom-tool-image'></image>
+        <text class="bottom-tool-text">32</text>
       </view>
     </view>
   </view>

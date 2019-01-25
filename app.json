@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/function/user/feedback/feedback",
+    
     "pages/function/confession/confession",
     "pages/index/index",
     "pages/login/login",
@@ -9,7 +9,7 @@
     "pages/function/user/about/about",
     "pages/function/user/information/information",
     "pages/function/user/user",
-    
+    "pages/function/user/feedback/feedback",
     "pages/function/lost/lost",
     "pages/function/user/product/disclaimer/disclaimer",
     "pages/function/user/product/product",

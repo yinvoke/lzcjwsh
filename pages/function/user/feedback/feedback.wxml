@@ -1,20 +1,20 @@
 <!--pages/feedback/feedback.wxml-->
 <view class='container'>
   <text>问题描述</text>
-  <textarea placeholder='请输入对问题的描述，可输入1000字' class='fankui' bindinput='tucao'></textarea>
-  <text>图片上传</text>
+  <textarea placeholder='请输入对问题的描述，可输入1000字' class='fankui' bindinput='wti'></textarea>
+  <text>图片上传（最多三张）</text>
   <view class='fankui'>
     <view class="img-upload">
-			<view class="img-add" bindtap="chooseImage"></view>
-			<view class="img-item" bindlongtap="editImage" wx:for="{{uploadimgs}}" wx:key="{{index}}">
+			<view class="img-add" bindtap="chooseImage"><image src='/assets/more/add.png'></image></view>
+			<view class="img-item" wx:for="{{uploadimgs}}" wx:key="{{index}}">
 				<icon type="clear" size="20" color="red" style="display:{{editable?'block':'none'}}" bindtap="deleteImg" data-index="{{index}}"/>
 			  <image src="{{item}}" mode="aspectFill"></image>
 			</view>
     </view>
   </view>
   <text>联系信息</text>
-  <view class='fankui'>
-
+  <view class='fankui' style='display: flex;'>
+    <text>QQ: </text><input placeholder='输入联系方式以便于更优质的反馈' bindinput='qqi'/>
   </view>
-  <button bindtap='submit'>提交</button>
+  <button bindtap='submit' class='sub'>确认提交</button>
 </view>

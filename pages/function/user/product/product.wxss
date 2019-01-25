@@ -47,9 +47,9 @@
 .about-button{
   font-size: 32rpx;
   margin-bottom:40rpx;
-  border: solid 1rpx #1488CC;
+  border: solid 1rpx #ffcb63;
   background-color: #fff;
-  color: #1488CC;
+  color: #ffcb63;
   width: 200rpx;
   height: 60rpx;
   line-height: 185%;

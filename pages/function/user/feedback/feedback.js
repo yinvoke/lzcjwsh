@@ -5,70 +5,63 @@ Page({
    * 页面的初始数据
    */
   data: {
-    fb:null
+    description:null,
+    qq:null,
+    uploadimgs:[],
+    editable:false
   },
-
   /**
-   * 生命周期函数--监听页面加载
+   * 图片处理
    */
-  onLoad: function (options) {
-
+  chooseImage: function () {
+    let _this = this;
+    wx.showActionSheet({
+      itemList: ['从相册中选择', '拍照'],
+      itemColor: "#1488CC",
+      success: function (res) {
+        if (!res.cancel) {
+          if (res.tapIndex == 0) {
+            _this.chooseWxImage('album')
+          } else if (res.tapIndex == 1) {
+            _this.chooseWxImage('camera')
+          }
+        }
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  chooseWxImage: function (type) {
+    let _this = this;
+    wx.chooseImage({
+      sizeType: ['original', 'compressed'],
+      sourceType: [type],
+      count:3,
+      success: function (res) {
+        _this.setData({
+          uploadimgs: _this.data.uploadimgs.concat(res.tempFilePaths)
+        })
+      }
+    })
+    this.setData({
+      editable: true
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  deleteImg: function (e) {
+    console.log(e.target.dataset.index);
+    var index = e.target.dataset.index;
+    this.data.uploadimgs.splice(index,1)
+    this.setData({
+      uploadimgs: this.data.uploadimgs
+    })
   },
 
   /**
    * 内容读取
    */
-  tucao:function(e){
-    this.setData({fb:e.detail.value})
+  wti: function(e){
+    this.setData({ description:e.detail.value})
+  },
+  qqi: function (e) {
+    this.setData({ qq: e.detail.value })
   },
 
   /**
