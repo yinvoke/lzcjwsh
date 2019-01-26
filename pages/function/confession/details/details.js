@@ -5,7 +5,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    item:{ id: '二狗', nickname: '刘薇', avatar: "/assets/core/aides.png", time: "3分钟前", text: '我是二狗，我爱你！', original_pic:"/images/1.jpg",likenum:60,commentnum:12},
+    comments: [
+      { 
+        id: '李毛毛', avatar: "/assets/core/user.png", time: "5分钟前", text: '哦是吗？',
+        comments: [
+          { id: '怂文', content: '哦是啊' },
+          { id: '怂文', content: '哦是啊!' },
+          { id: '怂文', content: '哦是啊!!' },
+          { id: '怂文', content: '哦是啊!!!哦是啊!!!哦是啊!!!哦是啊!!!哦是啊!!!哦是啊!!!哦是啊!!!哦是啊!!!哦是啊!!!哦是啊!!!哦是啊!!!哦是啊!!!哦是啊!!!' },
+        ]
+      },
+      { id: '柴死狗', avatar: "/assets/core/market.png", time: "3分钟前", text: '太惨了'},
+      { id: '马小吊', avatar: "/assets/core/user.png", time: "3分钟前", text: '我才是你的！！！！！！'},
+      { id: '怂文', avatar: "/assets/core/market.png", time: "3分钟前", text: '真实！' },
+    ],
+    islike:false,
+    touser:"楼主"
   },
 
   /**
@@ -44,23 +60,21 @@ Page({
   },
 
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
+   * 喜欢
    */
-  onPullDownRefresh: function () {
-
+  likedislike: function(){
+    this.setData({
+      islike : !this.data.islike
+    })
   },
 
   /**
-   * 页面上拉触底事件的处理函数
+   * 更改评论用户
    */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  toBtn:function(e){
+    console.log(e.target.dataset.id);
+    this.setData({
+      touser: e.target.dataset.id
+    })
   }
 })

@@ -1,7 +1,8 @@
-{
+  {
   "pages": [
-    
+    "pages/function/confession/details/details",
     "pages/function/confession/confession",
+    
     "pages/index/index",
     "pages/login/login",
     "pages/function/aides/aides",
@@ -12,8 +13,8 @@
     "pages/function/user/feedback/feedback",
     "pages/function/market/market",
     "pages/function/user/product/disclaimer/disclaimer",
-    "pages/function/user/product/product",
-    "pages/function/confession/details/details"
+    "pages/function/user/product/product"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

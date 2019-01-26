@@ -13,9 +13,10 @@ Page({
       { id: 'user', name: '用户中心' }
     ],
     timeline:[
-      { id: '二狗', nickname: '刘薇', avatar: "/assets/core/aides.png", time: "3分钟前", text: '我是二狗，我爱你！', original_pic:"/images/1.jpg"}
+      { id: '二狗', nickname: '刘薇', avatar: "/assets/core/aides.png", time: "5分钟前", text: '我是二狗，我爱你！', original_pic:"/images/1.jpg",likenum:60,commentnum:12},
+      { id: '谢景旭', nickname: '二狗', avatar: "/assets/core/aides.png", time: "3分钟前", text: '什么沙雕？？？？？？', original_pic: "", likenum: 5, commentnum: 3 },
     ],
-    islike: false
+    scrollTop: 0
   },
 
   /**
@@ -101,16 +102,34 @@ Page({
   },
 
   /**
-   * 喜欢和评论功能
+   * 评论跳转功能
    */
-  likedislike:function(){
-    this.setData({
-      islike:!this.data.islike
-    })
-  },
   jumpDetails:function(){
     wx.navigateTo({
       url: '../confession/details/details',
     })
+  },
+  /**
+   * 回到顶部
+   */
+  // 获取滚动条当前位置
+  scroll: function (e, res) {
+    // 容器滚动时将此时的滚动距离赋值给 this.data.scrollTop
+    if (e.detail.scrollTop > 500) {
+      this.setData({
+        floorstatus: true
+      });
+    } else {
+      this.setData({
+        floorstatus: false
+      });
+    }
+  },
+  //回到顶部
+  goTop: function (e) {
+    this.setData({
+      scrollTop: 0
+    })
   }
+
 })

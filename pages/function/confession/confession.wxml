@@ -1,5 +1,5 @@
 <!--pages/function/confession/confession.wxml-->
-<scroll-view scroll-y="true" bindscrolltolower="scrollToLower" class="timeline">
+<scroll-view scroll-y="true" bindscrolltolower="scrollToLower" class="timeline" scroll-top="{{scrollTop}}" bindscroll="scroll">
   <view class="main-core">
     <navigator class="main-core-item">
       <image class="core-item-icon" src="/assets/core/confession.png"></image>
@@ -21,10 +21,10 @@
       <image class="card-avatar" src="{{item.avatar}}"></image>                
       <view class="user-container">
         <text class="card-name">写给：{{item.nickname}}</text>
-        <text class="card-time">#{{item.id}} · {{item.time}}</text>
+        <text class="card-id">#{{item.id}}</text>
       </view>
     </view>
-    <view class="middle-container flex-column">
+    <view class="middle-container flex-column"  data-route="../details/details" bindtap="jumpDetails">
       <text class="message-text">{{item.text}}</text>
       <image class="message-image"
         data-original-pic="{{item.original_pic}}" 
@@ -34,17 +34,23 @@
         catchtap="previewImage"
       ></image>
     </view>
-    <view class="bottom-container flex-row" >
-      <view class="bottom-tool flex-row flex-rest-width" style='border-right:solid 1px #e1e1e1' bindtap="likedislike">
-        <image wx:if="{{islike}}"  src='/assets/confession/like.png' class='bottom-tool-image'></image>
-        <image wx:else  src='/assets/confession/dislike.png' class='bottom-tool-image'></image>
-        <text class="bottom-tool-text">12</text>
+    <view class="bottom-container flex-row"  data-route="../details/details" bindtap="jumpDetails">
+      <view class="flex-row flex-rest-width" style='justify-content:flex-start;align-items:flex-start;margin-left:30rpx;margin-top:10rpx;'>
+        <text class="card-time">表白墙 · {{item.time}}</text>
       </view>
-      <view class="bottom-tool flex-row flex-rest-width" data-route="../details/details" bindtap="jumpDetails">
-        <image src='/assets/confession/comment.png' class='bottom-tool-image'></image>
-        <text class="bottom-tool-text">32</text>
+      <view class="bottom-tool flex-row flex-rest-width" >
+        <view style='margin:20rpx;'>
+          <image wx:if="{{islike}}"  src='/assets/confession/like.png' class='bottom-tool-image'></image>
+          <image wx:else  src='/assets/confession/dislike.png' class='bottom-tool-image'></image>
+          <text class="bottom-tool-text">{{item.likenum}}</text>
+        </view>
+        <view>
+          <image src='/assets/confession/comment.png' class='bottom-tool-image'></image>
+          <text class="bottom-tool-text">{{item.commentnum}}</text>
+        </view>
       </view>
     </view>
   </view>
+  <image wx:if="{{floorstatus}}" src='/assets/more/return.png' class='goTop' bindtap="goTop" style='opacity:0.18'/>
 </scroll-view>
 

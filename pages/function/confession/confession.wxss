@@ -8,6 +8,21 @@ view, scroll-view, input, text{
   box-sizing: border-box;  
 }
 
+.goTop {
+  width: 110rpx;
+  height: 110rpx;
+  float: right;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  border: 1px solid #3a3939f5;
+  border-radius: 500px;
+  margin-right: 30px;
+  margin-bottom: 170rpx;
+}
+
 /**功能导航**/
 .main-core{
   display: flex;
@@ -57,7 +72,7 @@ view, scroll-view, input, text{
 }
 .tweet-container {
   background-color: white;
-  margin: 1rpx 0;
+  margin: 20rpx 0;
   border-radius: 4rpx;
   box-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
@@ -68,28 +83,33 @@ view, scroll-view, input, text{
 .user-container {
   display: flex;
   flex-direction: column;
+  margin-left: 18rpx;
 }
 .card-avatar {
-  background-color: #c8c8c8;
+  background-color: #ffffff;
   width: 80rpx;
   height: 80rpx;
   border-radius: 8rpx;
   margin-right: 12rpx
 }
+.card-id {
+  font-size: 26rpx;
+  color: #474747;
+  margin-top: 12rpx;
+}
 .card-time {
   font-size: 26rpx;
   color: #8999a5;
-  margin-top: 8rpx;
+  margin-top: 7rpx;
 }
 .card-name {
-  color: #ff9630;
+  color: #ff3097;
   font-weight: bold;
   font-size: 32rpx;
   margin-top: 8rpx;
 }
 .middle-container {
   padding: 20rpx;
-  border-bottom: 1rpx solid #e1e1e1;
 }
 .message-text{
   color: #333;
@@ -103,19 +123,21 @@ view, scroll-view, input, text{
 }
 .bottom-container {
   height: 66rpx;
-  background-color: #fafafa;
+  background-color: #ffffff;
 }
 .bottom-tool {   
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 .bottom-tool-text {
+  margin: 0 10rpx;
+  margin-bottom: 10rpx;
   color: #6D6D78;
   font-size: 26rpx;
 }
 .bottom-tool-image {
-  height: 80rpx;
-  width: 80rpx;
+  height: 30rpx;
+  width: 30rpx;
   margin-top: 0;
   margin-right: 0;
 }
