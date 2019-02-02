@@ -1,0 +1,31 @@
+<!--pages/function/confession/showlove/showlove.wxml-->
+<view class="container">
+  <view class="card_wrap">
+    <view class='kuangs'>
+      <view class='kuang'>
+        <text class='kuang-text'>对方的姓名/昵称: </text>
+        <input class='kuang-input' />
+      </view>
+      <view class='kuang2'>
+        <text class='kuang-text'>对他的话：</text>
+        <textarea class='kuang-input' style='height:240rpx;'></textarea>
+      </view>
+      <view class='kuang2'>
+        <text class='kuang-text'>插入图片(限一张，可选）</text>
+        <view class='photoupload'>
+          <view class="img-upload">
+            <view class="img-add" bindtap="chooseImage"><image src='/assets/more/add.png'></image></view>
+            <view class="img-item" wx:for="{{uploadimgs}}" wx:key="{{index}}">
+              <icon type="clear" size="20" color="red" style="display:{{editable?'block':'none'}}" bindtap="deleteImg" data-index="{{index}}"/>
+              <image src="{{item}}" mode="aspectFill"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="bottom">
+    <button class="post" bindtap='jumpDisclaimer'>发送</button>
+  </view>
+</view>
+
