@@ -1,3 +1,30 @@
 <!--pages/function/market/market.wxml-->
+<view class='container'>
+  <!--上边栏-->
+  <view class='shang'>
+    <view class='find1'> 
+      <image src='/assets/market/comment.png' ></image>
+    </view>
+    <input class='find2'/>
+    <view class='find3'><text>搜索</text></view>
+  </view>
 
+  <!--侧边栏-->
+  <scroll-view scroll-y="true" class='zuo'>
+    <block wx:for="{{tabs}}">
+      <view id='{{index}}' bindtap='tabClick'>
+        <block wx:if="{{index == clickid}}">
+          <view class='list' style='background-color:white'><text>{{item}}</text></view>
+        </block>
+        <block wx:else>
+          <view class='list'><text>{{item}}</text></view>
+        </block>
+      </view>
+    </block>
+  </scroll-view>
+
+
+  <!--内容栏-->
+  
+</view>
 

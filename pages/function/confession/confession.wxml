@@ -1,7 +1,7 @@
 <!--pages/function/confession/confession.wxml-->
 <scroll-view scroll-y="true" bindscrolltolower="scrollToLower" class="timeline" scroll-top="{{scrollTop}}" bindscroll="scroll">
   <view class="main-core">
-    <navigator class="main-core-item">
+    <navigator class="main-core-item" url="{{'/pages/function/confession/showlove/showlove'}}">
       <image class="core-item-icon" src="/assets/core/confession.png"></image>
       <text class="core-item-name">表白墙</text>
       <image class="core-item-icon" src="/assets/core/confession.png"></image>
@@ -9,7 +9,7 @@
       <image class="core-item-icon" src="/assets/core/confession.png"></image>
       <text class="core-item-name">消息提醒</text>
       <image class="core-item-icon" src="/assets/core/confession.png"></image>
-      <text class="core-item-name">发起表白</text>
+      <text class="core-item-name" >发起表白</text>
     </navigator>
   </view>
   <view class='flex-row flex-rest-width'>
@@ -51,6 +51,6 @@
       </view>
     </view>
   </view>
-  <image wx:if="{{floorstatus}}" src='/assets/more/return.png' class='goTop' bindtap="goTop" style='opacity:0.18'/>
+  <image wx:if="{{floorstatus}}" src='/assets/more/return.png' class='goTop' bindtap="goTop" style='opacity:0.3'/>
 </scroll-view>
 

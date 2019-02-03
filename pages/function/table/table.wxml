@@ -13,16 +13,16 @@
 <scroll-view scroll-y="true" class="scroll">
   <view style="height:1560rpx;width:730rpx;display:flex;">
     <view style="background-color:#e3e2da;color:#a7748a;">
-      <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}" class="left">
+      <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}" wx:key="id" class="left">
         {{item}}
       </view>
     </view>
-    <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}">
+    <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}"  wx:key="id">
       <view style="width:750rpx;margin-top:{{(index+1)*130}}rpx;  position: absolute;border-bottom:1rpx solid;color:#a7748a;">
       </view>
     </view>
     <!--课表-->
-    <view wx:for="{{wlist}}" class='margin-left:150rpx;'>
+    <view wx:for="{{wlist}}" wx:key="id" class='margin-left:150rpx;'>
       <view class="flex-item kcb-item" bindtap="showCardView" data-statu="open" data-index="{{index}}" style="margin-left:{{(item.xqj-1)*102}}rpx;margin-top:{{(item.skjc-1)*130+5}}rpx;height:{{item.skcd*130-5}}rpx;background-color:{{colorArrays[index%9]}};">
         <view class="smalltext" >{{item.kcmc}}</view>
       </view>

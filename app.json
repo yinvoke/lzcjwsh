@@ -1,9 +1,9 @@
 {
   "pages": [
    
-    "pages/function/confession/showlove/showlove",
     "pages/function/market/market",
     "pages/function/confession/confession",
+    "pages/function/confession/showlove/showlove",
     "pages/function/confession/details/details",
     "pages/index/index",
     "pages/login/login",

@@ -1,1 +1,73 @@
 /* pages/function/market/market.wxss */
+.container {
+  height: 100%;
+}
+.shang{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #7acfa6;
+  height: 100rpx;
+  width: 100%;
+  
+}
+.find1{
+  margin-top: 30rpx;
+  margin-left: 20rpx;
+  height: 45rpx;
+  width: 65rpx;
+}
+.find1 image{
+  height: 100%;
+  width: 100%;
+}
+.reddot {
+    width: 50rpx;
+    border-radius: 50rpx;
+    background: red;
+    text-align: center;
+    color: white;
+    position: absolute;
+	  margin-left: 30rpx;
+    margin-top: -25rpx;
+}
+.find2{
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  background-color: #fff;
+  border-radius: 30rpx;
+  height: 65rpx;
+  width: 680rpx;
+}
+.find3{
+  margin-top: 40rpx;
+  margin-left: 30rpx;
+  height: 65rpx;
+  width: 100rpx;
+  color: rgb(252, 252, 252);
+}
+.find3 text{
+  font-size: 32rpx;
+}
+.zuo{
+  margin-top: 100rpx;
+  width: 170rpx;
+  height: 1140rpx;
+  position: fixed;
+  background-color: #f0f0f0;
+  z-index: 10;
+  text-align: center;
+}
+.list{
+  height: 80rpx;
+  width: 100%;
+  font-size: 30rpx;
+  color: #747474;
+  padding-top: 35rpx;
+}
+::-webkit-scrollbar
+{
+width: 0;
+height: 0;
+color: transparent;
+}

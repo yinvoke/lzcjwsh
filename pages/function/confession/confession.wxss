@@ -17,7 +17,6 @@ view, scroll-view, input, text{
   bottom: 0;
   right: 0;
   z-index: 1;
-  border: 1px solid #3a3939f5;
   border-radius: 500px;
   margin-right: 30px;
   margin-bottom: 170rpx;

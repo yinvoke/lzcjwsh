@@ -5,43 +5,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    tabs: ['推荐', '图书', '电器', '手机', '电脑', '衣服', '鞋', '饰品', '包', '化妆品', '日用品', '食品', '其他'],
+    clickid : 0,
+    clickitem : '推荐'
   },
-
   /**
-   * 生命周期函数--监听页面加载
+   * 改变颜色
    */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
+  tabClick:function(e){
+    this.setData({
+      clickid: e.currectTarget.id,
+      clickitem: this.data.tabs[e.currectTarget.id]
+    })
+  }
+  
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
@@ -50,17 +27,4 @@ Page({
 
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

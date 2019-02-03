@@ -13,8 +13,16 @@ Page({
       { id: 'user', name: '用户中心' }
     ],
     timeline:[
-      { id: '二狗', nickname: '刘薇', avatar: "/assets/core/aides.png", time: "5分钟前", text: '我是二狗，我爱你！', original_pic:"/images/1.jpg",likenum:60,commentnum:12},
-      { id: '谢景旭', nickname: '二狗', avatar: "/assets/core/aides.png", time: "3分钟前", text: '什么沙雕？？？？？？', original_pic: "", likenum: 5, commentnum: 3 },
+      { id: '二狗', nickname: '刘薇', avatar: "/assets/user/logo.png", time: "3分钟前", text: '我是二狗', original_pic:"/images/1.jpg",likenum:60,commentnum:12},
+      { id: 'invoker', nickname: 'testname', avatar: "/assets/core/market.png", time: "5分钟前", text: '测试文档', original_pic: "", likenum: 5, commentnum: 3 },
+      { id: '谢景旭', nickname: 'qwe', avatar: "/assets/more/logo.png", time: "10分钟前", text: '', original_pic: "", likenum: 5, commentnum: 3 },
+      { id: 'liasl', nickname: 'wfe', avatar: "/assets/user/logo.png", time: "13分钟前", text: 'ceshiyongli', original_pic: "", likenum: 5, commentnum: 3 },
+      { id: 'lgd', nickname: '测试用户123', avatar: "/assets/core/market.png", time: "13分钟前", text: '!@#$%^&*((()_', original_pic: "", likenum: 5, commentnum: 3 },
+      { id: 'we', nickname: '我不知道叫什么', avatar: "/assets/core/aides.png", time: "23分钟前", text: '123456789', original_pic: "", likenum: 5, commentnum: 3 },
+      { id: 'newbee', nickname: '七七七', avatar: "/assets/more/logo.png", time: "30分钟前", text: 'chasohcioiehoihiohiohoeiwhoihvhkldsnklnlkvmdsklnlkvnlkndslknlknglknkldsnklnglknlkdsnklnklnklnklnklnklnlgknklndklsnklnklgfnklnerklnklbnklndsklnbklnskldnfjknjksdbjkbvjkbjwkebjkbjkbjkbjkbjkbjkbjknfkjnjksndjknfjknjdsknkjfnjknsdjknfjknsdjknfkjnjknejkbjkbjkbsjkbjkbjkbjvkbjkejksbjkvnjknsjnjknjknkj吃', original_pic: "", likenum: 5, commentnum: 3 },
+      { id: 'aster', nickname: '2333333', avatar: "/assets/core/aides.png", time: "1小时前", text: '???????????', original_pic: "", likenum: 5, commentnum: 3 },
+      { id: '@QQ@', nickname: '匿名用户', avatar: "/assets/user/logo.png", time: "2天前", text: '这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字这是一段特别长的文字', original_pic: "", likenum: 5, commentnum: 3 },
+      { id: 'aster', nickname: '2333333', avatar: "/assets/core/aides.png", time: "1个月前", text: '???????????', original_pic: "", likenum: 5, commentnum: 3 },
     ],
     scrollTop: 0
   },
