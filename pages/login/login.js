@@ -25,13 +25,16 @@ Page({
   bind: function () {
     var that = this;
     if (!that.data.userid || !that.data.passwd) {
-      console.log('信息为空')
+      app.showErrorModal('账号及密码不能为空', '提醒');
     }
-    else if(that.data.userid=='010' && that.data.passwd == '010'){
+    
+    /**if(that.data.userid=='010' && that.data.passwd == '010'){
       wx.redirectTo({
         url: '../index/index',
       })
-    }else{
+    }*/
+    else{    
+      app.showLoadToast('绑定中');
       wx.request({
         method: 'POST',
         url: 'http://119.3.46.32:8014/user/login',
@@ -43,24 +46,17 @@ Page({
           'content-type': 'application/x-www-form-urlencoded; charset=utf-8'
         },
         success: function (res) {
-          console.log(res.data);
           if (res.data.message == "success") {
-            console.log('登陆成功');
             wx.redirectTo({
               url: '../index/index',
             })
           } else {
-            console.log('登陆失败');
-            wx.redirectTo({
-              url: '../login/login',
-            })
+            wx.hideToast();
+            app.showErrorModal(res.data.message, '登录失败');
           }
         },
         fail: function (res) {
-          console.log('连接失败');
-          wx.redirectTo({
-            url: '../login/login',
-          })
+          app.showLoadToast('请检查您的网络');
         }
       });
     }
@@ -112,5 +108,7 @@ Page({
     this.setData({
       'help_status': false
     });
-  }
+  },
+
+  
 });
