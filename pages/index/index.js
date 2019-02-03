@@ -19,33 +19,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.request({
-      method: 'GET',
-      url: 'http://119.3.46.32:8014/user/infor',
-      data: {
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded; charset=utf-8'
-      },
-      success: function (res) {
-        if (res.data.message == "success") {
-          wx.redirectTo({
-            url: '../index/index',
-          })
-        } else {
-          wx.hideToast();
-          app.showErrorModal(res.data.message, '登录失败');
-        }
-      },
-      fail: function (res) {
-        app.showLoadToast('网络异常');
-      }
-    });
-    if (app.globalData.userInfo == null) {
-      wx.redirectTo({
-        url: '../login/login',
-      })
-    }
+    
   },
 
   /**

@@ -11,12 +11,13 @@ Page({
     angle:0
   },
   onReady: function () {
+    var that = this;
     wx.onAccelerometerChange(function (res) {
       var angle = -(res.x * 30).toFixed(1);
       if (angle > 14) { angle = 14; }
       else if (angle < -14) { angle = -14; }
-      if (_this.data.angle !== angle) {
-        _this.setData({
+      if (that.data.angle !== angle) {
+        that.setData({
           angle: angle
         });
       }
@@ -34,7 +35,7 @@ Page({
       })
     }*/
     else{    
-      app.showLoadToast('绑定中');
+      app.showLoadToast('验证中');
       wx.request({
         method: 'POST',
         url: 'http://119.3.46.32:8014/user/login',
@@ -47,6 +48,10 @@ Page({
         },
         success: function (res) {
           if (res.data.message == "success") {
+            //登录
+            console.log(res)
+            app.globalData.sessionId = res.header.Set-Cookie;
+            app.saveSession(app.globalData.sessionId);
             wx.redirectTo({
               url: '../index/index',
             })
@@ -62,6 +67,7 @@ Page({
     }
     
   },
+
   useridInput: function (e) {
     this.setData({
       userid: e.detail.value
