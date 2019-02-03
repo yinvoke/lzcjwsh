@@ -34,13 +34,14 @@
 .find2{
   margin-top: 20rpx;
   margin-left: 30rpx;
+  padding-left:30rpx;
   background-color: #fff;
   border-radius: 30rpx;
   height: 65rpx;
   width: 680rpx;
 }
 .find3{
-  margin-top: 40rpx;
+  margin-top: 35rpx;
   margin-left: 30rpx;
   height: 65rpx;
   width: 100rpx;
@@ -49,12 +50,14 @@
 .find3 text{
   font-size: 32rpx;
 }
+.xia{
+  width: 100%;
+}
 .zuo{
-  margin-top: 100rpx;
   width: 170rpx;
   height: 1140rpx;
   position: fixed;
-  background-color: #f0f0f0;
+  background-color: #f5f5f5;
   z-index: 10;
   text-align: center;
 }
@@ -65,6 +68,18 @@
   color: #747474;
   padding-top: 35rpx;
 }
+.you{
+  margin-left: 10rpx;
+  height: 1120rpx;
+  background-color: #fff8f8;
+}
+
+
+
+
+
+
+
 ::-webkit-scrollbar
 {
 width: 0;

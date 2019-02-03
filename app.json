@@ -1,12 +1,13 @@
 {
   "pages": [
-   
+    "pages/login/login",
+    "pages/index/index",
     "pages/function/market/market",
     "pages/function/confession/confession",
     "pages/function/confession/showlove/showlove",
     "pages/function/confession/details/details",
-    "pages/index/index",
-    "pages/login/login",
+    
+    
     "pages/function/aides/aides",
     "pages/function/table/table",
     "pages/function/user/about/about",

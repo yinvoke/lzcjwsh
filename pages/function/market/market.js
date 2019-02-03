@@ -5,7 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabs: ['推荐', '图书', '电器', '手机', '电脑', '衣服', '鞋', '饰品', '包', '化妆品', '日用品', '食品', '其他'],
+    tabs: [
+      '推荐', '图书', '电器', '手机', '电脑', '衣服', '鞋', '饰品', '包', '化妆品', '日用品', '食品', '票务', '其他'
+    ],
+    goods:[
+      {
+        goodsname:'图标',
+        despription:'这是一个图标',
+        price:'23.5',
+        tel:'15616152768',
+        qq:'23456789'
+      
+      }
+    ],
     clickid : 0,
     clickitem : '推荐'
   },
@@ -14,10 +26,10 @@ Page({
    */
   tabClick:function(e){
     this.setData({
-      clickid: e.currectTarget.id,
-      clickitem: this.data.tabs[e.currectTarget.id]
+      clickid: e.currentTarget.id,
+      clickitem: this.data.tabs[e.currentTarget.id]
     })
-  }
+  },
   
 
   /**
