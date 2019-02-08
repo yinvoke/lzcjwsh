@@ -50,8 +50,6 @@ Page({
           if (res.data.message == "success") {
             //登录
             console.log(res)
-            app.globalData.sessionId = res.header.Set-Cookie;
-            app.saveSession(app.globalData.sessionId);
             wx.redirectTo({
               url: '../index/index',
             })

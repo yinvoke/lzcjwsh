@@ -6,23 +6,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userid:null,
-    username:'yzw',
-    sex: null,
-    age: null,
-    department: null,
-    specialty: null,
-    grade: null,
-    description: null
+    ifname:false,
+    ifpwd:false,
+    pwd:'ce'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      userid: app.globalData.userInfo.id
-    })
   },
 
   /**
@@ -39,19 +31,7 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
+  
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
@@ -72,5 +52,61 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  name:function(){
+    this.setData({
+      ifname: true
+    })
+  },
+  pwd: function () {
+    this.setData({
+      ifpwd: true
+    })
+  },
+  cancel:function(){
+    this.setData({
+      ifname:false,
+      ifpwd:false
+    })
+  },
+  nameinput:function(e){
+    this.setData({
+      name: e.detail.value,
+    })
+  },
+  oldinput: function (e) {
+    this.setData({
+      oldpwd: e.detail.value,
+    })
+  },
+  newinput: function (e) {
+    this.setData({
+      newpwd: e.detail.value,
+    })
+  },
+  reinput: function (e) {
+    this.setData({
+      repwd: e.detail.value,
+    })
+  },
+  confirmname: function(){
+    console.log('修改成功'),
+    this.setData({
+      ifname: false,
+    })
+  },
+  confirmpwd: function () {
+    if (this.data.oldpwd != this.data.pwd){
+      app.showErrorModal('旧密码输入错误','修改失败')
+    }
+    else if (this.data.newpwd != this.data.repwd){
+      app.showErrorModal('两次密码输入不一致', '修改失败')
+    }
+    else{
+      console.log('修改成功'),
+        this.setData({
+          ifpwd: false,
+        })
+    }
   }
 })

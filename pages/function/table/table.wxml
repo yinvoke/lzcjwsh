@@ -1,5 +1,5 @@
 <!--pages/table/table.wxml-->
-<view style='justify-content: center;display: flex;align-items: center;background-color:#73b4ef;'>
+<view class='coniter' >
   <view class="choose">
     <picker bindchange='bindSemesterChange' value='{{semesterIndex}}' range='{{semesters}}'>{{semesters[semesterIndex]}}</picker><text style='width:20rpx;'></text>
     <picker bindchange='bindWeekChange' value='{{weekIndex}}' range='{{weeks}}'>{{weeks[weekIndex]}}</picker>
@@ -11,14 +11,14 @@
 </view>
 
 <scroll-view scroll-y="true" class="scroll">
-  <view style="height:1560rpx;width:730rpx;display:flex;">
-    <view style="background-color:#e3e2da;color:#a7748a;">
+  <view class='cebian1' >
+    <view class='cebian2' >
       <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}" wx:key="id" class="left">
         {{item}}
       </view>
     </view>
     <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}"  wx:key="id">
-      <view style="width:750rpx;margin-top:{{(index+1)*130}}rpx;  position: absolute;border-bottom:1rpx solid;color:#a7748a;">
+      <view class='line' style='margin-top:{{(index+1)*130}}rpx;'>
       </view>
     </view>
     <!--课表-->
