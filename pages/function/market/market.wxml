@@ -2,16 +2,17 @@
 <view class='container'>
   <!--上边栏-->
   <view class='shang'>
+    <view class='find1'><text>发布</text></view>
     <input class='find2'/>
     <view class='find3'><text>搜索</text></view>
   </view>
 
-  <view class=''>
+  <view>
     <!--侧边栏-->
     <scroll-view scroll-y="true" class='zuo'>
       <block wx:for="{{tabs}}" wx:key="id">
         <view id='{{index}}' bindtap='tabClick'>
-          <view wx:if="{{index == clickid}}" class='list' style='background-color:white;font-weight:bolder'><text>{{item}}</text></view>
+          <view wx:if="{{index == clickid}}" class='list' style='background-color:#7acfa6;font-weight:bolder'><text>{{item}}</text></view>
           <view wx:else class='list'><text>{{item}}</text></view>
         </view>
       </block>
@@ -20,13 +21,21 @@
 
     <!--内容栏-->
     <scroll-view scroll-y="true" class='you'>
-      <block wx:for="{{goods}}" wx:for-item="g">
-        <view>
-          <view class='list'><text>{{g.goodsname}}</text></view>
+      <block wx:for="{{goods}}"  wx:key="id">
+        <view class='card'>
+          <image src='{{item.src}}'></image>
+          <view>
+            <view class='title'>
+              <text>{{item.goodsname}}</text>
+              <text style='margin-left:20rpx;color:red'>￥{{item.price}}</text>
+            </view>
+            <view class='despription'><text>{{item.despription}}</text></view>
+            <view class='lianxi'><text>QQ:{{item.qq}}</text></view>
+          </view>
         </view>
       </block>
+      <image  src='/assets/market/fatie.png' class='fatie' bindtap="fatie" style='opacity:0.6'/>
     </scroll-view>
   </view>
-  
 </view>
 
