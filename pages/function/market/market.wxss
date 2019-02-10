@@ -7,9 +7,15 @@
   flex-direction: row;
   justify-content: center;
   background-color: #7acfa6;
-  height: 100rpx;
+  height: 8%;
   width: 100%;
   
+}
+.xia{
+  height: 92%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 .find1{
   margin-top: 25rpx;
@@ -33,11 +39,11 @@
   background-color: #fff;
   border-radius: 30rpx;
   height: 65rpx;
-  width: 680rpx;
+  width: 660rpx;
 }
 .find3{
   margin-top: 35rpx;
-  margin-left: 30rpx;
+  margin-left: 20rpx;
   height: 65rpx;
   width: 100rpx;
   color: rgb(252, 252, 252);
@@ -68,6 +74,7 @@
   height: 1120rpx;
   background-color: #c5c5c5;
 }
+
 .card{
   width: 100%;
   height: 220rpx;
@@ -80,27 +87,34 @@
   height: 220rpx;
 }
 .title{
-  padding-left: 10rpx;
-  padding-top: 10rpx;
+  padding-left: 15rpx;
+  padding-top: 12rpx;
   font-size: 30rpx;
   font-weight: bold;
+  height: 50rpx;
 }
-.despription{ 
-  height: 108rpx;
-  padding-left: 10rpx;
-  padding-top:25rpx;
+.time{ 
+  height: 30rpx;
+  padding-left: 15rpx;
+  padding-top: 10rpx;
+  font-size: 25rpx;
+}
+.chengse{ 
+  height: 90rpx;
+  padding-left: 15rpx;
+  padding-top: 20rpx;
   font-size: 32rpx;
-  color: #f8a546;
   font-weight: bold;
 }
-.lianxi{
-  padding-left: 10rpx;
-  font-size: 26rpx;
+.jiage{
+  padding-left: 15rpx;
+  font-size: 29rpx;
+  color: red;
 }
 
 .fatie{
-  width: 130rpx;
-  height: 130rpx;
+  width: 120rpx;
+  height: 120rpx;
   float: right;
   background-color: #ffffff;
   position: fixed;
@@ -112,9 +126,68 @@
   margin-bottom: 140rpx;
 }
 
+
+/*mask*/
+.drawer_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+}
+ 
+/*content*/
+.drawer_box {
+  width: 650rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 30%;
+  left: 0;
+  z-index: 1001;
+  background: #FAFAFA;
+  margin: -150px 50rpx 0 50rpx;
+  border-radius: 10px;
+}
+ 
+.drawer_title{
+  padding:17rpx;
+  font: 20px "microsoft yahei";
+  text-align: center;
+  border-bottom: solid 2px #7acfa6;
+}
+.drawer_content {
+  padding-top: 17rpx;
+  height: 750rpx;
+  overflow-y: scroll; /*超出父盒子高度可滚动*/
+}
+.drawer_content .description{
+  margin-left: 20rpx;
+  margin-bottom: 8rpx;
+  font-size: 27rpx;
+}
+.drawer_content image{
+  margin-left: 15rpx;
+}
+
+.btn_ok{
+  padding: 10px;
+  font: 29rpx "microsoft yahei";
+  text-align: center;
+  border-top: 1px solid #E8E8EA;
+  background-color: #7acfa6;
+  font-weight: bold;
+  color: white;
+}
+
 ::-webkit-scrollbar
 {
 width: 0;
 height: 0;
 color: transparent;
 }
+
+

@@ -1,0 +1,36 @@
+/* pages/function/market/mine/mine.wxss */
+.card{
+  width: 100%;
+  height: 220rpx;
+  background-color: rgb(255, 255, 255);
+  margin-bottom: 7rpx;
+  display:flex;
+  border-bottom: solid 1px #dfdfdf;
+}
+.card image{
+  width: 220rpx;
+  height: 220rpx;
+}
+.title{
+  padding-left: 15rpx;
+  padding-top: 12rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  height: 50rpx;
+}
+.time{ 
+  height: 50rpx;
+  padding-left: 15rpx;
+  padding-top: 10rpx;
+  font-size: 26rpx;
+}
+.jiage{
+  height: 50rpx;
+  padding-left: 15rpx;
+  font-size: 28rpx;
+  color: red;
+}
+.sale{
+  margin-left: 15%;
+  margin-top:95rpx;
+}

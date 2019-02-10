@@ -1,0 +1,15 @@
+<!--pages/function/market/mine/mine.wxml-->
+<scroll-view scroll-y="true" class='you'>
+  <block wx:for="{{goods}}"  wx:key="id">
+    <view class='card'>
+      <image src='{{item.src}}'></image>
+      <view>
+        <view class='title'><text>{{item.goodsname}}</text></view>
+        <view class='time'><text>发布日期：{{item.time}}</text></view>
+        <view class='jiage'><text>￥{{item.price}}</text></view>
+      </view>
+      <view  id='{{index}}' class='sale' bindtap='sale' wx:if="{{item.issale==false}}">确认出售</view>
+      <view  id='{{index}}' class='sale' bindtap='sale' wx:if="{{item.issale==true}}" style='color:orange;font-weight:bold'>已出售</view>
+    </view>
+  </block>
+</scroll-view>

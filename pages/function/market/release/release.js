@@ -1,3 +1,4 @@
+// pages/function/market/Release/release.js
 // pages/function/confession/showlove/showlove.js
 Page({
 
@@ -15,7 +16,7 @@ Page({
     let _this = this;
     wx.showActionSheet({
       itemList: ['从相册中选择', '拍照'],
-      itemColor: "#ef383c",
+      itemColor: "#7acfa6",
       success: function (res) {
         if (!res.cancel) {
           if (res.tapIndex == 0) {
@@ -32,7 +33,7 @@ Page({
     wx.chooseImage({
       sizeType: ['original', 'compressed'],
       sourceType: [type],
-      count: 1,
+      count: 3,
       success: function (res) {
         _this.setData({
           uploadimgs: _this.data.uploadimgs.concat(res.tempFilePaths)

@@ -16,4 +16,8 @@
       </navigator>
     </block>
   </view>
+  <!--天气预报-->
+  <view class='tianqi'>
+    <view></view>
+  </view>
 </view>

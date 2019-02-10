@@ -2,17 +2,17 @@
 <view class='container'>
   <!--上边栏-->
   <view class='shang'>
-    <view class='find1'><text>发布</text></view>
+    <view class='find1' bindtap='jumpmine'><text>我的</text></view>
     <input class='find2'/>
     <view class='find3'><text>搜索</text></view>
   </view>
 
-  <view>
+  <view class='xia'>
     <!--侧边栏-->
     <scroll-view scroll-y="true" class='zuo'>
       <block wx:for="{{tabs}}" wx:key="id">
         <view id='{{index}}' bindtap='tabClick'>
-          <view wx:if="{{index == clickid}}" class='list' style='background-color:#7acfa6;font-weight:bolder'><text>{{item}}</text></view>
+          <view wx:if="{{index == clickid}}" class='list' style='background-color:#7acfa6;font-weight:bolder;color:white;'><text>{{item}}</text></view>
           <view wx:else class='list'><text>{{item}}</text></view>
         </view>
       </block>
@@ -22,19 +22,50 @@
     <!--内容栏-->
     <scroll-view scroll-y="true" class='you'>
       <block wx:for="{{goods}}"  wx:key="id">
-        <view class='card'>
+        <view class='card' bindtap="powerDrawer" data-statu="open">
           <image src='{{item.src}}'></image>
           <view>
             <view class='title'>
               <text>{{item.goodsname}}</text>
-              <text style='margin-left:20rpx;color:red'>￥{{item.price}}</text>
+              <text class='jiage'>￥{{item.price}}</text>
             </view>
-            <view class='despription'><text>{{item.despription}}</text></view>
-            <view class='lianxi'><text>QQ:{{item.qq}}</text></view>
+            <view class='chengse' wx:if="{{item.chengse == 1}}" style='color:rgb(133, 7, 7)'><text>一成新 ！</text></view>
+            <view class='chengse' wx:if="{{item.chengse == 2}}" style='color:rgb(133, 7, 7)'><text>二成新 ！</text></view>
+            <view class='chengse' wx:if="{{item.chengse == 3}}" style='color:rgb(133, 7, 7)'><text>三成新 ！</text></view>
+            <view class='chengse' wx:if="{{item.chengse == 4}}" style='color:rgb(133, 7, 7)'><text>四成新 ！</text></view>
+            <view class='chengse' wx:if="{{item.chengse == 5}}" style='color:rgb(236, 162, 0)'><text>五成新 ！</text></view>
+            <view class='chengse' wx:if="{{item.chengse == 6}}" style='color:rgb(236, 162, 0)'><text>六成新 ！</text></view>
+            <view class='chengse' wx:if="{{item.chengse == 7}}" style='color:rgb(236, 232, 0)'><text>七成新 ！</text></view>
+            <view class='chengse' wx:if="{{item.chengse == 8}}" style='color:rgb(236, 232, 0)'><text>八成新 ！</text></view>
+            <view class='chengse' wx:if="{{item.chengse == 9}}" style='color:rgb(19, 230, 0)'><text>九成新 ！</text></view>
+            <view class='chengse' wx:if="{{item.chengse == 10}}" style='color:rgb(19, 230, 0)'><text>全新 ！</text></view>
+            <view class='time'><text>上架日期：{{item.time}}</text></view>
           </view>
         </view>
       </block>
-      <image  src='/assets/market/fatie.png' class='fatie' bindtap="fatie" style='opacity:0.6'/>
+      <!--mask-->
+      <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+      <!--content-->
+      <!--使用animation属性指定需要执行的动画-->
+      <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+        <!--drawer content-->
+        <view class="drawer_title">辣条</view>
+        <view class="drawer_content">
+          <view>
+            <view class='description'><text>产品描述：前两天新买的，吃不动了</text></view>
+            <view class='description'><text>崭新程度：二成新</text></view>
+            <view class='description'><text>价格：￥23.5</text></view>
+            <view class='description'><text>发布人联系方式：qq：123456789</text></view>
+            <view class='images'>
+              <image src='{{goods[0].src}}'></image>
+              <image src='{{goods[1].src}}'></image>
+              <image src='{{goods[2].src}}'></image>
+            </view>
+          </view>
+        </view>
+        <view class="btn_ok" bindtap="powerDrawer" data-statu="close">确定</view>
+      </view>
+      <image  src='/assets/market/fatie.png' class='fatie' bindtap="jumprelease" style='opacity:0.6'/>
     </scroll-view>
   </view>
 </view>

@@ -12,7 +12,7 @@ Page({
       { id: 'market', name: '跳蚤市场' },
       { id: 'confession', name: '表白墙' },
       { id: 'user', name: '用户中心' }
-    ]
+    ],
   },
 
   /**

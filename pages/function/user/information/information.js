@@ -53,6 +53,38 @@ Page({
   onShareAppMessage: function () {
 
   },
+  chooseImage: function () {
+    let _this = this;
+    wx.showActionSheet({
+      itemList: ['从相册中选择', '拍照'],
+      itemColor: "#ffcb63",
+      success: function (res) {
+        if (!res.cancel) {
+          if (res.tapIndex == 0) {
+            _this.chooseWxImage('album')
+          } else if (res.tapIndex == 1) {
+            _this.chooseWxImage('camera')
+          }
+        }
+      }
+    })
+  },
+  chooseWxImage: function (type) {
+    let _this = this;
+    wx.chooseImage({
+      sizeType: ['original', 'compressed'],
+      sourceType: [type],
+      count: 3,
+      success: function (res) {
+        _this.setData({
+          uploadimgs: _this.data.uploadimgs.concat(res.tempFilePaths)
+        })
+      }
+    })
+    this.setData({
+      editable: true
+    })
+  },
   name:function(){
     this.setData({
       ifname: true

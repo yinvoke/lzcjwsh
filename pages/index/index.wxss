@@ -58,3 +58,6 @@
   display: block;
   margin: 5rpx;
 }
+.tianqi{
+  width: 100%;
+}

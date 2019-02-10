@@ -6,7 +6,7 @@
         <text class="wx-cell-left-text">修改头像</text>
       </view>
       <view class="wx-cell-right flex-row">
-         <image class="user-avatar" src=""></image>
+         <image class="user-avatar" src="" bindtap='chooseImage'></image>
         <image class="wx-cell-arrow" src="/assets/user/right-gray.png"></image>
       </view>
     </view>
