@@ -28,7 +28,8 @@ App({
   },
 
   globalData: {
-    sessionId:null
+    username:null,
+    pwd:null
   },
 
 
@@ -59,6 +60,13 @@ App({
       title: title || '加载中',
       icon: 'loading',
       duration: duration || 5000
+    });
+  },
+  showSuccessToast: function (title, duration) {
+    wx.showToast({
+      title: title || '成功',
+      icon: 'success',
+      duration: duration || 3000
     });
   }
 })

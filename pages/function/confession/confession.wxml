@@ -18,18 +18,20 @@
   </view>
   <view class="tweet-container" wx:for="{{timeline}}" wx:key="id">
     <view class="top-container flex-row">
-      <image class="card-avatar" src="{{item.avatar}}"></image>                
+      <image wx:if="{{item.isAnonym==false}}" class="card-avatar" src="{{item.head}}"></image>
+      <image wx:if="{{item.isAnonym==true && item.gender==0}}" class="card-avatar" src="/assets/main/woman.png"></image> 
+      <image wx:if="{{item.isAnonym==true && item.gender==1}}" class="card-avatar" src="/assets/main/man.png"></image> 
       <view class="user-container">
-        <text class="card-name">写给：{{item.nickname}}</text>
-        <text class="card-id">#{{item.id}}</text>
+        <text class="card-name">写给：{{item.dst}}</text>
+        <text class="card-id">#{{item.src}}</text>
       </view>
     </view>
     <view class="middle-container flex-column"  data-route="../details/details" bindtap="jumpDetails">
-      <text class="message-text">{{item.text}}</text>
+      <text class="message-text">{{item.description}}</text>
       <image class="message-image"
-        data-original-pic="{{item.original_pic}}" 
-        wx:if="{{item.original_pic}}" 
-        src="{{item.original_pic}}" 
+        data-original-pic="{{item.picUrl}}" 
+        wx:if="{{item.picUrl}}" 
+        src="{{item.picUrl}}" 
         mode="aspectFill"
         catchtap="previewImage"
       ></image>
@@ -42,7 +44,7 @@
         <view style='margin:20rpx;'>
           <image wx:if="{{islike}}"  src='/assets/confession/like.png' class='bottom-tool-image'></image>
           <image wx:else  src='/assets/confession/dislike.png' class='bottom-tool-image'></image>
-          <text class="bottom-tool-text">{{item.likenum}}</text>
+          <text class="bottom-tool-text">{{item.thumb}}</text>
         </view>
         <view>
           <image src='/assets/confession/comment.png' class='bottom-tool-image'></image>

@@ -2,10 +2,10 @@
 <view class="container">
   <view class="wx-cells">
     <view class="wx-cell-inner flex-row " data-route="../information/information" bindtap="jumpInformation">
-      <image class="wx-cell-icon user-avatar" src="{{userInfo.avatarUrl}}"></image>
+      <image class="wx-cell-icon user-avatar" src="{{userinfo.head}}"></image>
       <view class="user-info">
         <text class="user-info-text">昵称</text>
-        <text class="user-info-text user-info-uid">欢迎您， {{username}}</text>
+        <text class="user-info-text user-info-uid">欢迎您， {{userinfo.nickname}}</text>
       </view>
       <view class="wx-cell-left flex-row ">
         <text style='font-size:25rpx'>点击修改信息</text>
@@ -17,7 +17,7 @@
         <text class="wx-cell-left-text">姓名</text>
       </view>
       <view class="wx-cell-right flex-row">
-        <text class="wx-cell-right-text">{{username}}</text>
+        <text class="wx-cell-right-text">{{userinfo.name}}</text>
       </view>
     </view>
     <view class="wx-cell-inner flex-row ">
@@ -25,7 +25,7 @@
         <text class="wx-cell-left-text">学号</text>
       </view>
       <view class="wx-cell-right flex-row">
-        <text class="wx-cell-right-text">{{username}}</text>
+        <text class="wx-cell-right-text">{{userinfo.username}}</text>
       </view>
     </view>
     <view class="wx-cell-inner flex-row">
@@ -33,7 +33,7 @@
         <text class="wx-cell-left-text">学院</text>
       </view>
       <view class="wx-cell-right flex-row">
-        <text class="wx-cell-right-text">信息科学与工程</text>
+        <text class="wx-cell-right-text">{{userinfo.college}}</text>
       </view>
     </view>
     <view class="wx-cell-inner flex-row">
@@ -41,7 +41,7 @@
         <text class="wx-cell-left-text">专业</text>
       </view>
       <view class="wx-cell-right flex-row">
-        <text class="wx-cell-right-text">软件工程</text>
+        <text class="wx-cell-right-text">{{userinfo.major}}</text>
       </view>
     </view>
   </view>

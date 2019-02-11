@@ -8,51 +8,55 @@ Page({
   data: {
     ifname:false,
     ifpwd:false,
-    pwd:'ce'
+    head:null,
+    nickname:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
+    let cookie = wx.getStorageSync('cookieKey');
+    let header = {};
+    if (cookie) {
+      header.Cookie = cookie
+    }
+    wx.request({
+      url: 'http://119.3.46.32:8014/user/infor',
+      method: 'GET',
+      header: header,
+      success: function (res) {
+        that.setData({
+          head: res.data.object.head,
+          nickname: res.data.object.nickname
+        })
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this;
+    let cookie = wx.getStorageSync('cookieKey');
+    let header = {};
+    if (cookie) {
+      header.Cookie = cookie
+    }
+    wx.request({
+      url: 'http://119.3.46.32:8014/user/infor',
+      method: 'GET',
+      header: header,
+      success: function (res) {
+        that.setData({
+          head: res.data.object.head,
+          nickname: res.data.object.nickname
+        })
+      }
+    })
   },
 
-  
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
   chooseImage: function () {
     let _this = this;
     wx.showActionSheet({
@@ -122,23 +126,65 @@ Page({
     })
   },
   confirmname: function(){
-    console.log('修改成功'),
+    var that = this
+    let cookie = wx.getStorageSync('cookieKey');
+    let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8'};
+    if (cookie) {
+      header.Cookie = cookie
+    }
+    wx.request({
+      url: 'http://119.3.46.32:8014/user/modNickname',
+      method: 'POST',
+      header: header,
+      data:{
+        nickname:that.data.name
+      },
+      success: function (res) {
+        app.showSuccessToast('修改成功', 3000)
+        that.onShow()
+      },
+      fail:function(res){
+        app.showErrorModal('修改失败',res.message)
+      }
+    })
+    
     this.setData({
       ifname: false,
     })
+
   },
   confirmpwd: function () {
-    if (this.data.oldpwd != this.data.pwd){
+    var that = this
+    if (this.data.oldpwd != app.globalData.pwd){
       app.showErrorModal('旧密码输入错误','修改失败')
     }
     else if (this.data.newpwd != this.data.repwd){
       app.showErrorModal('两次密码输入不一致', '修改失败')
     }
     else{
-      console.log('修改成功'),
-        this.setData({
-          ifpwd: false,
-        })
+      let cookie = wx.getStorageSync('cookieKey');
+      let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
+      if (cookie) {
+        header.Cookie = cookie
+      }
+      wx.request({
+        url: 'http://119.3.46.32:8014/user/modPassword',
+        method: 'POST',
+        header: header,
+        data: {
+          password: that.data.newpwd
+        },
+        success: function (res) {
+          app.showSuccessToast('修改成功', 3000)
+          that.onShow()
+        },
+        fail: function (res) {
+          app.showErrorModal('修改失败', res.message)
+        }
+      })
+      this.setData({
+        ifpwd: false,
+      })
     }
   }
 })

@@ -34,7 +34,9 @@ Page({
         url: '../index/index',
       })
     }*/
-    else{    
+    else{
+      app.globalData.username = that.data.userid
+      app.globalData.pwd = that.data.passwd
       app.showLoadToast('验证中');
       wx.request({
         method: 'POST',
@@ -47,6 +49,10 @@ Page({
           'content-type': 'application/x-www-form-urlencoded; charset=utf-8'
         },
         success: function (res) {
+          if(res && res.header && res.header['Set-Cookie']){
+            wx.setStorageSync('cookieKey', res.header['Set-Cookie'])
+            console.log(res.header['Set-Cookie'])
+          }
           if (res.data.message == "success") {
             //登录
             console.log(res)

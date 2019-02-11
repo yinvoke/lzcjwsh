@@ -6,7 +6,7 @@
         <text class="wx-cell-left-text">修改头像</text>
       </view>
       <view class="wx-cell-right flex-row">
-         <image class="user-avatar" src="" bindtap='chooseImage'></image>
+         <image class="user-avatar" src="{{head}}" bindtap='chooseImage'></image>
         <image class="wx-cell-arrow" src="/assets/user/right-gray.png"></image>
       </view>
     </view>
@@ -15,7 +15,7 @@
         <text class="wx-cell-left-text">昵称</text>
       </view>
       <view class="wx-cell-right flex-row" bindtap='name'>
-        <text class="wx-cell-right-text">ceshi</text>
+        <text class="wx-cell-right-text">{{nickname}}</text>
         <image class="wx-cell-arrow" src="/assets/user/right-gray.png"></image>
       </view>
     </view>
@@ -24,7 +24,7 @@
         <text class="wx-cell-left-text">密码</text>
       </view>
       <view class="wx-cell-right flex-row" bindtap='pwd'>
-        <text class="wx-cell-right-text">zheshimima</text>
+      <text class="wx-cell-right-text"></text>
         <image class="wx-cell-arrow" src="/assets/user/right-gray.png"></image>
       </view>
     </view>

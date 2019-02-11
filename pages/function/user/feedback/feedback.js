@@ -68,11 +68,7 @@ Page({
    * 内容提交
    */
   submit:function(){
-    wx.showToast({
-      title: '提交成功',
-      icon: 'success',
-      duration: 2000
-    })
+    app.showSuccessToast('提交成功',3000)
   }
 
 })
