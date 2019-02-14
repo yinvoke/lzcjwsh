@@ -74,14 +74,44 @@ Page({
     })
   },
   chooseWxImage: function (type) {
-    let _this = this;
+    let that = this;
+    let imagename = app.globalData.username + "head";
+    console.log(imagename)
     wx.chooseImage({
       sizeType: ['original', 'compressed'],
       sourceType: [type],
-      count: 3,
+      count: 1,
       success: function (res) {
-        _this.setData({
-          uploadimgs: _this.data.uploadimgs.concat(res.tempFilePaths)
+        let tempFilePaths = res.tempFilePaths
+        let cookie = wx.getStorageSync('cookieKey');
+        let header = { 
+          'content-type': 'multipart/form-data'
+        };
+        if (cookie) {
+          header.Cookie = cookie
+        }
+        wx.showToast({
+          title: '正在上传...',
+          icon: 'loading',
+          mask: true,
+          duration: 500
+        })
+        console.log(tempFilePaths[0])
+        wx.uploadFile({
+          url: 'http://119.3.46.32:8014/user/uploadHead', 
+          filePath: tempFilePaths[0],
+          header: header,
+          name: "head",
+          success(res) {
+            console.log(res)
+            var d = JSON.parse(res.data)
+            app.showSuccessToast('修改成功', 3000)
+            that.onShow()
+          },
+          fail(res){
+            app.showErrorModal(d.message, '上传失败')
+          }
+
         })
       }
     })
@@ -127,30 +157,36 @@ Page({
   },
   confirmname: function(){
     var that = this
-    let cookie = wx.getStorageSync('cookieKey');
-    let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8'};
-    if (cookie) {
-      header.Cookie = cookie
+    if (this.data.name != null) {
+      app.showErrorModal('请输入有效昵称修改失败', '请输入有效昵称')
     }
-    wx.request({
-      url: 'http://119.3.46.32:8014/user/modNickname',
-      method: 'POST',
-      header: header,
-      data:{
-        nickname:that.data.name
-      },
-      success: function (res) {
-        app.showSuccessToast('修改成功', 3000)
-        that.onShow()
-      },
-      fail:function(res){
-        app.showErrorModal('修改失败',res.message)
+    else{
+      let cookie = wx.getStorageSync('cookieKey');
+      let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
+      if (cookie) {
+        header.Cookie = cookie
       }
-    })
+      wx.request({
+        url: 'http://119.3.46.32:8014/user/modNickname',
+        method: 'POST',
+        header: header,
+        data: {
+          nickname: that.data.name
+        },
+        success: function (res) {
+          app.showSuccessToast('修改成功', 3000)
+          that.onShow()
+        },
+        fail: function (res) {
+          app.showErrorModal('修改失败', res.message)
+        }
+      })
+
+      this.setData({
+        ifname: false,
+      })
+    }
     
-    this.setData({
-      ifname: false,
-    })
 
   },
   confirmpwd: function () {

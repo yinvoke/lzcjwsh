@@ -20,23 +20,16 @@ Page({
       { id: '马小吊', avatar: "/assets/core/user.png", time: "3分钟前", text: '我才是你的！！！！！！'},
       { id: '怂文', avatar: "/assets/core/market.png", time: "3分钟前", text: '真实！' },
     ],
-    islike:false,
-    touser:"楼主"
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log("接收到的参数是str=" + options.id); 
+    
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
 
   /**
    * 生命周期函数--监听页面显示
@@ -45,19 +38,7 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
+  
 
   /**
    * 喜欢

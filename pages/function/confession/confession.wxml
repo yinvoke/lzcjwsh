@@ -16,27 +16,26 @@
     <image src='/assets/confession/tiezi.png' style='width:40rpx;height:40rpx;margin-top:-10rpx;'></image>
     <text >帖子列表</text>
   </view>
-  <view class="tweet-container" wx:for="{{timeline}}" wx:key="id">
+  <view class="tweet-container" wx:for="{{timeline}}" wx:key="item.id" bindtap="jumpDetails" id='{{item.id}}'>
     <view class="top-container flex-row">
-      <image wx:if="{{item.isAnonym==false}}" class="card-avatar" src="{{item.head}}"></image>
+      <image wx:if="{{item.isAnonym==false}}" class="card-avatar" src="http://119.3.46.32:8014/{{item.head}}"></image>
       <image wx:if="{{item.isAnonym==true && item.gender==0}}" class="card-avatar" src="/assets/main/woman.png"></image> 
       <image wx:if="{{item.isAnonym==true && item.gender==1}}" class="card-avatar" src="/assets/main/man.png"></image> 
       <view class="user-container">
-        <text class="card-name">写给：{{item.dst}}</text>
-        <text class="card-id">#{{item.src}}</text>
+        <text class="card-id">{{item.src}}</text>
       </view>
     </view>
-    <view class="middle-container flex-column"  data-route="../details/details" bindtap="jumpDetails">
+    <view class="middle-container flex-column"  data-route="../details/details" >
+      <text class="card-name">写给：{{item.dst}}</text>
       <text class="message-text">{{item.description}}</text>
       <image class="message-image"
         data-original-pic="{{item.picUrl}}" 
         wx:if="{{item.picUrl}}" 
         src="{{item.picUrl}}" 
         mode="aspectFill"
-        catchtap="previewImage"
       ></image>
     </view>
-    <view class="bottom-container flex-row"  data-route="../details/details" bindtap="jumpDetails">
+    <view class="bottom-container flex-row"  data-route="../details/details" >
       <view class="flex-row flex-rest-width" style='justify-content:flex-start;align-items:flex-start;margin-left:30rpx;margin-top:10rpx;'>
         <text class="card-time">表白墙 · {{item.time}}</text>
       </view>
@@ -48,7 +47,7 @@
         </view>
         <view>
           <image src='/assets/confession/comment.png' class='bottom-tool-image'></image>
-          <text class="bottom-tool-text">{{item.commentnum}}</text>
+          <text class="bottom-tool-text">{{item.comNum}}</text>
         </view>
       </view>
     </view>

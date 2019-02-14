@@ -1,11 +1,10 @@
 {
   "pages": [
-    
+    "pages/function/confession/confession",
     "pages/login/login",
     "pages/index/index",
     "pages/function/user/user",
     
-    "pages/function/confession/confession",
     "pages/function/confession/showlove/showlove",
     "pages/function/confession/details/details",
     "pages/function/table/table",

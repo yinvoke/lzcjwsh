@@ -75,48 +75,51 @@ view, scroll-view, input, text{
   border-radius: 4rpx;
   box-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
+.tweet-container.disabled{
+  color:rgba(0,0,0,0.3);
+}
 .top-container {
   padding: 20rpx;
-  border-bottom: 1rpx solid #e1e1e1;
 }
 .user-container {
   display: flex;
   flex-direction: column;
-  margin-left: 18rpx;
+  margin-left: 15rpx;
 }
 .card-avatar {
   background-color: #ffffff;
-  width: 80rpx;
-  height: 80rpx;
-  border-radius: 8rpx;
-  margin-right: 12rpx
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 35rpx;
+  margin-right: 10rpx
 }
 .card-id {
-  font-size: 26rpx;
-  color: #474747;
-  margin-top: 12rpx;
+  font-size: 28rpx;
+  color: #000000;
 }
 .card-time {
-  font-size: 26rpx;
+  font-size: 25rpx;
   color: #8999a5;
   margin-top: 7rpx;
 }
 .card-name {
-  color: #ff3097;
+  color: #000000;
+  margin-top:-10rpx;
   font-weight: bold;
-  font-size: 32rpx;
-  margin-top: 8rpx;
+  font-size: 30rpx;
 }
 .middle-container {
-  padding: 20rpx;
+  width:620rpx;
+  margin-left:110rpx;
 }
 .message-text{
+  letter-spacing:2rpx;
+  margin-top:10rpx;
   color: #333;
-  font-size: 30rpx;
+  font-size: 27rpx;
   line-height: 40rpx;
 }
 .message-image {
-  width: 100%;
   margin-top: 16rpx;
   background-color: #eceaea;   
 }

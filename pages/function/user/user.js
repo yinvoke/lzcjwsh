@@ -89,9 +89,10 @@ Page({
   /**
    * 注销账号跳转
    */
-  jumpProduct: function () {
+  jumpLogin: function () {
+    wx.setStorageSync('cookieKey', null)
     wx.navigateTo({
-      url: '../user/product/product',
+      url: '../../login/login',
     })
   }
 })

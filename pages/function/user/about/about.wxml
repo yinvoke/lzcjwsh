@@ -2,7 +2,7 @@
 <view class="container flex-column">
   <view class="top-container flex-rest-height">
     <view class="logo">
-      <image src="/assets/user/logo.png" class="logo-image"></image>
+      <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1549888222461&di=7e9ce29953801f41b811bb143ca5e119&imgtype=0&src=http%3A%2F%2Fuploads.5068.com%2Fallimg%2F1809%2F196-1P930114055.jpg" class="logo-image"></image>
     </view>
     <view class="name">
       <text>树袋熊</text>

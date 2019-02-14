@@ -18,9 +18,9 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 生命周期函数--页面显示
    */
-  onReady: function () {
+  onShow: function () {
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');
     let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8'};
@@ -50,19 +50,15 @@ Page({
     })
     return items
   },
-  previewImage(event) {
-    wx.previewImage({
-      current: '',
-      urls: [event.target.dataset.originalPic]
-    })
-  },
 
   /**
    * 评论跳转功能
    */
-  jumpDetails:function(){
+  jumpDetails:function(e){
+    let id = e.currentTarget.id
+    console.log(id)
     wx.navigateTo({
-      url: '../confession/details/details',
+      url: '../confession/details/details?id=' + id,
     })
   },
   /**
