@@ -2,28 +2,29 @@
 <scroll-view scroll-y="true" bindscrolltolower="scrollToLower" class="timeline">
   <view class="tweet-container" >
     <view class="top-container flex-row">
-      <image class="card-avatar" src="{{item.avatar}}"></image>                
+      <image wx:if="{{headitem.isAnonym==false}}" class="card-avatar" src="http://119.3.46.32:8014/{{headitem.head}}"></image>
+      <image wx:if="{{headitem.isAnonym==true && headitem.gender==0}}" class="card-avatar" src="/assets/main/woman.png"></image> 
+      <image wx:if="{{headitem.isAnonym==true && headitem.gender==1}}" class="card-avatar" src="/assets/main/man.png"></image>              
       <view class="user-container">
-        <text class="card-id">{{item.id}}</text>
-        <text class="card-time">{{item.time}}</text>
+        <text class="card-id">{{headitem.src}}</text>
+        <text class="card-time">{{headitem.time}}</text>
       </view>
     </view>
     <view class="middle-container flex-column" >
-      <text class="card-name">To:{{item.nickname}}</text>
-      <text class="message-text" style='margin-left:0'>{{item.text}}</text>
+      <text class="card-name">To:{{headitem.dst}}</text>
+      <text class="message-text" style='margin-left:0'>{{headitem.description}}</text>
       <image class="message-image"
-        data-original-pic="{{item.original_pic}}" 
-        wx:if="{{item.original_pic}}" 
-        src="{{item.original_pic}}" 
+        wx:if="{{headitem.picUrl}}" 
+        src="http://119.3.46.32:8014/{{headitem.picUrl}}" 
         mode="aspectFill"
         catchtap="previewImage"
       ></image>
     </view>
     <view class="bottom-container flex-row" >
       <view class="bottom-tool flex-row flex-rest-width" bindtap='likedislike'>
-        <image wx:if="{{islike}}"  src='/assets/confession/like.png' class='bottom-tool-image'></image>
+        <image wx:if="{{headitem.isThumbUp}}"  src='/assets/confession/like.png' class='bottom-tool-image'></image>
         <image wx:else  src='/assets/confession/dislike.png' class='bottom-tool-image'></image>
-        <text class="bottom-tool-text">{{item.likenum}}</text>
+        <text class="bottom-tool-text">{{headitem.thumb}}</text>
       </view>
       <view class="bottom-tool flex-row flex-rest-width" >
           <image src='/assets/confession/forword.png' class='bottom-tool-image'></image>
@@ -32,26 +33,19 @@
     </view>
   </view>
   <view class="charu"><text>全部评论</text></view>
-  <view class="tweet-container2" wx:for="{{comments}}" wx:key="id" > 
+  <view class="tweet-container2" wx:for="{{comments}}" wx:key="{{item.id}}"> 
     <view class="top-container flex-row">
-      <image class="card-avatar" src="{{item.avatar}}"></image>                
+      <image class="card-avatar" src="http://119.3.46.32:8014/{{item.head}}"></image>
       <view class="user-container" >
-        <text class="card-id" >{{item.id}}</text>
+        <text class="card-id" >{{item.nickname}}</text>
         <text class="card-time">{{item.time}}</text>
       </view>
     </view>
     <view class="middle-container flex-column" id='{{item.id}}' data-id='{{item.id}}' bindtap='toBtn' >
-      <text class="message-text" id='{{item.id}}' data-id='{{item.id}}' >{{item.text}}</text>
-      <image class="message-image"
-        data-original-pic="{{item.original_pic}}" 
-        wx:if="{{item.original_pic}}" 
-        src="{{item.original_pic}}" 
-        mode="aspectFill"
-        catchtap="previewImage"
-      ></image>
-      <view wx:if="{{item.comments}}" class='commentarea'>
-        <view wx:for="{{item.comments}}" wx:key="id" wx:for-item="cell" id='{{cell.id}}' data-id='{{cell.id}}' class='comments-block'>
-          <text class="message-text" id='{{cell.id}}' data-id='{{cell.id}}' class='commentarea-text'>{{cell.id}} 回复 {{item.id}}: {{cell.content}}</text>
+      <text class="message-text" id='{{item.id}}' data-id='{{item.id}}' >{{item.content}}</text>
+      <view wx:if="{{item.more}}" class='commentarea'>
+        <view wx:for="{{item.secondComment}}" wx:key="{{item.id}}" wx:for-item="cell" id='{{cell.id}}' data-id='{{cell.id}}' class='comments-block'>
+          <text wx:if="{{cell.parentId==0}}" class="message-text" id='{{cell.id}}' data-id='{{cell.id}}' class='commentarea-text'>{{cell.nickname}} 回复 {{item.nickname}}: {{cell.content}}</text>
         </view>
       </view>
     </view>
@@ -60,7 +54,7 @@
   <view class='comment'>
     <input placeholder='回复 {{touser}}' />
     <view bindtap='likedislike'>
-      <image wx:if="{{islike}}"  src='/assets/confession/like.png' class='like'></image>
+      <image wx:if="{{headitem.isThumbUp}}"  src='/assets/confession/like.png' class='like'></image>
       <image wx:else  src='/assets/confession/dislike.png' class='like'></image>
     </view>
   </view>

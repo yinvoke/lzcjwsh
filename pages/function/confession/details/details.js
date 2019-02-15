@@ -1,33 +1,24 @@
 // pages/function/confession/details/details.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    item:{ id: '二狗', nickname: '刘薇', avatar: "/assets/core/aides.png", time: "3分钟前", text: '我是二狗，我爱你！', original_pic:"/images/1.jpg",likenum:60,commentnum:12},
-    comments: [
-      { 
-        id: '李毛毛', avatar: "/assets/core/user.png", time: "5分钟前", text: '哦是吗？',
-        comments: [
-          { id: '怂文', content: '哦是啊' },
-          { id: '怂文', content: '哦是啊!' },
-          { id: '怂文', content: '哦是啊!!' },
-          { id: '怂文', content: '哦是啊!!!哦是啊!!!哦是啊!!!哦是啊!!!哦是啊!!!哦是啊!!!哦是啊!!!哦是啊!!!哦是啊!!!哦是啊!!!哦是啊!!!哦是啊!!!哦是啊!!!' },
-        ]
-      },
-      { id: '柴死狗', avatar: "/assets/core/market.png", time: "3分钟前", text: '太惨了'},
-      { id: '马小吊', avatar: "/assets/core/user.png", time: "3分钟前", text: '我才是你的！！！！！！'},
-      { id: '怂文', avatar: "/assets/core/market.png", time: "3分钟前", text: '真实！' },
-    ],
+    comments:null,
+    headitem:null,
+    uid: null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log("接收到的参数是str=" + options.id); 
-    
+    this.setData({
+      headitem: JSON.parse(options.ob),
+      uid: JSON.parse(options.ob).id
+    })
   },
 
 
@@ -35,7 +26,27 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this;
+    let cookie = wx.getStorageSync('cookieKey');
+    let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
+    if (cookie) {
+      header.Cookie = cookie
+    }
+    wx.request({
+      url: 'http://119.3.46.32:8014/conWall/getCommentByConId',
+      method: 'POST',
+      header: header,
+      data: {
+        id: 0,
+        conId: that.data.uid
+      },
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          comments: res.data.object
+        })
+      }
+    })
   },
 
   
@@ -44,9 +55,46 @@ Page({
    * 喜欢
    */
   likedislike: function(){
-    this.setData({
-      islike : !this.data.islike
-    })
+    var that = this;
+    let cookie = wx.getStorageSync('cookieKey');
+    let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
+    if (cookie) {
+      header.Cookie = cookie
+    }
+    if (this.data.headitem.isThumbUp == false){
+      wx.request({
+        url: 'http://119.3.46.32:8014/conWall/thumbUp',
+        method: 'POST',
+        header: header,
+        data: {
+          conId: that.data.uid
+        },
+        success:function(res){
+          console.log(res)
+          that.setData({
+            ['headitem.isThumbUp']:true,
+            ['headitem.thumb']:that.data.headitem.thumb+1
+          })
+        }
+      })
+    }
+    else{
+      wx.request({
+        url: 'http://119.3.46.32:8014/conWall/thumbDown',
+        method: 'POST',
+        header: header,
+        data: {
+          conId: that.data.uid
+        },
+        success: function (res) {
+          console.log(res)
+          that.setData({
+            ['headitem.isThumbUp']: false,
+            ['headitem.thumb']: that.data.headitem.thumb - 1
+          })
+        }
+      })
+    }
   },
 
   /**

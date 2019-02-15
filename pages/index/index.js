@@ -19,7 +19,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
   },
 
   /**
@@ -115,14 +114,5 @@ Page({
     })
   },
 
-  /**
-   * 敬请期待
-   */
-  test: function(){
-    wx.showToast({
-      title: '敬请期待',
-      icon: 'loading',
-      duration: 1500
-    })
-  }
+  
 })

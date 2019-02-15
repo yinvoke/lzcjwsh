@@ -2,13 +2,17 @@
 <view class="container">
   <view class="card_wrap">
     <view class='kuangs'>
-      <view class='kuang'>
-        <text class='kuang-text'>对方的姓名/昵称: </text>
-        <input class='kuang-input' />
+    <view class='kuang'>
+        <text class='kuang-text'>你的姓名: </text>
+        <input class='kuang-input' value="{{nickname}}" bindinput='frominput' />
       </view>
-      <view class='kuang2'>
-        <text class='kuang-text'>对他的话：</text>
-        <textarea class='kuang-input' style='height:240rpx;'></textarea>
+      <view class='kuang'>
+        <text class='kuang-text'>对方的姓名: </text>
+        <input class='kuang-input' placeholder='请输入对方的姓名/昵称' bindinput='toinput' />
+      </view>
+      <view class='kuang2' style='margin-top:15rpx'>
+        <text class='kuang-text'>对Ta的话：</text>
+        <textarea class='kuang-input' style='height:240rpx;padding:15rpx' placeholder='写下你想说的话吧~' bindinput='coninput'></textarea>
       </view>
       <view class='kuang2'>
         <text class='kuang-text'>插入图片(限一张，可选）</text>
@@ -21,11 +25,16 @@
             </view>
           </view>
         </view>
+        <view style='margin-top:12rpx'>
+          <text>是否启用匿名头像</text>
+          <switch bindchange='ischange' />
+        </view>
       </view>
+      
     </view>
   </view>
   <view class="bottom">
-    <button class="post" bindtap='jumpDisclaimer'>发送</button>
+    <button class="post" bindtap='submit'>发送</button>
   </view>
 </view>
 

@@ -1,11 +1,14 @@
 {
   "pages": [
+    
+    
     "pages/function/confession/confession",
-    "pages/login/login",
+    
     "pages/index/index",
     "pages/function/user/user",
-    
     "pages/function/confession/showlove/showlove",
+    "pages/login/login",
+    
     "pages/function/confession/details/details",
     "pages/function/table/table",
     "pages/function/aides/aides",

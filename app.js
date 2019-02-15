@@ -29,21 +29,11 @@ App({
 
   globalData: {
     username:null,
-    pwd:null
+    pwd:null,
   },
 
 
-  /**
-   * 缓存
-   */
-  saveSession: function (sessionId) {
-    wx.setStorageSync("sessionkey", sessionId)//保存sessionid
-    wx.setStorageSync("sessiondate", Date.parse(new Date()))//保存当前时间，
-  },
-  removeLocalSession: function () {
-    wx.removeStorageSync("sessionkey")
-    wx.removeStorageSync("sessiondate")
-  },
+
 
   /**
    * 提示功能
