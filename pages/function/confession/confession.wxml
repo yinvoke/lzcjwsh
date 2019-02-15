@@ -2,16 +2,12 @@
 <view>
   <scroll-view scroll-y="true" bindscrolltolower="scrollToLower" class="timeline" scroll-top="{{scrollTop}}" bindscroll="scroll">
     <view class="main-core">
-      <navigator class="main-core-item" url="{{'/pages/function/confession/showlove/showlove'}}">
-        <image class="core-item-icon" src="/assets/core/confession.png"></image>
-        <text class="core-item-name">表白墙</text>
-        <image class="core-item-icon" src="/assets/core/confession.png"></image>
-        <text class="core-item-name">一键匹配</text>
-        <image class="core-item-icon" src="/assets/core/confession.png"></image>
-        <text class="core-item-name">消息提醒</text>
-        <image class="core-item-icon" src="/assets/core/confession.png"></image>
-        <text class="core-item-name" >发起表白</text>
+      <block wx:for="{{core}}" wx:key="id">
+      <navigator class="main-core-item" url="{{'/pages/function/confession/'+item.id+'/'+item.id}}">
+        <image class="core-item-icon" src="/assets/confession/{{item.id}}.png"></image>
+        <text class="core-item-name">{{item.name}}</text>
       </navigator>
+    </block>
     </view>
     <view class='flex-row flex-rest-width'>
       <image src='/assets/confession/tiezi.png' style='width:40rpx;height:40rpx;margin-top:-10rpx;'></image>

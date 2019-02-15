@@ -72,13 +72,14 @@
 .you{
   margin-left: 170rpx;
   height: 1120rpx;
-  background-color: #c5c5c5;
+  background-color: #ffffff;
 }
 
 .card{
   width: 100%;
   height: 220rpx;
   background-color: rgb(255, 255, 255);
+  border-bottom: solid 1rpx #c0c0c0;
   margin-bottom: 2rpx;
   display:flex;
 }
@@ -97,7 +98,7 @@
   height: 30rpx;
   padding-left: 15rpx;
   padding-top: 10rpx;
-  font-size: 25rpx;
+  font-size: 24rpx;
 }
 .chengse{ 
   height: 90rpx;
@@ -181,6 +182,11 @@
   background-color: #7acfa6;
   font-weight: bold;
   color: white;
+}
+.content-ending{
+  width: 100%;
+  color: rgb(148, 148, 148);
+  margin-left:40%;
 }
 
 ::-webkit-scrollbar

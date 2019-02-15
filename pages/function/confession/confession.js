@@ -7,11 +7,9 @@ Page({
    */
   data: {
     core: [
-      { id: 'table', name: '课表查询' },
-      { id: 'aides', name: '蹭课助手' },
-      { id: 'lost', name: '失误招领' },
-      { id: 'confession', name: '表白墙' },
-      { id: 'user', name: '用户中心' }
+      { id: 'message', name: '消息中心' },
+      { id: 'showlove', name: '发起表白' },
+      { id: 'matching', name: '心动匹配' }
     ],
     timeline:[],
     scrollTop: 0,

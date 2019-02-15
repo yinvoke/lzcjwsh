@@ -5,154 +5,118 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabs: [
-      '推荐', '图书', '电器', '手机', '电脑', '衣服', '鞋', '饰品', '包', '化妆品', '日用品', '食品', '票务', '其他'
-    ],
-    goods:[
-      {
-        id:1,
-        goodsname:'辣条',
-        description:'随便卖卖',
-        chengse:2,
-        src:'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1549714849566&di=453901d661ceffa9cd7bf9c169431ec2&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201501%2F03%2F20150103224114_SyVRt.thumb.700_0.png',
-        price:'23.5',
-        tel:'15616152768',
-        qq: '23456789',
-        time: '2018-10-10',
-      },
-      {
-        id: 2,
-        goodsname: '雨伞',
-        description: '随便卖卖',
-        chengse: 1,
-        src: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1735037410,1830000647&fm=26&gp=0.jpg',
-        price: '100',
-        tel: '15616152768',
-        qq: '23456789',
-        time: '2018-10-10',
-      },
-      {
-        id: 3,
-        goodsname: '耳机',
-        description: '随便卖卖',
-        chengse: 7,
-        src: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=4292726090,2886192673&fm=26&gp=0.jpg',
-        price: '299',
-        tel: '15616152768',
-        qq: '23456789',
-        time: '2018-10-10',
-      },
-      {
-        id: 4,
-        goodsname: 'dog',
-        description: '随便卖卖',
-        chengse: 10,
-        src: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2287990384,2843615090&fm=26&gp=0.jpg',
-        price: '23.5',
-        tel: '15616152768',
-        qq: '23456789',
-        time: '2018-10-10',
-      },
-      {
-        id: 5,
-        goodsname: '雨伞',
-        description: '随便卖卖',
-        chengse: 7,
-        src: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1735037410,1830000647&fm=26&gp=0.jpg',
-        price: '23.5',
-        tel: '15616152768',
-        qq: '23456789',
-        time: '2018-10-10',
-      },
-      {
-        id: 6,
-        goodsname: '雨伞',
-        despription: 9,
-        chengse: 7,
-        src: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1735037410,1830000647&fm=26&gp=0.jpg',
-        price: '23.5',
-        tel: '15616152768',
-        qq: '23456789',
-        time: '2018-10-10',
-      },
-      {
-        id: 7,
-        goodsname: '雨伞',
-        description: '随便卖卖',
-        chengse: 7,
-        src: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1735037410,1830000647&fm=26&gp=0.jpg',
-        price: 10,
-        tel: '15616152768',
-        qq: '23456789',
-        time: '2018-10-10',
-      },
-      {
-        id: 8,
-        goodsname: '雨伞',
-        description: '随便卖卖',
-        chengse: 6,
-        src: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1735037410,1830000647&fm=26&gp=0.jpg',
-        price: '23.5',
-        tel: '15616152768',
-        qq: '23456789',
-        time: '2018-10-10',
-      },
-      {
-        id: 9,
-        goodsname: '雨伞',
-        description: '随便卖卖',
-        chengse: 5,
-        src: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1735037410,1830000647&fm=26&gp=0.jpg',
-        price: '23.5',
-        tel: '15616152768',
-        qq: '23456789',
-        time: '2018-10-10',
-      },
-      {
-        id: 10,
-        goodsname: '雨伞',
-        description: '随便卖卖',
-        chengse: 6,
-        src: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1735037410,1830000647&fm=26&gp=0.jpg',
-        price: '23.5',
-        tel: '15616152768',
-        qq: '23456789',
-        time: '2018-10-10',
-      },
-      {
-        id: 11,
-        goodsname: '雨伞',
-        description: '爱神的箭空喊口号文化苦旅为了就离开是捡垃圾了就两节课了巨额局看来今晚来睡觉考虑将来晚了巨款了继往开来拉开距离金额来看捡垃圾了爱神的箭空喊口号文化苦旅为了就离',
-        chengse: 7,
-        src: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1735037410,1830000647&fm=26&gp=0.jpg',
-        price: '23.5',
-        tel: '15616152768',
-        qq: '23456789',
-        time: '2018-10-10',
-      },
-    ],
+    tabs: null,
+    goods:[],
     clickid : 0,
-    clickitem : '推荐',
+    curid:0,
     showModalStatus: false
   },
   /**
-   * 改变颜色
+   * 页面加载
    */
-  tabClick:function(e){
-    this.setData({
-      clickid: e.currentTarget.id,
-      clickitem: this.data.tabs[e.currentTarget.id]
+  onLoad:function(){
+    this.getType();
+    
+  },
+  onShow:function(){
+    let typeid = Number(this.data.clickid)+1;
+    this.getGoods(this.data.curid, typeid);
+  },
+  /**
+   * 获取类型
+   */
+  getType:function(){
+    var that = this;
+    let cookie = wx.getStorageSync('cookieKey');
+    let header = {};
+    if (cookie) {
+      header.Cookie = cookie
+    }
+    wx.request({
+      url: 'http://119.3.46.32:8014/fleMar/getAllType',
+      method: 'GET',
+      header: header,
+      success: function (res) {
+        that.setData({
+          tabs: res.data.object
+        })
+      }
     })
   },
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
+   * 获取类型商品
    */
-  onPullDownRefresh: function () {
+  getGoods: function (lastid, typeid){
+    var that = this;
+    let cookie = wx.getStorageSync('cookieKey');
+    let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8'};
+    if (cookie) {
+      header.Cookie = cookie
+    }
+    wx.request({
+      url: 'http://119.3.46.32:8014/fleMar/getAllProduct',
+      method: 'POST',
+      header: header,
+      data:{
+        lastId:lastid,
+        typeId:typeid
+      },
+      success: function (res) {
+        console.log(res)
+        var temp = that.data.goods.concat(res.data.object)
+        that.setData({
+          goods: temp
+        })
+        let l = res.data.object.length;
+        let cid = res.data.object[l - 1].id;
+        if (l - 1 < 19) {
+          that.setData({
+            curid: cid,
+            remind: '没有更多啦！',
+            more: false
+          })
+        } else {
+          that.setData({
+            curid: cid,
+            remind: '下拉加载更多！',
+            more: true
+          })
+        }
+      }
+    })
+  },
 
+  /**
+   * 改变选项
+   */
+  tabClick:function(e){
+    this.setData({
+      curid:0,
+      clickid: e.currentTarget.id,
+      goods:[]
+    })
+    let typeid = Number(this.data.clickid) +1;
+    this.getGoods(this.data.curid,typeid)
   },
-  fatie:function(){
-    
+  //上滑加载更多
+  loadmore: function () {
+    let typeid = Number(this.data.clickid) + 1;
+    if (this.data.more) {
+      this.getGoods(this.data.curid,typeid);
+    }
   },
+  //下拉刷新
+  onPullDownRefresh: function () {
+    this.setData({
+      curid: 0,
+      goods: []
+    });
+    let typeid = Number(this.data.clickid) + 1;
+    this.getGoods(this.data.curid, typeid)
+  },
+  /**
+   * 动画
+   */
   powerDrawer: function (e) {
     var currentStatu = e.currentTarget.dataset.statu;
     this.util(currentStatu)
@@ -188,21 +152,17 @@ Page({
 
       //关闭
       if (currentStatu == "close") {
-        this.setData(
-          {
-            showModalStatus: false
-          }
-        );
+        this.setData({
+          showModalStatus: false
+        });
       }
     }.bind(this), 200)
 
     // 显示
     if (currentStatu == "open") {
-      this.setData(
-        {
-          showModalStatus: true
-        }
-      );
+      this.setData({
+        showModalStatus: true
+      });
     }
   },
   jumpmine:function(){

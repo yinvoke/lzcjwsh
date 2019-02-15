@@ -5,65 +5,98 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goods: [
-      {
-        id: 1,
-        goodsname: '辣条',
-        description: '随便卖卖',
-        chengse: 2,
-        src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1549714849566&di=453901d661ceffa9cd7bf9c169431ec2&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201501%2F03%2F20150103224114_SyVRt.thumb.700_0.png',
-        price: '23.5',
-        tel: '15616152768',
-        qq: '23456789',
-        time:'2018-10-1',
-        issale:false
-      },
-      {
-        id: 2,
-        goodsname: '雨伞',
-        description: '随便卖卖',
-        chengse: 1,
-        src: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1735037410,1830000647&fm=26&gp=0.jpg',
-        price: '100',
-        tel: '15616152768',
-        qq: '23456789',
-        time: '2018-10-1',
-        issale: false
-      },
-      {
-        id: 3,
-        goodsname: '耳机',
-        description: '随便卖卖',
-        chengse: 7,
-        src: 'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=4292726090,2886192673&fm=26&gp=0.jpg',
-        price: '299',
-        tel: '15616152768',
-        qq: '23456789',
-        time: '2018-10-1',
-        issale: false
-      },
-    ],
+    curid: 0,
+    goods: [],
   },
 
   /**
-   * 生命周期函数--监听页面加载
+   * 生命周期函数--监听页面显示
    */
-  onLoad: function (options) {
-
+  onShow: function (options) {
+    this.getGoods(this.data.curid)
   },
-
   /**
-   * 生命周期函数--监听页面初次渲染完成
+   * 获取类型商品
    */
-  onReady: function () {
-
+  getGoods: function (lastid) {
+    var that = this;
+    let cookie = wx.getStorageSync('cookieKey');
+    let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
+    if (cookie) {
+      header.Cookie = cookie
+    }
+    wx.request({
+      url: 'http://119.3.46.32:8014/fleMar/getOwnProduct',
+      method: 'POST',
+      header: header,
+      data: {
+        lastId: lastid
+      },
+      success: function (res) {
+        console.log(res)
+        var temp = that.data.goods.concat(res.data.object)
+        that.setData({
+          goods: temp
+        })
+        let l = res.data.object.length;
+        let cid = res.data.object[l - 1].id;
+        if (l - 1 < 19) {
+          that.setData({
+            curid: cid,
+            remind: '没有更多啦！',
+            more: false
+          })
+        } else {
+          that.setData({
+            curid: cid,
+            remind: '下拉加载更多！',
+            more: true
+          })
+        }
+      }
+    })
   },
-
-  sale:function(e){
-    var id = e.currentTarget.id;
-    var up = "goods[" + id + "].issale";
+  //上滑加载更多
+  onReachBottom: function () {
+    if (this.data.more) {
+      this.getGoods(this.data.curid);
+    }
+  },
+  //下拉刷新
+  onPullDownRefresh: function () {
     this.setData({
-      [up] :true
+      curid: 0,
+      goods: []
+    });
+    this.getGoods(this.data.curid)
+  },
+  /**
+   * 重新上架
+   */
+  resale:function(e){
+    var that =this;
+    let cookie = wx.getStorageSync('cookieKey');
+    let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
+    if (cookie) {
+      header.Cookie = cookie
+    }
+    var id = e.currentTarget.id;
+    console.log(this.data.goods[id].id)
+    let uid = this.data.goods[id].id
+    wx.request({
+      url: 'http://119.3.46.32:8014/fleMar/refreshProduct',
+      method: 'POST',
+      header: header,
+      data: {
+        id: uid
+      },
+      success: function (res) {
+        that.setData({
+          curid:0,
+          goods:[]
+        })
+        that.getGoods(that.data.curid)
+      }
     })
   }
 })

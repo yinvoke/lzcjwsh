@@ -2,14 +2,14 @@
 <scroll-view scroll-y="true" class='you'>
   <block wx:for="{{goods}}"  wx:key="id">
     <view class='card'>
-      <image src='{{item.src}}'></image>
       <view>
-        <view class='title'><text>{{item.goodsname}}</text></view>
+        <view class='title'><text>物品名称：{{item.name}}</text></view>
         <view class='time'><text>发布日期：{{item.time}}</text></view>
         <view class='jiage'><text>￥{{item.price}}</text></view>
       </view>
-      <view  id='{{index}}' class='sale' bindtap='sale' wx:if="{{item.issale==false}}">确认出售</view>
-      <view  id='{{index}}' class='sale' bindtap='sale' wx:if="{{item.issale==true}}" style='color:orange;font-weight:bold'>已出售</view>
+      <view  id='{{index}}' class='sale' wx:if="{{item.status==0}}" style='color:orange;font-weight:bold'>正在出售</view>
+      <view  id='{{index}}' class='sale' bindtap='resale' wx:if="{{item.status==1}}" >重新上架</view>
     </view>
   </block>
+  <text class="content-ending">{{remind}}</text>
 </scroll-view>

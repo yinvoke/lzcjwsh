@@ -2,22 +2,23 @@
   "pages": [
     
     
+    "pages/function/market/market",
+    "pages/function/market/release/release",
+    "pages/function/confession/message/message",
+    "pages/function/confession/matching/matching",
     "pages/function/confession/confession",
-    
     "pages/index/index",
     "pages/function/user/user",
     "pages/function/confession/showlove/showlove",
     "pages/login/login",
-    
     "pages/function/confession/details/details",
     "pages/function/table/table",
     "pages/function/aides/aides",
-    "pages/function/market/market",
+    
     "pages/function/market/mine/mine",
-    "pages/function/market/release/release",
+    
     "pages/function/user/about/about",
     "pages/function/user/information/information",
-    
     "pages/function/user/feedback/feedback",
     "pages/function/user/product/disclaimer/disclaimer",
     "pages/function/user/product/product"

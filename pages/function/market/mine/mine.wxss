@@ -34,3 +34,8 @@
   margin-left: 15%;
   margin-top:95rpx;
 }
+.content-ending{
+  width: 100%;
+  color: rgb(148, 148, 148);
+  margin-left:40%;
+}

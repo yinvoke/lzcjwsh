@@ -5,19 +5,23 @@
     <view class='kuangs'>
       <view class='kuang'>
         <text class='kuang-text'>商品名称: </text>
-        <input class='kuang-input' />
+        <input class='kuang-input' bindinput='sname'/>
       </view>
       <view class='kuang'>
         <text class='kuang-text'>价格: </text>
-        <input class='kuang-input' />
+        <input class='kuang-input' bindinput='sprice'/>
       </view>
       <view class='kuang'>
         <text class='kuang-text'>几成新: </text>
-        <input class='kuang-input' placeholder='请填入1~10之间的数字'/>
+        <input class='kuang-input' bindinput='squan' placeholder='请填入1~10之间的数字'/>
+      </view>
+      <view class='kuang'>
+        <text class='kuang-text'>类型: </text>
+        <picker bindchange='stype' value="{{tabs[tindex].name}}" range='{{tabs}}' range-key="{{'name'}}">{{tabs[tindex].name}}</picker>
       </view>
       <view class='kuang2'>
         <text class='kuang-text'>商品描述：</text>
-        <textarea class='kuang-input2' placeholder='对商品做个简单描述吧~（字数限制140）'></textarea>
+        <textarea class='kuang-input2' bindinput='sdesc' placeholder='对商品做个简单描述吧~（字数限制140）'></textarea>
       </view>
       <view class='kuang2' style='margin-top: 70rpx;'>
         <text class='kuang-text'>商品图片(限3张，可选）</text>
@@ -33,12 +37,12 @@
       </view>
       <view class='kuang' style='margin-top: -60rpx;'>
         <text class='kuang-text'>联系方式: </text>
-        <input class='kuang-input' placeholder='例如：qq：12345678'/>
+        <input class='kuang-input' bindinput='scon' placeholder='例如：qq：12345678'/>
       </view>
     </view>
   </view>
   <view class="bottom">
-    <button class="post" bindtap='jumpDisclaimer'>发送</button>
+    <button class="post" bindtap='submit'>发送</button>
   </view>
 </view>
 
