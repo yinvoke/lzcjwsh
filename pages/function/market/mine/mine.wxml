@@ -9,6 +9,7 @@
       </view>
       <view  id='{{index}}' class='sale' wx:if="{{item.status==0}}" style='color:orange;font-weight:bold'>正在出售</view>
       <view  id='{{index}}' class='sale' bindtap='resale' wx:if="{{item.status==1}}" >重新上架</view>
+      <view   class='sale' bindtap='delete'  >下架</view>
     </view>
   </block>
   <text class="content-ending">{{remind}}</text>

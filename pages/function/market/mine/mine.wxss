@@ -26,12 +26,13 @@
 }
 .jiage{
   height: 50rpx;
+  margin-top: 40rpx;
   padding-left: 15rpx;
   font-size: 28rpx;
   color: red;
 }
 .sale{
-  margin-left: 15%;
+  margin-left: 10%;
   margin-top:95rpx;
 }
 .content-ending{
