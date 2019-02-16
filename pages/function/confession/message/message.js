@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    nav:1,
+    curid:0,
     huifu:[
       {
         src:"二狗",
@@ -52,59 +52,66 @@ Page({
     ]
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getmessage(this.data.curid)
+  },
+  getmessage: function (id) {
+    var that = this;
+    let cookie = wx.getStorageSync('cookieKey');
+    let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
+    if (cookie) {
+      header.Cookie = cookie
+    }
+    wx.request({
+      url: 'http://119.3.46.32:8014/conWall/getMessage',
+      method: 'GET',
+      header: header,
+      data: {
+        id: id
+      },
+      success: function (res) {
+        console.log(res)
+        var temp = that.data.huifu.concat(res.data.object)
+        that.setData({
+          huifu: temp
+        })
+        let l = res.data.object.length;
+        let cid = res.data.object[l - 1].id;
+        if (l - 1 < 19) {
+          that.setData({
+            curid: cid,
+            remind: '没有更多啦！',
+            more: false
+          })
+        } else {
+          that.setData({
+            curid: cid,
+            remind: '下拉加载更多！',
+            more: true
+          })
+        }
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
+  //上滑加载更多
   onReachBottom: function () {
-
+    var that = this;
+    if (that.data.more) {
+      that.getmessage(that.data.curid);
+    }
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+  //下拉刷新
+  onPullDownRefresh: function () {
+    var that = this;
+    that.setData({
+      curid: 0,
+      huifu: []
+    });
+    that.getmessage(that.data.curid)
+  },
 })

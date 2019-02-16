@@ -23,7 +23,7 @@
       <!--内容栏-->
       <scroll-view wx:if="{{goods.length>=1}}" scroll-y="true" class='you' bindscrolltolower="loadmore">
         <block wx:for="{{goods}}"  wx:key="item.id">
-          <view class='card' bindtap="powerDrawer" data-statu="open">
+          <view id="{{index}}" class='card' bindtap="powerDrawer" data-statu="open">
             <image src='http://119.3.46.32:8014/{{item.pic[0]}}'></image>
             <view>
               <view class='title'>
@@ -50,17 +50,17 @@
         <!--使用animation属性指定需要执行的动画-->
         <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
           <!--drawer content-->
-          <view class="drawer_title">辣条</view>
+          <view class="drawer_title">{{temp.name}}</view>
           <view class="drawer_content">
             <view>
-              <view class='description'><text>产品描述：前两天新买的，吃不动了</text></view>
-              <view class='description'><text>崭新程度：二成新</text></view>
-              <view class='description'><text>价格：￥23.5</text></view>
-              <view class='description'><text>发布人联系方式：qq：123456789</text></view>
+              <view class='description'><text>产品描述：{{temp.content}}</text></view>
+              <view class='description'><text>崭新程度：{{temp.quality}}成新</text></view>
+              <view class='description'><text>价格：{{temp.price}} RMB</text></view>
+              <view class='description'><text>发布人联系方式：{{temp.contact}}</text></view>
               <view class='images'>
-                <image src='{{goods[0].src}}'></image>
-                <image src='{{goods[1].src}}'></image>
-                <image src='{{goods[2].src}}'></image>
+                <image wx:if="{{temp.pic[0]}}" src='http://119.3.46.32:8014/{{temp.pic[0]}}'></image>
+                <image wx:if="{{temp.pic[1]}}" src='http://119.3.46.32:8014/{{temp.pic[1]}}'></image>
+                <image wx:if="{{temp.pic[2]}}" src='http://119.3.46.32:8014/{{temp.pic[2]}}'></image>
               </view>
             </view>
           </view>
@@ -69,7 +69,9 @@
         <image  src='/assets/market/fatie.png' class='fatie' bindtap="jumprelease" style='opacity:0.6'/>
         <text class="content-ending">{{remind}}</text>
       </scroll-view>
-      <view wx:else class='you'><text>什么都没有找到哦~</text></view>
+      <view wx:else class='you'>
+        <view class='noc'><text>什么都没有找到哦~</text></view>
+      </view>
     </view>
   </view>
 </view>

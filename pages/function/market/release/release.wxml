@@ -24,7 +24,7 @@
         <textarea class='kuang-input2' bindinput='sdesc' placeholder='对商品做个简单描述吧~（字数限制140）'></textarea>
       </view>
       <view class='kuang2' style='margin-top: 70rpx;'>
-        <text class='kuang-text'>商品图片(限3张，可选）</text>
+        <text class='kuang-text'>商品图片(限3张，至少一张）</text>
         <view class='photoupload'>
           <view class="img-upload">
             <view class="img-add" bindtap="chooseImage"><image src='/assets/more/add.png'></image></view>

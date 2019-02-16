@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "跳蚤市场",
   "navigationBarBackgroundColor": "#7acfa6",
-  "enablePullDownRefresh": true,
+  "enablePullDownRefresh": false,
   "backgroundColor": "#7acfa6"
 }

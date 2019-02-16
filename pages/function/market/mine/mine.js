@@ -98,5 +98,34 @@ Page({
         that.getGoods(that.data.curid)
       }
     })
+  },
+  /**
+   * 删除物品
+   */
+  deleteit:function(e){
+    var that = this;
+    let cookie = wx.getStorageSync('cookieKey');
+    let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
+    if (cookie) {
+      header.Cookie = cookie
+    }
+    var id = e.currentTarget.id;
+    console.log(this.data.goods[id].id)
+    let uid = this.data.goods[id].id
+    wx.request({
+      url: 'http://119.3.46.32:8014/fleMar/deleteProduct',
+      method: 'POST',
+      header: header,
+      data: {
+        id: uid
+      },
+      success: function (res) {
+        that.setData({
+          curid: 0,
+          goods: []
+        })
+        that.getGoods(that.data.curid)
+      }
+    })
   }
 })

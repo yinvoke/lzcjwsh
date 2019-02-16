@@ -95,7 +95,7 @@ view, scroll-view, input, text{
   color: #000000;
 }
 .card-time {
-  font-size: 25rpx;
+  font-size: 23rpx;
   color: #8999a5;
   margin-top: 7rpx;
 }

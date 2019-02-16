@@ -11,12 +11,7 @@
   background: #f7f7f7;
   height: 40rpx;
 }
-.nav-item{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 345rpx;
-}
+
 /*卡片*/
 .timeline{
   height: 100%;
@@ -59,11 +54,16 @@
   margin-top: 20rpx;
   margin-bottom: 10rpx;
   background-color: #f1f1f1;
-  width: 90%;
+  width: 100%;
 }
 .message-text{
-  width: 90%;
+  width: 98%;
   letter-spacing:2rpx;
   color: #333;
   font-size: 27rpx;
+}
+.content-ending{
+  width: 100%;
+  color: rgb(148, 148, 148);
+  margin-left:40%;
 }

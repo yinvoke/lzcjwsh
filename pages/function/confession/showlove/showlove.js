@@ -64,19 +64,22 @@ Page({
    */
   chooseImage: function () {
     let _this = this;
-    wx.showActionSheet({
-      itemList: ['从相册中选择', '拍照'],
-      itemColor: "#ef383c",
-      success: function (res) {
-        if (!res.cancel) {
-          if (res.tapIndex == 0) {
-            _this.chooseWxImage('album')
-          } else if (res.tapIndex == 1) {
-            _this.chooseWxImage('camera')
+    if (this.data.uploadimgs.length == 0){
+      wx.showActionSheet({
+        itemList: ['从相册中选择', '拍照'],
+        itemColor: "#ef383c",
+        success: function (res) {
+          if (!res.cancel) {
+            if (res.tapIndex == 0) {
+              _this.chooseWxImage('album')
+            } else if (res.tapIndex == 1) {
+              _this.chooseWxImage('camera')
+            }
           }
         }
-      }
-    })
+      })
+    }
+    
   },
   chooseWxImage: function (type) {
     let _this = this;

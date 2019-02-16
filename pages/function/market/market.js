@@ -120,6 +120,13 @@ Page({
   powerDrawer: function (e) {
     var currentStatu = e.currentTarget.dataset.statu;
     this.util(currentStatu)
+    let index = e.currentTarget.id
+    if(currentStatu == "open"){
+      this.setData({
+        temp: this.data.goods[index]
+      })
+    }
+    
   },
   util: function (currentStatu) {
     /* 动画部分 */

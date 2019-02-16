@@ -98,7 +98,7 @@
   height: 30rpx;
   padding-left: 15rpx;
   padding-top: 10rpx;
-  font-size: 24rpx;
+  font-size: 22rpx;
 }
 .chengse{ 
   height: 90rpx;
@@ -182,6 +182,13 @@
   background-color: #7acfa6;
   font-weight: bold;
   color: white;
+}
+.noc{
+  width: 420rpx;
+  margin-top: 70%;
+  margin-left: 160rpx;
+  font-size: 36rpx;
+  font-weight: bold;
 }
 .content-ending{
   width: 100%;

@@ -9,8 +9,7 @@ Page({
     uploadimgs: [],
     editable: false,
     tabs:[],
-    tindex: 0,
-
+    tindex: 0
   },
   /**
    * 页面加载
@@ -44,19 +43,22 @@ Page({
    */
   chooseImage: function () {
     let _this = this;
-    wx.showActionSheet({
-      itemList: ['从相册中选择', '拍照'],
-      itemColor: "#7acfa6",
-      success: function (res) {
-        if (!res.cancel) {
-          if (res.tapIndex == 0) {
-            _this.chooseWxImage('album')
-          } else if (res.tapIndex == 1) {
-            _this.chooseWxImage('camera')
+    if(this.data.uploadimgs.length<=2){
+      wx.showActionSheet({
+        itemList: ['从相册中选择', '拍照'],
+        itemColor: "#7acfa6",
+        success: function (res) {
+          if (!res.cancel) {
+            if (res.tapIndex == 0) {
+              _this.chooseWxImage('album')
+            } else if (res.tapIndex == 1) {
+              _this.chooseWxImage('camera')
+            }
           }
         }
-      }
-    })
+      })
+    }
+    
   },
   chooseWxImage: function (type) {
     let _this = this;
@@ -118,16 +120,16 @@ Page({
    * 提交
    */
   submit: function () {
-    var isok = true;
     var uid = null;
     var url = null;
     let typeid = Number(this.data.tindex) + 1;
-    console.log("typeid" + typeid);
     if (this.data.name == null || this.data.price == null || this.data.quan == null || this.data.desc == null || this.data.con == null) {
       app.showErrorModal("不能有信息为空", '发帖失败')
     } else if(this.data.uploadimgs.length == 0){
       app.showErrorModal("至少上传一张图片", '发帖失败')
-    }else {
+    } else if (Number(this.data.quan) < 1 || Number(this.data.quan) > 10) {
+      app.showErrorModal("成色填写不符合规范", '发帖失败')
+    } else {
       var that = this;
       let cookie = wx.getStorageSync('cookieKey');
       let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
@@ -150,64 +152,72 @@ Page({
           content: that.data.desc,
         },
         success: function (res) {
-          console.log("上传信息");
+          console.log("上传信息ing");
           console.log(res);
-          uid = res.data.object
-          isok = that.subphoto(uid);
+          let imgs = that.data.uploadimgs;
+          let uid = res.data.object;
+          that.subphotos({
+            uid:uid,
+            urls:[],
+            path:imgs
+          });
         },
         fail: function (res) {
-          isok = false;
+          app.showErrorModal('发布失败', '发布失败')
         }
       })
-      if (isok) {
-        app.showSuccessToast('发布成功')
-        wx.navigateBack({
-          delta: 1
-        })
-      } else {
-        app.showErrorModal('发布失败', '发布失败')
-      }
     }
   },
   /**
    * 上传图片
    */
-  subphoto: function (uid) {
-    var urls = [];
+  subphotos: function (data) {
+    console.log(data);
     var that = this;
+    let i = data.i ? data.i : 0;//当前上传的哪张图片
+    let success = data.success ? data.success : 0;//上传成功的个数
+    let fail = data.fail ? data.fail : 0;//上传失败的个数
     let cookie = wx.getStorageSync('cookieKey');
     let header = { 'content-type': 'multipart/form-data' };
     if (cookie) {
       header.Cookie = cookie
     }
-    let imgs = this.data.uploadimgs;
-    let l = imgs.length;
-    for(var i = 0; i < l; i++){
-      console.log('正在上传第'+ i +'张图片')
-      wx.uploadFile({
-        url: 'http://119.3.46.32:8014/fleMar/uploadPic',
-        filePath: imgs[i],
-        header: header,
-        name: "file",
-        success(res) {
-          var url = (JSON.parse(res.data)).object;
-          console.log("上传图片")
-          console.log(res);
-          console.log("urls=");
-          console.log(urls);
-          urls[i] = url;
-        },
-        fail: function (res) {
-          return false
+    wx.uploadFile({
+      url: 'http://119.3.46.32:8014/fleMar/uploadPic',
+      filePath: data.path[i],
+      header: header,
+      name: "file",
+      success: (resp) => {
+        console.log(resp)
+        success++;
+        let url = (JSON.parse(resp.data)).object;
+        data.urls = data.urls.concat(url)
+      },
+      fail: (res) => {
+        console.log(res)
+        fail++;
+      },
+      complete: () => {
+        i++;//这个图片执行完上传后，开始上传下一张
+        if (i == data.path.length) {   //当图片传完时，停止调用          
+          console.log('执行完毕');
+          console.log('成功：' + success + " 失败：" + fail);
+          that.bindall(data)
+        } else {//若图片还没有传完，则继续调用函数
+          data.i = i;
+          data.success = success;
+          data.fail = fail;
+          that.subphotos(data);
         }
-      })
-    }
-    return that.bindall(uid, urls);
+      }
+    })
   },
   /**
    * 绑定图片文字
    */
-  bindall: function (uid, urls) {
+  bindall: function (data) {
+    let uid = data.uid;
+    let urls = data.urls;
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');
     let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
@@ -227,10 +237,13 @@ Page({
       success: function (res) {
         console.log('合并');
         console.log(res);
-        return true;
+        app.showSuccessToast('发布成功')
+        wx.navigateBack({
+          delta: 1
+        })
       },
       fail: function (res) {
-        return false;
+        app.showErrorModal('发布失败', '发布失败')
       }
     })
   }
