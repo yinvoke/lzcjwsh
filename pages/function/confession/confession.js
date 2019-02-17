@@ -19,7 +19,7 @@ Page({
   /**
    * 生命周期函数--页面显示
    */
-  onShow: function () {
+  onLoad: function () {
     this.setData({
       timeline:[]
     })

@@ -1,7 +1,7 @@
 /* pages/function/confession/details/details.wxss */
 .timeline{
-  height: 100%;
   background-color: #eceaea;
+  margin-bottom: 103rpx;
 }
 .tweet-container {
   background-color: white;
@@ -62,6 +62,11 @@
   font-size: 30rpx;
   line-height: 40rpx;
   margin-left: 95rpx;
+  width: 88%;
+}
+.more{
+  margin-left: 80%;
+  font-size: 25rpx;
 }
 .message-image {
   width: 100%;
@@ -69,6 +74,7 @@
   background-color: #eceaea;   
 }
 .bottom-container {
+  margin-top: 20rpx;
   height: 66rpx;
   background-color: #ffffff;
 }
@@ -81,11 +87,17 @@
   color: #6D6D78;
   font-size: 26rpx;
 }
+
 .bottom-tool-image {
   height: 30rpx;
   width: 30rpx;
   margin-top: 0;
   margin-right: 0;
+}
+.bu{
+  background: none;
+  border: none;
+  outline: none; 
 }
 ::-webkit-scrollbar{
   width: 0;
@@ -116,13 +128,27 @@
   display: flex;
 }
 
+
 input{
   background-color: #fff;
   width: 78%;
+  height: 55rpx;
   margin: 13rpx;
   border: solid 1rpx #c7c7c7;
   border-radius: 8rpx;
   padding: 10rpx;
+  font-size: 27rpx;
+}
+.comment button{
+  background-color: #fff;
+  width: 120rpx;
+  height: 75rpx;
+  margin: 13rpx 7rpx;
+  border: solid 1rpx #c7c7c7;
+  border-radius: 8rpx;
+  padding: 10rpx 0;
+  line-height: 220%;
+  font-size: 28rpx;
 }
 
 .comment .like{
@@ -130,6 +156,7 @@ input{
   width: 60rpx;
   margin-top: 19rpx;
   margin-left: 20rpx;
+  margin-right: 20rpx;
 }
 
 .commentarea{
@@ -140,8 +167,16 @@ input{
   align-items: flex-start;
 }
 .comments-block{
-  margin: 20rpx ;
+  width: 90%;
+  padding-left: 20rpx ;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
 }
 .commentarea-text{
   font-size: 27rpx;
+}
+.content-ending{
+  width: 100%;
+  color: rgb(148, 148, 148);
+  margin-left:40%;
 }

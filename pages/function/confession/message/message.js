@@ -6,53 +6,8 @@ Page({
    */
   data: {
     curid:0,
-    huifu:[
-      {
-        src:"二狗",
-        con:"哦是吗？",
-        isconed:"[图片]二狗二狗二狗在吗",
-        time:"2019-1-1 12:03:03",
-        head:"https://www.baidu.com/img/baidu_jgylogo3.gif"
-      },
-      {
-        src: "二狗33333",
-        con: "[图片]",
-        isconed: "二狗二狗二狗在吗",
-        time: "2019-1-1 12:03:03",
-        head: "https://www.baidu.com/img/baidu_jgylogo3.gif"
-      },
-      {
-        src: "二狗3",
-        con: "[图片]哦是吗？",
-        isconed: "二狗二狗二狗在吗",
-        time: "2019-1-1 12:03:03",
-        head: "https://www.baidu.com/img/baidu_jgylogo3.gif"
-      }, 
-      {
-        src: "二狗",
-        con: "哦是吗？",
-        isconed: "二狗二狗二狗在吗",
-        time: "2019-1-1 12:03:03",
-        head: "https://www.baidu.com/img/baidu_jgylogo3.gif"
-      }, 
-      {
-        src: "二狗",
-        con: "哦是吗？",
-        isconed: "[图片]二狗二狗二狗在吗",
-        time: "2019-1-1 12:03:03",
-        head: "https://www.baidu.com/img/baidu_jgylogo3.gif"
-      }, 
-      {
-        src: "二狗",
-        con: "哦是吗？",
-        isconed: "[图片]",
-        time: "2019-1-1 12:03:03",
-        head: "https://www.baidu.com/img/baidu_jgylogo3.gif"
-      },
-    ]
+    huifu:[],
   },
-
-
   /**
    * 生命周期函数--监听页面显示
    */
@@ -75,13 +30,18 @@ Page({
       },
       success: function (res) {
         console.log(res)
-        var temp = that.data.huifu.concat(res.data.object)
+        var obs = res.data.object
+        var temp = [];
+        for( let i = 0; i < obs.length; i++){
+          temp = temp.concat(JSON.parse(obs[i].message))
+        }
+        var t = that.data.huifu.concat(temp)
         that.setData({
-          huifu: temp
+          huifu: t
         })
         let l = res.data.object.length;
         let cid = res.data.object[l - 1].id;
-        if (l - 1 < 19) {
+        if (l - 1 < 9) {
           that.setData({
             curid: cid,
             remind: '没有更多啦！',
@@ -113,5 +73,34 @@ Page({
       huifu: []
     });
     that.getmessage(that.data.curid)
+  },
+  /**
+   * 评论跳转功能
+   */
+  jumpDetails: function (e) {
+    let id = e.currentTarget.id
+    let ob =null;
+    var that = this;
+    let cookie = wx.getStorageSync('cookieKey');
+    let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
+    if (cookie) {
+      header.Cookie = cookie
+    }
+    wx.request({
+      url: 'http://119.3.46.32:8014/conWall/getConfessionById',
+      method: 'GET',
+      header: header,
+      data: {
+        conId: id
+      },
+      success: function (res) {
+        console.log(res)
+        ob = res.data.object
+        wx.navigateTo({
+          url: '../details/details?ob=' + JSON.stringify(ob),
+        })
+      }
+    })
+    
   },
 })
