@@ -56,8 +56,9 @@ Page({
    * 信息修改跳转
    */
   jumpInformation:function(){
+    let ob = this.data.userinfo
     wx.navigateTo({
-      url: '../user/information/information',
+      url: '../user/information/information?ob=' + JSON.stringify(ob),
     })
   },
 

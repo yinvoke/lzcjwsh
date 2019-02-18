@@ -69,10 +69,31 @@ Page({
    * 内容提交
    */
   submit:function(){
-    app.showSuccessToast('提交成功',3000)
-    wx.navigateBack({
-      delta: 1
+    var that = this;
+    let cookie = wx.getStorageSync('cookieKey');
+    let header = {};
+    if (cookie) {
+      header.Cookie = cookie
+    }
+    wx.request({
+      url: 'http://119.3.46.32:8014/suggest/insertSug',
+      method: 'GET',
+      header: header,
+      data:{
+        insertSug:that.data.description,
+        contact:that.data.qq
+      },
+      success: function (res) {
+        app.showSuccessToast('提交成功', 3000)
+        wx.navigateBack({
+          delta: 1
+        })
+      },
+      fail:function(res){
+        app.showErrorModal(res.data.message,'提交失败')
+      }
     })
+    
   }
 
 })

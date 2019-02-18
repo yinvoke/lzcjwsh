@@ -8,14 +8,17 @@ Page({
   data: {
     ifname:false,
     ifpwd:false,
-    head:null,
-    nickname:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      headitem: JSON.parse(options.ob),
+    })
+  },
+  getinfo:function(){
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');
     let header = {};
@@ -34,29 +37,6 @@ Page({
       }
     })
   },
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    var that = this;
-    let cookie = wx.getStorageSync('cookieKey');
-    let header = {};
-    if (cookie) {
-      header.Cookie = cookie
-    }
-    wx.request({
-      url: 'http://119.3.46.32:8014/user/infor',
-      method: 'GET',
-      header: header,
-      success: function (res) {
-        that.setData({
-          head: res.data.object.head,
-          nickname: res.data.object.nickname
-        })
-      }
-    })
-  },
-
   chooseImage: function () {
     let _this = this;
     wx.showActionSheet({
@@ -106,7 +86,7 @@ Page({
             console.log(res)
             var d = JSON.parse(res.data)
             app.showSuccessToast('修改成功', 3000)
-            that.onShow()
+            that.getinfo()
           },
           fail(res){
             app.showErrorModal(d.message, '上传失败')
@@ -175,7 +155,7 @@ Page({
         },
         success: function (res) {
           app.showSuccessToast('修改成功', 3000)
-          that.onShow()
+          that.getinfo()
         },
         fail: function (res) {
           app.showErrorModal('修改失败', res.message)
@@ -212,7 +192,7 @@ Page({
         },
         success: function (res) {
           app.showSuccessToast('修改成功', 3000)
-          that.onShow()
+          that.getinfo()
         },
         fail: function (res) {
           app.showErrorModal('修改失败', res.message)

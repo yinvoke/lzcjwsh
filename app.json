@@ -1,8 +1,11 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/function/table/table",
+    "pages/index/index",
     "pages/login/login",
+   
+    
+    
     "pages/function/confession/details/details",
     "pages/function/confession/confession",
     "pages/function/confession/showlove/showlove",

@@ -27,7 +27,7 @@ Page({
   },
 
   getmessage:function(id){
-    app.showLoadToast('加载中', 700);
+    app.showLoadToast('加载中', 1200);
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');
     let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
@@ -42,6 +42,7 @@ Page({
         id: id
       },
       success: function (res) {
+        wx.hideToast()
         console.log(res)
         var temp = that.data.timeline.concat(res.data.object)
         that.setData({
