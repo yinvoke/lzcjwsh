@@ -27,7 +27,6 @@ Page({
       })
     }
     else{
-      app.showLoadToast('加载中',1000);
       wx.request({
         method: 'POST',
         url: 'http://119.3.46.32:8014/user/login',
@@ -45,8 +44,10 @@ Page({
           if (res.data.message == "success") {
 
           } else {
-            wx.hideToast();
             app.showErrorModal('请检查教务网密码是否更改', '加载失败');
+            wx.redirectTo({
+              url: '../login/login',
+            })
           }
         },
         fail: function (res) {

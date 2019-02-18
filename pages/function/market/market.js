@@ -1,4 +1,5 @@
 // pages/function/market/market.js
+var app = getApp()
 Page({
 
   /**
@@ -15,10 +16,12 @@ Page({
    * 页面加载
    */
   onLoad:function(){
+    
     this.getType();
     
   },
   onShow:function(){
+    
     let typeid = Number(this.data.clickid)+1;
     this.getGoods(this.data.curid, typeid);
   },
@@ -47,6 +50,7 @@ Page({
    * 获取类型商品
    */
   getGoods: function (lastid, typeid){
+    app.showLoadToast('加载中', 700);
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');
     let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8'};
