@@ -54,6 +54,8 @@ Page({
             console.log(res.header['Set-Cookie'])
           }
           if (res.data.message == "success") {
+            wx.setStorageSync('username', that.data.userid);
+            wx.setStorageSync('password', that.data.passwd);
             //登录
             console.log(res)
             wx.redirectTo({

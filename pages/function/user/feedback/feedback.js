@@ -1,4 +1,5 @@
 // pages/feedback/feedback.js
+var app = getApp()
 Page({
 
   /**
@@ -69,6 +70,9 @@ Page({
    */
   submit:function(){
     app.showSuccessToast('提交成功',3000)
+    wx.navigateBack({
+      delta: 1
+    })
   }
 
 })

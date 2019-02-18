@@ -19,6 +19,42 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var username = wx.getStorageSync('username');
+    var password = wx.getStorageSync('password');
+    if(!username){
+      wx.redirectTo({
+        url: '../login/login',
+      })
+    }
+    else{
+      app.showLoadToast('加载中',1000);
+      wx.request({
+        method: 'POST',
+        url: 'http://119.3.46.32:8014/user/login',
+        data: {
+          username: username,
+          password: password
+        },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded; charset=utf-8'
+        },
+        success: function (res) {
+          if (res && res.header && res.header['Set-Cookie']) {
+            wx.setStorageSync('cookieKey', res.header['Set-Cookie'])
+          }
+          if (res.data.message == "success") {
+
+          } else {
+            wx.hideToast();
+            app.showErrorModal('请检查教务网密码是否更改', '加载失败');
+          }
+        },
+        fail: function (res) {
+          app.showLoadToast('请检查您的网络');
+        }
+      });
+    }
+    
   },
 
   /**
