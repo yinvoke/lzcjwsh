@@ -68,6 +68,7 @@ Page({
         },
         fail: function (res) {
           app.showLoadToast('请检查您的网络');
+          app.showErrorModal(res.data.message, '登录失败');
         }
       });
     }

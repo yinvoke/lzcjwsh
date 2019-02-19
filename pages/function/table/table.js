@@ -1,8 +1,6 @@
 // pages/table/table.js
 var app = getApp()
 Page({
-
-
   /**
    * 页面的初始数据
    */
@@ -23,11 +21,10 @@ Page({
   onLoad: function(options) {
     if(wx.getStorageSync('jwpwd')){
       var timestamp = Date.parse(new Date());
-      var temp = (timestamp / 1000 - 1550332800) / 60 / 60 / 24;
+      var temp = (timestamp / 1000 - 1551024000) / 60 / 60 / 24;
       var now = parseInt(temp / 7)+1;
-      console.log(now)
       this.setData({
-        weekIndex: now,
+        weekIndex: now-1,
         ishidden:false,
         jwpwd: wx.getStorageSync('jwpwd')
       })
@@ -39,6 +36,7 @@ Page({
 
 
   getclass: function(now, refresh) {
+    console.log("now" + now)
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');
     let header = {
@@ -59,15 +57,16 @@ Page({
       success: function(res) {
         if(res.data.code ==0){
           console.log(res)
-          app.showSuccessToast('更新成功', 1000)
           that.setData({
             wlist: res.data.object
           })
         }else{
+          console.log(res)
           app.showErrorModal(res.message, '更新失败')
         }
       },
       fail: function(res) {
+        console.log(res)
         app.showErrorModal(res.message, '更新失败')
       }
     })
@@ -89,15 +88,14 @@ Page({
     this.setData({
       weekIndex: e.detail.value
     })
-    
+    this.getclass(Number(this.data.weekIndex)+1, false)
   },
   /**
    * 刷新
    */
   refresh:function(){
     app.showLoadToast('同步中', 1200)
-    let refresh = false;
-    this.getclass(this.data.weekIndex, refresh)
+    this.getclass(Number(this.data.weekIndex) + 1, true)
   },
   /**
    * 绑定

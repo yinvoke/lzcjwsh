@@ -62,7 +62,7 @@
     </view>
     <view class="wx-cell" data-route="../../login/login" bindtap="jumpLogin" style='border-top: 1rpx solid #d9d9d9;'>
       <image class="wx-cell-icon" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/user/exit.png"></image>
-      <text class="wx-cell-text">注销账号</text>
+      <text class="wx-cell-text">注销登录</text>
       <image class="wx-cell-arrow" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/user/right-gray.png"></image>
     </view>
   </view>

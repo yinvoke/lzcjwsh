@@ -192,9 +192,10 @@
   font-weight: bold;
 }
 .content-ending{
+  font-size: 25rpx;
   width: 100%;
   color: rgb(148, 148, 148);
-  margin-left:40%;
+  margin-left:30%;
 }
 
 ::-webkit-scrollbar

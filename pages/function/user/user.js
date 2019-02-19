@@ -91,8 +91,8 @@ Page({
    * 注销账号跳转
    */
   jumpLogin: function () {
-    wx.setStorageSync('cookieKey', null)
-    wx.navigateTo({
+    wx.clearStorageSync();
+    wx.reLaunch({
       url: '../../login/login',
     })
   }
