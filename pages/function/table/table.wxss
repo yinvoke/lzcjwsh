@@ -1,4 +1,7 @@
 /* pages/table/table.wxss */
+page{
+  height: auto;
+}
 .coniter{
   justify-content: center;
   display: flex;

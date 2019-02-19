@@ -31,8 +31,7 @@ Page({
       header: header,
       success: function (res) {
         that.setData({
-          head: res.data.object.head,
-          nickname: res.data.object.nickname
+          headitem: res.data.object
         })
       }
     })

@@ -261,5 +261,11 @@ Page({
     let idx = e.target.dataset.idx
     let l = comid.secondComment.length
     this.getmoresecond(comid.secondComment[l-1].id, comid.id, idx)
-  }
+  },
+  previewImage: function (e) {
+    var current = e.target.dataset.src;
+    wx.previewImage({
+      current: this.data.headitem.picUrl
+    })
+  }, 
 })

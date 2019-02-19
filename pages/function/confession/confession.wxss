@@ -117,8 +117,7 @@ view, scroll-view, input, text{
   line-height: 40rpx;
 }
 .message-image {
-  margin-top: 16rpx;
-  background-color: #eceaea;   
+  width: 98%;
 }
 .bottom-container {
   height: 66rpx;
