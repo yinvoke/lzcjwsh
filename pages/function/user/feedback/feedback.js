@@ -69,6 +69,7 @@ Page({
    * 内容提交
    */
   submit:function(){
+    app.showLoadToast('提交中', 3000);
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');
     let header = {};

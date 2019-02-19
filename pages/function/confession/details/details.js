@@ -54,6 +54,7 @@ Page({
    * 获取评论
    */
   getmessage:function(curid){
+    app.showLoadToast('加载中', 3000);
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');
     let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
@@ -69,6 +70,7 @@ Page({
         conId: that.data.uid
       },
       success: function (res) {
+        wx.hideLoading();
         console.log(res)
         var temp = that.data.comments.concat(res.data.object)
         that.setData({

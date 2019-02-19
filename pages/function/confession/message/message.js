@@ -15,6 +15,7 @@ Page({
     this.getmessage(this.data.curid)
   },
   getmessage: function (id) {
+    app.showLoadToast('加载中', 3000);
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');
     let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
@@ -29,6 +30,7 @@ Page({
         id: id
       },
       success: function (res) {
+        wx.hideLoading()
         console.log(res)
         var obs = res.data.object
         var temp = [];

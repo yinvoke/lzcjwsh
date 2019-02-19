@@ -136,8 +136,9 @@ Page({
     })
   },
   confirmname: function(){
+    app.showLoadToast('修改中', 3000);
     var that = this
-    if (this.data.name != null) {
+    if (that.data.name == null) {
       app.showErrorModal('请输入有效昵称修改失败', '请输入有效昵称')
     }
     else{
@@ -158,7 +159,7 @@ Page({
           that.getinfo()
         },
         fail: function (res) {
-          app.showErrorModal('修改失败', res.message)
+          app.showErrorModal(res.message, '修改失败')
         }
       })
 
@@ -170,6 +171,7 @@ Page({
 
   },
   confirmpwd: function () {
+    app.showLoadToast('修改中', 3000);
     var that = this
     if (this.data.oldpwd != app.globalData.pwd){
       app.showErrorModal('旧密码输入错误','修改失败')
@@ -191,7 +193,7 @@ Page({
           password: that.data.newpwd
         },
         success: function (res) {
-          app.showSuccessToast('修改成功', 3000)
+          app.showSuccessToast('修改成功', 1300)
           that.getinfo()
         },
         fail: function (res) {

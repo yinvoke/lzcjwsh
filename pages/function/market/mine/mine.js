@@ -19,6 +19,7 @@ Page({
    * 获取类型商品
    */
   getGoods: function (lastid) {
+    app.showLoadToast('加载中', 3000);
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');
     let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
@@ -33,6 +34,7 @@ Page({
         lastId: lastid
       },
       success: function (res) {
+        wx.hideLoading();
         console.log(res)
         var temp = that.data.goods.concat(res.data.object)
         that.setData({

@@ -186,6 +186,9 @@ Page({
     wx.navigateTo({
       url: '../market/release/release',
     })
+  },
+  sousuo:function(){
+    app.showErrorModal('抱歉暂未启用此功能','搜索失败')
   }
 
 })

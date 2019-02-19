@@ -9,7 +9,7 @@ Page({
     core: [
       { id: 'message', name: '消息中心' },
       { id: 'showlove', name: '发起表白' },
-      { id: 'matching', name: '心动匹配' }
+      /*{ id: 'matching', name: '心动匹配' }*/
     ],
     timeline:[],
     scrollTop: 0,
@@ -27,7 +27,7 @@ Page({
   },
 
   getmessage:function(id){
-    app.showLoadToast('加载中', 1200);
+    app.showLoadToast('加载中', 3000);
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');
     let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };

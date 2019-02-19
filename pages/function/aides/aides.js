@@ -158,7 +158,7 @@ Page({
       'main.message': '正在加载中',
       'main.curid': that.data.main.curid
     });
-    app.showLoadToast();
+    app.showLoadToast('搜索中',3000);
     let cookie = wx.getStorageSync('cookieKey');
     let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
     if (cookie) {

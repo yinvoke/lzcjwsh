@@ -109,6 +109,7 @@ Page({
    * 提交
    */
   submit:function(){
+    app.showLoadToast('发布中', 3000);
     var isok = true;
     var uid = null;
     var url = null;
@@ -210,8 +211,7 @@ Page({
         url: url
       },
       success: function (res) {
-        console.log('合并');
-        console.log(res);
+        wx.hideLoading();
         return true;
       },
       fail: function (res) {

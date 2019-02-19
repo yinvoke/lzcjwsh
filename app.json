@@ -1,11 +1,8 @@
 {
   "pages": [
-    "pages/function/table/table",
     "pages/index/index",
     "pages/login/login",
-   
-    
-    
+    "pages/function/table/table",
     "pages/function/confession/details/details",
     "pages/function/confession/confession",
     "pages/function/confession/showlove/showlove",
@@ -14,21 +11,13 @@
     "pages/function/market/market",
     "pages/function/market/mine/mine",
     "pages/function/market/release/release",
-  
     "pages/function/confession/matching/matching",
-
-    
     "pages/function/user/user",
-    
-    
-    
-    
     "pages/function/user/about/about",
     "pages/function/user/information/information",
     "pages/function/user/feedback/feedback",
     "pages/function/user/product/disclaimer/disclaimer",
     "pages/function/user/product/product"
-    
   ],
   "window": {
     "backgroundTextStyle": "light",

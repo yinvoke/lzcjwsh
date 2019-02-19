@@ -32,7 +32,7 @@
   color: red;
 }
 .sale{
-  margin-left: 10%;
+  margin-left: 8%;
   margin-top:95rpx;
 }
 .content-ending{

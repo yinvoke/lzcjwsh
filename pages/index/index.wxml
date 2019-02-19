@@ -4,6 +4,7 @@
   <view class='main-lunbo'>
     <swiper indicator-dots='true' autoplay='true' interval='4000' class='lunbo'>
       <swiper-item><image src='../../images/1.jpg'></image></swiper-item>
+      <swiper-item><image src='../../images/2.jpg'></image></swiper-item>
       <swiper-item><image src='../../images/3.jpg'></image></swiper-item>
     </swiper>
   </view>
