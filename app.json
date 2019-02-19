@@ -1,6 +1,5 @@
 {
   "pages": [
-    
     "pages/index/index",
     "pages/login/login",
     "pages/function/table/table",
@@ -18,7 +17,8 @@
     "pages/function/user/information/information",
     "pages/function/user/feedback/feedback",
     "pages/function/user/product/disclaimer/disclaimer",
-    "pages/function/user/product/product"
+    "pages/function/user/product/product",
+    "pages/function/market/find/find"
   ],
   "window": {
     "backgroundTextStyle": "light",

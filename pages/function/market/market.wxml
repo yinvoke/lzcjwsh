@@ -4,7 +4,7 @@
     <!--上边栏-->
     <view class='shang'>
       <view class='find1' bindtap='jumpmine'><text>我的</text></view>
-      <input class='find2'/>
+      <input class='find2' bindinput='sousuoinput'/>
       <view class='find3' bindtap='sousuo'><text>搜索</text></view>
     </view>
 

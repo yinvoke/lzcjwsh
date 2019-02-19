@@ -1,0 +1,95 @@
+<!--pages/function/market/find/find.wxml-->
+<view>
+  <view class='container'>
+    <!--上边栏-->
+    <view class='shang'>
+      <input class='find2' bindinput='sousuoinput' value='{{findcon}}'/>
+      <view class='find3' bindtap='sousuo'>
+        <text>搜索</text>
+      </view>
+    </view>
+    <view class='xia'>
+      <!--内容栏-->
+      <scroll-view wx:if="{{goods.length>=1}}" scroll-y="true" class='you' bindscrolltolower="loadmore">
+        <block wx:for="{{goods}}" wx:key="item.id">
+          <view id="{{index}}" class='card' bindtap="powerDrawer" data-statu="open">
+            <image src='http://119.3.46.32:8014/{{item.pic[0]}}'></image>
+            <view>
+              <view class='title'>
+                <text>{{item.name}}</text>
+                <text class='jiage'>￥{{item.price}}</text>
+              </view>
+              <view class='chengse' wx:if="{{item.quality == 1}}" style='color:rgb(133, 7, 7)'>
+                <text>一成新 ！</text>
+              </view>
+              <view class='chengse' wx:if="{{item.quality == 2}}" style='color:rgb(133, 7, 7)'>
+                <text>二成新 ！</text>
+              </view>
+              <view class='chengse' wx:if="{{item.quality == 3}}" style='color:rgb(133, 7, 7)'>
+                <text>三成新 ！</text>
+              </view>
+              <view class='chengse' wx:if="{{item.quality == 4}}" style='color:rgb(133, 7, 7)'>
+                <text>四成新 ！</text>
+              </view>
+              <view class='chengse' wx:if="{{item.quality == 5}}" style='color:rgb(236, 162, 0)'>
+                <text>五成新 ！</text>
+              </view>
+              <view class='chengse' wx:if="{{item.quality == 6}}" style='color:rgb(236, 162, 0)'>
+                <text>六成新 ！</text>
+              </view>
+              <view class='chengse' wx:if="{{item.quality == 7}}" style='color:rgb(236, 232, 0)'>
+                <text>七成新 ！</text>
+              </view>
+              <view class='chengse' wx:if="{{item.quality == 8}}" style='color:rgb(236, 232, 0)'>
+                <text>八成新 ！</text>
+              </view>
+              <view class='chengse' wx:if="{{item.quality == 9}}" style='color:rgb(19, 230, 0)'>
+                <text>九成新 ！</text>
+              </view>
+              <view class='chengse' wx:if="{{item.quality == 10}}" style='color:rgb(19, 230, 0)'>
+                <text>全新 ！</text>
+              </view>
+              <view class='time'>
+                <text>上架日期:{{item.time}}</text>
+              </view>
+            </view>
+          </view>
+        </block>
+        <!--mask-->
+        <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+        <!--content-->
+        <!--使用animation属性指定需要执行的动画-->
+        <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+          <!--drawer content-->
+          <view class="drawer_title">{{temp.name}}</view>
+          <view class="drawer_content">
+            <view>
+              <view class='description'>
+                <text>产品描述：{{temp.content}}</text>
+              </view>
+              <view class='description'>
+                <text>崭新程度：{{temp.quality}}成新</text>
+              </view>
+              <view class='description'>
+                <text>价格：{{temp.price}} RMB</text>
+              </view>
+              <view class='description'>
+                <text>发布人联系方式：{{temp.contact}}</text>
+              </view>
+              <view class='images' wx:for='{{temp.pic}}' wx:for-index="index" bindtap='previewImage'>
+                <image src='http://119.3.46.32:8014/{{item}}' data-index="{{index}}"></image>
+              </view>
+            </view>
+          </view>
+          <view class="btn_ok" bindtap="powerDrawer" data-statu="close">确定</view>
+        </view>
+        <text class="content-ending">{{remind}}</text>
+      </scroll-view>
+      <view wx:else class='you'>
+        <view class='noc'>
+          <text>什么都没有找到哦~</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

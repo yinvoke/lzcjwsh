@@ -1,4 +1,4 @@
-// pages/function/market/market.js
+// pages/function/market/find/find.js
 var app = getApp()
 Page({
 
@@ -6,67 +6,37 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tabs: null,
-    goods:[],
-    clickid : 0,
-    curid:0,
+    goods: [],
+    curid: 0,
     showModalStatus: false
   },
   /**
    * 页面加载
    */
-  onLoad:function(){
-
-    app.showLoadToast('加载中', 1200);
-    this.getType();
-    
-  },
-  onShow:function(){
+  onLoad: function (options) {
+    app.showLoadToast('搜索中', 3000);
     this.setData({
-      curid:0,
-      gooods:[]
+      findcon: options.findcon,
     })
-    let typeid = Number(this.data.clickid)+1;
-    this.getGoods(this.data.curid, typeid);
-  },
-  /**
-   * 获取类型
-   */
-  getType:function(){
-    var that = this;
-    let cookie = wx.getStorageSync('cookieKey');
-    let header = {};
-    if (cookie) {
-      header.Cookie = cookie
-    }
-    wx.request({
-      url: 'http://119.3.46.32:8014/fleMar/getAllType',
-      method: 'GET',
-      header: header,
-      success: function (res) {
-        that.setData({
-          tabs: res.data.object
-        })
-      }
-    })
+    this.sousuo();
   },
   /**
    * 获取类型商品
    */
-  getGoods: function (lastid, typeid){
+  getGoods: function (findcon, curid) {
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');
-    let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8'};
+    let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
     if (cookie) {
       header.Cookie = cookie
     }
     wx.request({
-      url: 'http://119.3.46.32:8014/fleMar/getAllProduct',
+      url: 'http://119.3.46.32:8014/fleMar/findProduct',
       method: 'POST',
       header: header,
-      data:{
-        lastId:lastid,
-        typeId:typeid
+      data: {
+        key: findcon,
+        lastId: curid
       },
       success: function (res) {
         wx.hideToast();
@@ -77,7 +47,7 @@ Page({
         })
         let l = res.data.object.length;
         let cid = res.data.object[l - 1].id;
-        if (l==0) {
+        if (l == 0) {
           that.setData({
             remind: '没有更多啦！',
             more: false
@@ -88,7 +58,7 @@ Page({
             remind: '没有更多啦！',
             more: false
           })
-        }else {
+        } else {
           that.setData({
             curid: cid,
             remind: '下拉加载更多！',
@@ -99,24 +69,12 @@ Page({
     })
   },
 
-  /**
-   * 改变选项
-   */
-  tabClick:function(e){
-    this.setData({
-      curid:0,
-      clickid: e.currentTarget.id,
-      goods:[]
-    })
-    let typeid = Number(this.data.clickid) +1;
-    this.getGoods(this.data.curid,typeid)
-  },
   //上滑加载更多
   loadmore: function () {
     app.showLoadToast('加载中', 1200);
     let typeid = Number(this.data.clickid) + 1;
     if (this.data.more) {
-      this.getGoods(this.data.curid,typeid);
+      this.getGoods(this.data.curid, typeid);
     }
   },
   /**
@@ -126,12 +84,12 @@ Page({
     var currentStatu = e.currentTarget.dataset.statu;
     this.util(currentStatu)
     let index = e.currentTarget.id
-    if(currentStatu == "open"){
+    if (currentStatu == "open") {
       this.setData({
         temp: this.data.goods[index]
       })
     }
-    
+
   },
   util: function (currentStatu) {
     /* 动画部分 */
@@ -177,42 +135,33 @@ Page({
       });
     }
   },
-  jumpmine:function(){
-    wx.navigateTo({
-      url: '../market/mine/mine',
-    })
-  },
-  jumprelease: function () {
-    wx.navigateTo({
-      url: '../market/release/release',
-    })
-  },
   /**
    * 搜索
    */
-  sousuoinput: function (e) {
+  sousuoinput:function(e){
     this.setData({
-      findcon: e.detail.value
+      findcon:e.detail.value
     })
   },
-  sousuo:function(){
-    let tmp = this.data.findcon;
-    wx.navigateTo({
-      url: '../market/find/find?findcon=' + tmp,
+  sousuo: function () {
+    this.setData({
+      curid:0,
+      goods:[]
     })
+    this.getGoods(this.data.findcon,this.data.curid)
   },
   previewImage: function (e) {
     let curr = e.target.dataset.index;
     let urls = this.data.temp.pic;
     let l = this.data.temp.pic.length;
-    for (let i = 0; i < l; i++){
+    for (let i = 0; i < l; i++) {
       urls[i] = "http://119.3.46.32:8014/" + urls[i];
     }
-    
+
     wx.previewImage({
       urls: urls,
-      current:urls[curr]
+      current: urls[curr]
     })
-  }, 
+  },
 
 })

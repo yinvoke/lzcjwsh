@@ -35,6 +35,29 @@ Page({
   onShow: function () {
     this.getmessage(this.data.curid)
   },
+  deleteit:function(){
+    var that = this;
+    let cookie = wx.getStorageSync('cookieKey');
+    let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
+    if (cookie) {
+      header.Cookie = cookie
+    }
+    wx.request({
+      url: 'http://119.3.46.32:8014/conWall/deleteConfession',
+      method: 'POST',
+      header: header,
+      data: {
+        conId: that.data.uid
+      },
+      success: function (res) {
+        wx.hideLoading();
+        app.showSuccessToast('删除成功',1000)
+        wx.navigateBack({
+          delta: 1
+        })
+      }
+    })
+  },
   //上滑加载更多
   onReachBottom: function () {
     var that = this;

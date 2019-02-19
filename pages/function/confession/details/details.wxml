@@ -10,8 +10,10 @@
           <text class="card-id">{{headitem.src}}</text>
           <text class="card-time">{{headitem.time}}</text>
         </view>
+        
       </view>
       <view class="middle-container flex-column" >
+        <view wx:if="{{headitem.self}}" class='del' bindtap='deleteit'><text>删除此贴</text></view>
         <text class="card-name">To:{{headitem.dst}}</text>
         <text class="message-text" style='margin-left:0;width:100%'>{{headitem.description}}</text>
         <image class="message-image"

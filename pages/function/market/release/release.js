@@ -120,6 +120,7 @@ Page({
    * 提交
    */
   submit: function () {
+    app.showLoadToast('发布中',3000)
     var uid = null;
     var url = null;
     let typeid = Number(this.data.tindex) + 1;
@@ -152,8 +153,7 @@ Page({
           content: that.data.desc,
         },
         success: function (res) {
-          console.log("上传信息ing");
-          console.log(res);
+          
           let imgs = that.data.uploadimgs;
           let uid = res.data.object;
           that.subphotos({
@@ -235,9 +235,8 @@ Page({
         picUrl: urls
       },
       success: function (res) {
-        console.log('合并');
         console.log(res);
-        app.showSuccessToast('发布成功')
+        app.showSuccessToast('发布成功', 1000)
         wx.navigateBack({
           delta: 1
         })
