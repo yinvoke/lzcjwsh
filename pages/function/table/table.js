@@ -124,7 +124,7 @@ Page({
       header: header,
       data: {
         password: that.data.jwpwd,
-        refresh: false,
+        refresh: true,
         weekNum: now
       },
       success: function (res) {

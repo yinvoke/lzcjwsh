@@ -1,6 +1,6 @@
 /* pages/function/market/market.wxss */
 .container {
-  height: 100%;
+  height: 108%;
 }
 .shang{
   display: flex;
@@ -9,13 +9,14 @@
   background-color: #7acfa6;
   height: 8%;
   width: 100%;
-  position: fixed;
+  position: relative;
 }
 .xia{
-  height: 92%;
+  height: auto;
   width: 100%;
   display: flex;
   flex-direction: row;
+  overflow-y: auto; /*超出父盒子高度可滚动*/
 }
 .find1{
   margin-top: 25rpx;
@@ -51,9 +52,6 @@
 .find3 text{
   font-size: 32rpx;
 }
-.xia{
-  width: 100%;
-}
 .zuo{
   width: 170rpx;
   height: 100%;
@@ -61,6 +59,7 @@
   background-color: #f5f5f5;
   z-index: 10;
   text-align: center;
+  overflow-y: auto; /*超出父盒子高度可滚动*/
 }
 .list{
   height: 80rpx;
@@ -74,6 +73,7 @@
   margin-left: 170rpx;
   height: 100%;
   background-color: #ffffff;
+  overflow-y: auto; /*超出父盒子高度可滚动*/
 }
 
 .card{
@@ -162,7 +162,8 @@
   border-bottom: solid 2px #7acfa6;
 }
 .drawer_content {
-  padding-top: 17rpx;
+  padding-top: 20rpx;
+  padding-left:20rpx;
   height: 750rpx;
   overflow-y: scroll; /*超出父盒子高度可滚动*/
 }

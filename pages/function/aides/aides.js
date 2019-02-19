@@ -73,6 +73,7 @@ Page({
 
   // 搜索
   search: function () {
+    app.showLoadToast('搜索中', 3000);
     var that = this;
     var inputValue = that.data.header.inputValue,
       messageDisplay = false,
@@ -158,7 +159,7 @@ Page({
       'main.message': '正在加载中',
       'main.curid': that.data.main.curid
     });
-    app.showLoadToast('搜索中',3000);
+    
     let cookie = wx.getStorageSync('cookieKey');
     let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
     if (cookie) {
@@ -211,11 +212,4 @@ Page({
     data['testData[' + index + '].display'] = !this.data.testData[index].display;
     this.setData(data);
   },
-
-  onLoad: function () {
-    this.setData({
-      'main.mainDisplay': false,
-    });
-    this.search();
-  }
 });

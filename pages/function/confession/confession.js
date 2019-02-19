@@ -11,6 +11,8 @@ Page({
       { id: 'showlove', name: '发起表白' },
       /*{ id: 'matching', name: '心动匹配' }*/
     ],
+    selectData: ['查看全部', '只看实名', '只看匿名'],
+    mode:0,
     timeline:[],
     scrollTop: 0,
     curid:0,
@@ -82,7 +84,20 @@ Page({
     });
     that.getmessage(that.data.curid)
   },
-
+  // 点击下拉显示框
+  selectTap:function() {
+    this.setData({
+      show: !this.data.show
+    });
+  },
+  // 点击下拉列表
+  optionTap:function(e) {
+    let tem = e.currentTarget.dataset.index;//获取点击的下拉列表的下标
+    this.setData({
+      mode: tem,
+      show: !this.data.show
+    });
+  },
   /**
    * 评论跳转功能
    */
