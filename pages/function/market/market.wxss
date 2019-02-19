@@ -56,8 +56,8 @@
 }
 .zuo{
   width: 170rpx;
-  height: 1140rpx;
-  position: fixed;
+  height: 100%;
+  position: absolute;
   background-color: #f5f5f5;
   z-index: 10;
   text-align: center;
@@ -70,8 +70,9 @@
   padding-top: 35rpx;
 }
 .you{
+  position: absolute;
   margin-left: 170rpx;
-  height: 1120rpx;
+  height: 100%;
   background-color: #ffffff;
 }
 

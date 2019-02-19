@@ -23,7 +23,7 @@
       <!--系统-->
       <view  wx:if="{{item.status==2}}">
         <view class="top-container flex-row">
-          <image class="card-avatar" src="/assets/core/adies.png"></image>
+          <image class="card-avatar" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/core/adies.png"></image>
           <view class="user-container">
             <text class="card-id">表白墙小助手</text>
             <text class="card-time">{{item.time}}</text>

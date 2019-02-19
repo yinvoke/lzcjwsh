@@ -66,7 +66,7 @@
           </view>
           <view class="btn_ok" bindtap="powerDrawer" data-statu="close">确定</view>
         </view>
-        <image  src='/assets/market/fatie.png' class='fatie' bindtap="jumprelease" style='opacity:0.6'/>
+        <image  src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/market/fatie.png' class='fatie' bindtap="jumprelease" style='opacity:0.6'/>
         <text class="content-ending">{{remind}}</text>
       </scroll-view>
       <view wx:else class='you'>

@@ -3,16 +3,16 @@
 
   <!--头部-->
   <view class="header">
-    <image class="xs-logo" src="/assets/core/aides.png"></image>
+    <image class="xs-logo" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/core/aides.png"></image>
     <!--搜索框-->
     <view class="search-input">
       <view class="search-icon-box">
-        <image class="search-icon" src="/assets/aides/search-sign.png"></image>
+        <image class="search-icon" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/aides/search-sign.png"></image>
       </view>
       <form class="input-form" bindreset="bindClearSearchTap" bindsubmit="bindConfirmSearchTap">
         <input class="input-text" bindinput="bindSearchInput" type="text" name="search" placeholder="请输入课程" />
         <button class="input-clear-button" formType="reset" hover-class="none" wx:if="{{header.inputValue}}">
-          <image class="clear-icon" src="/assets/aides/clear.png"></image>
+          <image class="clear-icon" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/aides/clear.png"></image>
         </button>
         <button class="input-confirm-button" formType="submit" hover-class="none">
           <text>搜索</text>
@@ -43,7 +43,7 @@
           </view>
           <!--信息直接显示部分的下拉标识-->
           <view class="list-sign">
-            <image class="list-sign-icon {{!item.display ? 'list-sign-icon-show' : ''}}" src="/assets/aides/up.png"></image>
+            <image class="list-sign-icon {{!item.display ? 'list-sign-icon-show' : ''}}" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/aides/up.png"></image>
           </view>
         </view>
         <!--信息隐藏的下拉列表-->

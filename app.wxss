@@ -5,6 +5,7 @@ page{
   line-height: 150%;
   color: #666;
   letter-spacing:1rpx;
+  height: 100%;
 }
 
 .container {

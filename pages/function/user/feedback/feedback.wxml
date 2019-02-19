@@ -5,7 +5,7 @@
   <!--<text>图片上传（最多三张）</text>
   <view class='fankui'>
     <view class="img-upload">
-			<view class="img-add" bindtap="chooseImage"><image src='/assets/more/add.png'></image></view>
+			<view class="img-add" bindtap="chooseImage"><image src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/more/add.png'></image></view>
 			<view class="img-item" wx:for="{{uploadimgs}}" wx:key="{{index}}">
 				<icon type="clear" size="20" color="red" style="display:{{editable?'block':'none'}}" bindtap="deleteImg" data-index="{{index}}"/>
 			  <image src="{{item}}" mode="aspectFill"></image>

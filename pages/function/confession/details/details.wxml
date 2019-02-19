@@ -4,8 +4,8 @@
     <view class="tweet-container" >
       <view class="top-container flex-row">
         <image wx:if="{{headitem.isAnonym==false}}" class="card-avatar" src="http://119.3.46.32:8014/{{headitem.head}}"></image>
-        <image wx:if="{{headitem.isAnonym==true && headitem.gender==0}}" class="card-avatar" src="/assets/main/woman.png"></image> 
-        <image wx:if="{{headitem.isAnonym==true && headitem.gender==1}}" class="card-avatar" src="/assets/main/man.png"></image>              
+        <image wx:if="{{headitem.isAnonym==true && headitem.gender==0}}" class="card-avatar" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/main/woman.png"></image> 
+        <image wx:if="{{headitem.isAnonym==true && headitem.gender==1}}" class="card-avatar" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/main/man.png"></image>              
         <view class="user-container">
           <text class="card-id">{{headitem.src}}</text>
           <text class="card-time">{{headitem.time}}</text>
@@ -23,12 +23,12 @@
       </view>
       <view class="bottom-container flex-row" >
         <button class="bottom-tool flex-row flex-rest-width bu" bindtap='likedislike'>
-          <image wx:if="{{headitem.isThumbUp}}"  src='/assets/confession/like.png' class='bottom-tool-image'></image>
-          <image wx:else  src='/assets/confession/dislike.png' class='bottom-tool-image'></image>
+          <image wx:if="{{headitem.isThumbUp}}"  src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/confession/like.png' class='bottom-tool-image'></image>
+          <image wx:else  src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/confession/dislike.png' class='bottom-tool-image'></image>
           <text class="bottom-tool-text">{{headitem.thumb}}</text>
         </button>
         <button class="bottom-tool flex-row flex-rest-width bu" open-type="share">
-            <image src='/assets/confession/forword.png' class='bottom-tool-image'></image>
+            <image src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/confession/forword.png' class='bottom-tool-image'></image>
             <text class="bottom-tool-text">分享</text>
         </button>
       </view>
@@ -71,8 +71,8 @@
     <!--<textarea placeholder='回复 {{touser}}' bindinput='hfinput'></textarea>-->
     <button bindtap='send'>发送</button>
     <view bindtap='likedislike'>
-      <image wx:if="{{headitem.isThumbUp}}"  src='/assets/confession/like.png' class='like'></image>
-      <image wx:else  src='/assets/confession/dislike.png' class='like'></image>
+      <image wx:if="{{headitem.isThumbUp}}"  src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/confession/like.png' class='like'></image>
+      <image wx:else  src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/confession/dislike.png' class='like'></image>
     </view>
   </view>
 </view>

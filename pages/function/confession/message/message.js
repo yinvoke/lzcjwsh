@@ -1,4 +1,5 @@
 // pages/function/confession/message/message.js
+var app = getApp()
 Page({
 
   /**

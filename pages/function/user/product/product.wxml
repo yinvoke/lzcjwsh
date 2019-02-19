@@ -2,7 +2,7 @@
 <view class="container flex-column">
   <view class="top-container flex-rest-height">
     <view class="logo">
-      <image src="/assets/user/logo.png" class="logo-image"></image>
+      <image src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/user/logo.png" class="logo-image"></image>
     </view>
     <view class="name">
       <text>兰州财经大学微生活</text>

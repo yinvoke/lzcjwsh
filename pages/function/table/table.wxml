@@ -16,7 +16,7 @@
     <text style='width:120rpx;'></text>
     <text>2019-2020学年春季学期</text>
     <picker bindchange='bindWeekChange' value='{{weekIndex}}' range='{{weeks}}'>{{weeks[weekIndex]}}</picker>
-    <image bindtap='refresh' src='/assets/more/refresh.png' style='width:50rpx;padding-left:100rpx;width:35rpx;height:35rpx;'></image>
+    <image bindtap='refresh' src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/more/refresh.png' style='width:50rpx;padding-left:100rpx;width:35rpx;height:35rpx;'></image>
   </view>
 </view>
 

@@ -1,5 +1,7 @@
 /**xs.wxss**/
-
+page {
+  height: auto;
+}
 .container {
   height: 100%;
   background: #f7f7f7;

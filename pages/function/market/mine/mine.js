@@ -1,4 +1,5 @@
 // pages/function/market/mine/mine.js
+var app = getApp()
 Page({
 
   /**
