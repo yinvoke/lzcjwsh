@@ -9,7 +9,7 @@
   background-color: #7acfa6;
   height: 8%;
   width: 100%;
-  
+  position: fixed;
 }
 .xia{
   height: 92%;
