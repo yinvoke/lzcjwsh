@@ -3,9 +3,18 @@
   <!--轮播图-->
   <view class='main-lunbo'>
     <swiper indicator-dots='true' autoplay='true' interval='4000' class='lunbo'>
-      <swiper-item><image src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/images/1.jpg'></image></swiper-item>
-      <swiper-item><image src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/images/2.jpg'></image></swiper-item>
-      <swiper-item><image src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/images/3.jpg'></image></swiper-item>
+      <swiper-item>
+        <image src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/images/1.jpg'></image>
+      </swiper-item>
+      <swiper-item>
+        <image src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/images/2.jpg'></image>
+      </swiper-item>
+      <swiper-item>
+        <image src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/images/3.jpg'></image>
+      </swiper-item>
+      <swiper-item>
+        <image src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/images/4.jpg'></image>
+      </swiper-item>
     </swiper>
   </view>
   <!--功能导航-->
@@ -19,6 +28,33 @@
   </view>
   <!--天气预报-->
   <view class='tianqi'>
-    <view></view>
+    <view class='card'>
+      <image src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/weather/{{weather.weather.data}}.png"></image>
+      <view>
+        <view class='title'>
+          <text>今日天气</text>
+        </view>
+        <view class='desc'>
+          <text>{{weather.city.text}}：</text>
+          <text>{{weather.city.data}}</text>
+        </view>
+        <view class='desc'>
+          <text>{{weather.weather.text}}：</text>
+          <text>{{weather.weather.data}}</text>
+        </view>
+        <view class='desc'>
+          <text>{{weather.temperature.text}}：</text>
+          <text>{{weather.temperature.data}}℃</text>
+          <text style='margin-left:25%;'>{{weather.humidity.text}}：</text>
+          <text>{{weather.humidity.data}}</text>
+        </view>
+        <view class='desc'>
+          <text>{{weather.winddirection.text}}：</text>
+          <text>{{weather.winddirection.data}}</text>
+          <text style='margin-left:20%;'>{{weather.windpower.text}}：</text>
+          <text>{{weather.windpower.data}}</text>
+        </view>
+      </view>
+    </view>
   </view>
 </view>
