@@ -21,8 +21,9 @@
 }
 
 .user-info-uid{
+  width: 90%;
   margin-top: 10rpx;
-  font-size:30rpx;
+  font-size:32rpx;
   font-weight: bold;
   color: #808080;
 }

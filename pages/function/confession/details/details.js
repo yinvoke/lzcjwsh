@@ -19,6 +19,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    app.showLoadToast('加载中', 3000);
     this.setData({
       headitem: JSON.parse(options.ob),
       uid: JSON.parse(options.ob).id,
@@ -40,6 +41,7 @@ Page({
     if (that.data.more) {
       that.getmessage(that.data.curid);
     }
+    app.showLoadToast('加载中', 3000);
   },
   //下拉刷新
   onPullDownRefresh: function () {
@@ -49,12 +51,13 @@ Page({
       comments: []
     });
     that.getmessage(that.data.curid)
+    app.showLoadToast('加载中', 3000);
   },
   /**
    * 获取评论
    */
   getmessage:function(curid){
-    app.showLoadToast('加载中', 3000);
+    
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');
     let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
@@ -77,14 +80,20 @@ Page({
           comments: temp
         })
         let l = res.data.object.length;
-        let cid = res.data.object[l - 1].id;
-        if (l - 1 < 9) {
+        if (l==0) {
+          that.setData({
+            remind: '没有更多啦！',
+            more: false
+          })
+        } else if (l - 1 < 9){
+          let cid = res.data.object[l - 1].id;
           that.setData({
             curid: cid,
             remind: '没有更多啦！',
             more: false
           })
         } else {
+          let cid = res.data.object[l - 1].id;
           that.setData({
             curid: cid,
             remind: '下拉加载更多！',
@@ -263,9 +272,10 @@ Page({
     this.getmoresecond(comid.secondComment[l-1].id, comid.id, idx)
   },
   previewImage: function (e) {
-    var current = e.target.dataset.src;
+    let urls = [];
+    urls[0] = "http://119.3.46.32:8014/" +this.data.headitem.picUrl;
     wx.previewImage({
-      current: this.data.headitem.picUrl
+      urls: urls
     })
   }, 
 })
