@@ -16,7 +16,8 @@ Page({
    * 页面加载
    */
   onLoad:function(){
-    
+
+    app.showLoadToast('加载中', 1200);
     this.getType();
     
   },
@@ -50,7 +51,6 @@ Page({
    * 获取类型商品
    */
   getGoods: function (lastid, typeid){
-    app.showLoadToast('加载中', 1200);
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');
     let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8'};
@@ -74,13 +74,18 @@ Page({
         })
         let l = res.data.object.length;
         let cid = res.data.object[l - 1].id;
-        if (l - 1 < 19) {
+        if (l==0) {
+          that.setData({
+            remind: '没有更多啦！',
+            more: false
+          })
+        } else if (l - 1 < 19) {
           that.setData({
             curid: cid,
             remind: '没有更多啦！',
             more: false
           })
-        } else {
+        }else {
           that.setData({
             curid: cid,
             remind: '下拉加载更多！',
@@ -105,6 +110,7 @@ Page({
   },
   //上滑加载更多
   loadmore: function () {
+    app.showLoadToast('加载中', 1200);
     let typeid = Number(this.data.clickid) + 1;
     if (this.data.more) {
       this.getGoods(this.data.curid,typeid);
@@ -112,6 +118,7 @@ Page({
   },
   //下拉刷新
   onPullDownRefresh: function () {
+    app.showLoadToast('加载中', 1200);
     this.setData({
       curid: 0,
       goods: []
@@ -189,6 +196,19 @@ Page({
   },
   sousuo:function(){
     app.showErrorModal('抱歉暂未启用此功能','搜索失败')
-  }
+  },
+  previewImage: function (e) {
+    let curr = e.target.dataset.index;
+    let urls = this.data.temp.pic;
+    let l = this.data.temp.pic.length;
+    for (let i = 0; i < l; i++){
+      urls[i] = "http://119.3.46.32:8014/" + urls[i];
+    }
+    
+    wx.previewImage({
+      urls: urls,
+      current:urls[curr]
+    })
+  }, 
 
 })

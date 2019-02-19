@@ -57,10 +57,8 @@
               <view class='description'><text>崭新程度：{{temp.quality}}成新</text></view>
               <view class='description'><text>价格：{{temp.price}} RMB</text></view>
               <view class='description'><text>发布人联系方式：{{temp.contact}}</text></view>
-              <view class='images'>
-                <image wx:if="{{temp.pic[0]}}" src='http://119.3.46.32:8014/{{temp.pic[0]}}'></image>
-                <image wx:if="{{temp.pic[1]}}" src='http://119.3.46.32:8014/{{temp.pic[1]}}'></image>
-                <image wx:if="{{temp.pic[2]}}" src='http://119.3.46.32:8014/{{temp.pic[2]}}'></image>
+              <view class='images'wx:for='{{temp.pic}}' wx:for-index="index"  bindtap='previewImage'>
+                <image src='http://119.3.46.32:8014/{{item}}' data-index="{{index}}"></image>
               </view>
             </view>
           </view>
