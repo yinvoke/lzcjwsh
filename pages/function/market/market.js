@@ -24,7 +24,7 @@ Page({
   onShow:function(){
     this.setData({
       curid:0,
-      gooods:[]
+      goods:[]
     })
     let typeid = Number(this.data.clickid)+1;
     this.getGoods(this.data.curid, typeid);

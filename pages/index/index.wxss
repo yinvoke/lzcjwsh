@@ -31,10 +31,11 @@
   display: flex;
   flex-flow: row wrap;
   align-content: flex-start;
+  margin-left: 2%;
 }
 .main-core-item{
   margin:10rpx;
-  margin-left: 2%;
+  margin-left: 1%;
   margin-right: 2%;
   display: flex;
   flex-flow: column wrap;
@@ -65,8 +66,8 @@
 
 
 .tianqi{
-  margin-left: 2%;
-  width: 96%;
+  margin-left: 3%;
+  width: 95%;
 }
 .card{
   width: 720rpx;
