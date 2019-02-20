@@ -32,8 +32,11 @@ Page({
       method: 'GET',
       header: header,
       success: function (res) {
+        let temp = res.data.object;
+        temp.shift();
+        console.log(temp)
         that.setData({
-          tabs: res.data.object
+          tabs:temp
         })
       }
     })

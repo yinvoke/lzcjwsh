@@ -26,7 +26,7 @@ Page({
       curid:0,
       goods:[]
     })
-    let typeid = Number(this.data.clickid)+1;
+    let typeid = Number(this.data.clickid);
     this.getGoods(this.data.curid, typeid);
   },
   /**
@@ -108,13 +108,13 @@ Page({
       clickid: e.currentTarget.id,
       goods:[]
     })
-    let typeid = Number(this.data.clickid) +1;
+    let typeid = Number(this.data.clickid) ;
     this.getGoods(this.data.curid,typeid)
   },
   //上滑加载更多
   loadmore: function () {
     app.showLoadToast('加载中', 1200);
-    let typeid = Number(this.data.clickid) + 1;
+    let typeid = Number(this.data.clickid);
     if (this.data.more) {
       this.getGoods(this.data.curid,typeid);
     }
