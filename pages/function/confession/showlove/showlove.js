@@ -17,13 +17,27 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function () {
+  onLoad: function (e) {
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');
     let header = {};
     if (cookie) {
       header.Cookie = cookie
     }
+    wx.request({
+      url: 'http://119.3.46.32:8014/conWall/isRegister',
+      method: 'GET',
+      header: header,
+      success: function (res) {
+        console.log(res)
+        if (res.data.code == 1) {
+          console.log(res)
+          wx.navigateTo({
+            url: '../matching/matching',
+          })
+        }
+      },
+    })
     wx.request({
       url: 'http://119.3.46.32:8014/user/infor',
       method: 'GET',
@@ -35,6 +49,7 @@ Page({
         })
       }
     })
+    
   },
   /**
    * 输入处理

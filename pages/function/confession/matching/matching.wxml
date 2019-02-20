@@ -1,2 +1,23 @@
 <!--pages/function/confession/matching/matching.wxml-->
-<text>pages/function/confession/matching/matching.wxml</text>
+<view class="container">
+  <view class="card_wrap">
+    <view class='kuangs'>
+      <view class='kuang'>
+        <text class='kuang-text' style='font-size:35rpx;font-weight:bold;'>{{tips}}</text>
+      </view>
+      <view class='kuang'>
+        <text class='kuang-text'>对方姓名: </text>
+        <input class='kuang-input' placeholder='请输入对方的姓名' bindinput='toinput' />
+      </view>
+      <view class='kuang' style='padding-top:55rpx'>
+        <text class='kuang-text' style='font-weight:bold;'>匹配结果</text>
+      </view>
+      <view class='kuang2'>
+        <text class='kuang-text'>{{message}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="bottom">
+    <button class="post" bindtap='submit'>确认</button>
+  </view>
+</view>

@@ -31,12 +31,14 @@ Page({
         id: id
       },
       success: function (res) {
+        
         wx.hideLoading()
         console.log(res)
         var obs = res.data.object
         var temp = [];
         for( let i = 0; i < obs.length; i++){
           temp = temp.concat(JSON.parse(obs[i].message))
+          that.readme(obs[i].id);
         }
         var t = that.data.huifu.concat(temp)
         that.setData({
@@ -60,7 +62,24 @@ Page({
       }
     })
   },
-
+  readme:function(id){
+    var that = this;
+    let cookie = wx.getStorageSync('cookieKey');
+    let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
+    if (cookie) {
+      header.Cookie = cookie
+    }
+    wx.request({
+      url: 'http://119.3.46.32:8014/conWall/readMessage',
+      method: 'POST',
+      header: header,
+      data: {
+        id: id
+      },
+      success: function (res) {
+      }
+    })
+  },
   //上滑加载更多
   onReachBottom: function () {
     var that = this;
