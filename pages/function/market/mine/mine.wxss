@@ -7,6 +7,15 @@
   display:flex;
   border-bottom: solid 1px #dfdfdf;
 }
+.hea{
+  height: 170rpx;
+  width: 100%;
+  font-size:28rpx;
+  font-weight: bold;
+  color: red;
+  border-bottom: solid 1px #dfdfdf;
+}
+
 .card image{
   width: 220rpx;
   height: 220rpx;

@@ -1,18 +1,29 @@
 <!--pages/function/market/mine/mine.wxml-->
 <scroll-view scroll-y="true" class='you'>
-  <block wx:for="{{goods}}"  wx:key="id">
+  <view class='hea'>
+    <view style='border-bottom:solid 1rpx #dfdfdf;'><text style='margin-bottom:10rpx;'>温馨提示：上架超过七天的物品会被自动下架哦~ 可以在这里选择重新上架呢~</text></view>
+    <view><text style='margin-bottom:20rpx;'>温馨提示：物品下架两周后会被自动删除，如有需要请及时重新上架！</text></view>
+  </view>
+  <block wx:for="{{goods}}" wx:key="id">
+
     <view class='card'>
       <view>
-        <view class='title'><text>物品名称：{{item.name}}</text></view>
-        <view class='time'><text>发布日期：{{item.time}}</text></view>
-        <view class='jiage'><text>￥{{item.price}}</text></view>
+        <view class='title'>
+          <text>物品名称：{{item.name}}</text>
+        </view>
+        <view class='time'>
+          <text>发布日期：{{item.time}}</text>
+        </view>
+        <view class='jiage'>
+          <text>￥{{item.price}}</text>
+        </view>
       </view>
-      <view class = 'chuli'>
-        <view  id='{{index}}' class='sale' wx:if="{{item.status==0}}" style='color:green;font-weight:bold'>正在出售</view>
-      <view  id='{{index}}' class='sale' bindtap='resale' wx:if="{{item.status==1}}" >重新上架</view>
-      <view id='{{index}}'  class='sale' bindtap='deleteit'  style='color:orange;font-weight:bold'>下架</view>
+      <view class='chuli'>
+        <view id='{{index}}' class='sale' wx:if="{{item.status==0}}" style='color:green;font-weight:bold'>正在出售</view>
+        <view id='{{index}}' class='sale' bindtap='resale' wx:if="{{item.status==1}}">重新上架</view>
+        <view id='{{index}}' class='sale' bindtap='deleteit' style='color:orange;font-weight:bold'>下架</view>
       </view>
-      
+
     </view>
   </block>
   <text class="content-ending">{{remind}}</text>

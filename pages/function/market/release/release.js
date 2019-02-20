@@ -123,7 +123,7 @@ Page({
    * 提交
    */
   submit: function () {
-    app.showLoadToast('发布中',3000)
+    app.showLoadToast('发布中',6000)
     var uid = null;
     var url = null;
     let typeid = Number(this.data.tindex) + 1;
@@ -156,7 +156,6 @@ Page({
           content: that.data.desc,
         },
         success: function (res) {
-          
           let imgs = that.data.uploadimgs;
           let uid = res.data.object;
           that.subphotos({
