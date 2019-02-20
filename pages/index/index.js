@@ -8,11 +8,11 @@ Page({
    */
   data: {
     core: [
-      { id: 'table', name: '课表查询' },
-      { id: 'aides', name: '蹭课助手' },
-      { id: 'market', name: '跳蚤市场' },
-      { id: 'confession', name: '表白墙' },
-      { id: 'user', name: '用户中心' }
+      { id: 'table', name: '课表查询', bc: '#154360', c:'#85C1E9' },
+      { id: 'aides', name: '蹭课助手', bc: '#4A235A', c: '#D7BDE2'  },
+      { id: 'market', name: '跳蚤市场', bc: '#0E6655', c: '#A3E4D7' },
+      { id: 'confession', name: '表白墙', bc: '#78281F', c: '#F5B7B1'  },
+      { id: 'user', name: '用户中心', bc: '#9C640C', c: '#F9E79F' }
     ],
   },
 
