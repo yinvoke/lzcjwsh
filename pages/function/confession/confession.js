@@ -22,8 +22,26 @@ Page({
    * 生命周期函数--页面显示
    */
   onLoad: function () {
-    this.setData({
-      timeline:[]
+    
+    var that = this;
+    let cookie = wx.getStorageSync('cookieKey');
+    let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
+    if (cookie) {
+      header.Cookie = cookie
+    }
+    wx.request({
+      url: 'http://119.3.46.32:8014/conWall/isRegister',
+      method: 'GET',
+      header: header,
+      success: function (res) {
+        console.log(res)
+        if (res.data.code == 1) {
+          console.log(res)
+          wx.navigateTo({
+            url: '../matching/matching',
+          })
+        }
+      },
     })
     this.getmessage(0)
   },
