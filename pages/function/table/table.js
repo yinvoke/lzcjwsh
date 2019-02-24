@@ -94,7 +94,7 @@ Page({
    * 刷新
    */
   refresh:function(){
-    app.showLoadToast('同步中', 1200)
+    app.showLoadToast('同步中', 6000)
     this.getclass(Number(this.data.weekIndex) + 1, true)
   },
   /**
