@@ -65,7 +65,7 @@ Page({
     let code = md5.hexMD5('shudaixiong' + that.data.toname);
     if (this.data.toname == null) {
       app.showErrorModal('发帖失败', "姓名不能为空")
-    } else if(that.data.ir==1){
+    } else if(this.data.ir==0){
       app.showLoadToast('注册中', 3000);
       wx.request({
         url: 'http://119.3.46.32:8014/conWall/register',
@@ -77,9 +77,17 @@ Page({
         success: function (res) {
           wx.hideLoading()
           console.log(res)
-          that.setData({
-            message: res.data.message
-          })
+          if(res.data.object){
+            that.setData({
+              message: res.data.message,
+              obj: res.data.object
+            })
+          }else{
+            that.setData({
+              message: res.data.message
+            })
+          }
+          
         },
         fail: function (res) {
           app.showErrorModal('请重试', '匹配失败')
@@ -97,9 +105,16 @@ Page({
         success: function(res) {
           wx.hideLoading()
           console.log(res)
-          that.setData({
-            message: res.data.message
-          })
+          if (res.data.object) {
+            that.setData({
+              message: res.data.message,
+              obj: res.data.object
+            })
+          } else {
+            that.setData({
+              message: res.data.message
+            })
+          }
         },
         fail: function(res) {
           app.showErrorModal('请重试', '匹配失败')

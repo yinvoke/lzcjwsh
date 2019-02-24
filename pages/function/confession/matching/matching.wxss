@@ -28,12 +28,13 @@
 }
 .kuang2{
   margin-left: 10%;
-  margin-top: 60rpx;
-  height: 270rpx;
+  margin-top: 10rpx;
+  height: 500rpx;
   width: 80%;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  overflow-y: auto;
 }
 .kuang-text{
   font-size: 30rpx;

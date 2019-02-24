@@ -69,6 +69,7 @@ view, scroll-view, input, text{
 .core-item-name{
   display: block;
   margin: 5rpx;
+  margin-left: 20rpx;
 }
 .lookall{
   margin-right: 15rpx;
