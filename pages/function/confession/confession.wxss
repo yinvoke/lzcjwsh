@@ -34,6 +34,20 @@ view, scroll-view, input, text{
   min-height: 180rpx;
   overflow: hidden;
 }
+.weidu{
+  background-color: red;
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 20rpx;
+  position: fixed;
+  margin-left: 90rpx;
+  color: white;
+  font-weight: bold;
+  font-size: 23rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .main-core-item{
   display: flex;
   flex-flow: column wrap;

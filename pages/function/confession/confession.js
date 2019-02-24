@@ -43,6 +43,17 @@ Page({
         }
       },
     })
+    wx.request({
+      url: 'http://119.3.46.32:8014/conWall/getNoReMesNum',
+      method: 'GET',
+      header: header,
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          weidunum:res.data.object
+        })
+      },
+    })
     this.getmessage(0)
   },
 
