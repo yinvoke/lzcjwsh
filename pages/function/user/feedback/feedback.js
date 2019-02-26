@@ -77,7 +77,7 @@ Page({
       header.Cookie = cookie
     }
     wx.request({
-      url: 'http://119.3.46.32:8014/suggest/insertSug',
+      url: 'https://lancai.zekdot.com:8013/suggest/insertSug',
       method: 'GET',
       header: header,
       data:{

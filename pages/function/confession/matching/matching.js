@@ -17,14 +17,14 @@ Page({
       header.Cookie = cookie
     }
     wx.request({
-      url: 'http://119.3.46.32:8014/conWall/isRegister',
+      url: 'https://lancai.zekdot.com:8013/conWall/isRegister',
       method: 'GET',
       header: header,
       success: function(res) {
         console.log(res)
         if (res.data.code == 1) {
           that.setData({
-            tips: '请输入喜欢的人的姓名',
+            tips: '接下来，你可以输入喜欢的人的姓名，我们将会为您匹配，当Ta也填写后我们会通知您~~',
             ir:0
           })
         } else {
@@ -68,7 +68,7 @@ Page({
     } else if(this.data.ir==0){
       app.showLoadToast('注册中', 3000);
       wx.request({
-        url: 'http://119.3.46.32:8014/conWall/register',
+        url: 'https://lancai.zekdot.com:8013/conWall/register',
         method: 'POST',
         header: header,
         data: {
@@ -96,7 +96,7 @@ Page({
     } else {
       app.showLoadToast('匹配中', 3000);
       wx.request({
-        url: 'http://119.3.46.32:8014/conWall/changeName',
+        url: 'https://lancai.zekdot.com:8013/conWall/changeName',
         method: 'POST',
         header: header,
         data: {

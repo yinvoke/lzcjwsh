@@ -30,7 +30,7 @@ Page({
       header.Cookie = cookie
     }
     wx.request({
-      url: 'http://119.3.46.32:8014/conWall/isRegister',
+      url: 'https://lancai.zekdot.com:8013/conWall/isRegister',
       method: 'GET',
       header: header,
       success: function (res) {
@@ -38,13 +38,13 @@ Page({
         if (res.data.code == 1) {
           console.log(res)
           wx.navigateTo({
-            url: '../matching/matching',
+            url: '../confession/matching/matching',
           })
         }
       },
     })
     wx.request({
-      url: 'http://119.3.46.32:8014/conWall/getNoReMesNum',
+      url: 'https://lancai.zekdot.com:8013/conWall/getNoReMesNum',
       method: 'GET',
       header: header,
       success: function (res) {
@@ -66,7 +66,7 @@ Page({
       header.Cookie = cookie
     }
     wx.request({
-      url: 'http://119.3.46.32:8014/conWall/getConfessionList',
+      url: 'https://lancai.zekdot.com:8013/conWall/getConfessionList',
       method: 'POST',
       header: header,
       data: {

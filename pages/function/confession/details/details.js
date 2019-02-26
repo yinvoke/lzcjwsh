@@ -43,7 +43,7 @@ Page({
       header.Cookie = cookie
     }
     wx.request({
-      url: 'http://119.3.46.32:8014/conWall/deleteConfession',
+      url: 'https://lancai.zekdot.com:8013/conWall/deleteConfession',
       method: 'POST',
       header: header,
       data: {
@@ -88,7 +88,7 @@ Page({
       header.Cookie = cookie
     }
     wx.request({
-      url: 'http://119.3.46.32:8014/conWall/getCommentByConId',
+      url: 'https://lancai.zekdot.com:8013/conWall/getCommentByConId',
       method: 'POST',
       header: header,
       data: {
@@ -137,7 +137,7 @@ Page({
       header.Cookie = cookie
     }
     wx.request({
-      url: 'http://119.3.46.32:8014/conWall/getMoreSecComment',
+      url: 'https://lancai.zekdot.com:8013/conWall/getMoreSecComment',
       method: 'POST',
       header: header,
       data: {
@@ -180,7 +180,7 @@ Page({
     }
     if (this.data.headitem.isThumbUp == false){
       wx.request({
-        url: 'http://119.3.46.32:8014/conWall/thumbUp',
+        url: 'https://lancai.zekdot.com:8013/conWall/thumbUp',
         method: 'POST',
         header: header,
         data: {
@@ -197,7 +197,7 @@ Page({
     }
     else{
       wx.request({
-        url: 'http://119.3.46.32:8014/conWall/thumbDown',
+        url: 'https://lancai.zekdot.com:8013/conWall/thumbDown',
         method: 'POST',
         header: header,
         data: {
@@ -248,7 +248,7 @@ Page({
     }
     if(this.data.nickname=='楼主'){
       wx.request({
-        url: 'http://119.3.46.32:8014/conWall/comConfession',
+        url: 'https://lancai.zekdot.com:8013/conWall/comConfession',
         method: 'POST',
         header: header,
         data: {
@@ -268,7 +268,7 @@ Page({
     }
     else{
       wx.request({
-        url: 'http://119.3.46.32:8014/conWall/comComment',
+        url: 'https://lancai.zekdot.com:8013/conWall/comComment',
         method: 'POST',
         header: header,
         data: {
@@ -296,7 +296,7 @@ Page({
   },
   previewImage: function (e) {
     let urls = [];
-    urls[0] = "http://119.3.46.32:8014/" +this.data.headitem.picUrl;
+    urls[0] = "https://lancai.zekdot.com:8013/" +this.data.headitem.picUrl;
     wx.previewImage({
       urls: urls
     })

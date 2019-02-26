@@ -26,7 +26,7 @@ Page({
       header.Cookie = cookie
     }
     wx.request({
-      url: 'http://119.3.46.32:8014/user/infor',
+      url: 'https://lancai.zekdot.com:8013/user/infor',
       method: 'GET',
       header: header,
       success: function (res) {
@@ -77,7 +77,7 @@ Page({
         })
         console.log(tempFilePaths[0])
         wx.uploadFile({
-          url: 'http://119.3.46.32:8014/user/uploadHead', 
+          url: 'https://lancai.zekdot.com:8013/user/uploadHead', 
           filePath: tempFilePaths[0],
           header: header,
           name: "head",
@@ -147,7 +147,7 @@ Page({
         header.Cookie = cookie
       }
       wx.request({
-        url: 'http://119.3.46.32:8014/user/modNickname',
+        url: 'https://lancai.zekdot.com:8013/user/modNickname',
         method: 'POST',
         header: header,
         data: {
@@ -185,7 +185,7 @@ Page({
         header.Cookie = cookie
       }
       wx.request({
-        url: 'http://119.3.46.32:8014/user/modPassword',
+        url: 'https://lancai.zekdot.com:8013/user/modPassword',
         method: 'POST',
         header: header,
         data: {

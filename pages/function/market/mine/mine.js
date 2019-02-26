@@ -28,7 +28,7 @@ Page({
       header.Cookie = cookie
     }
     wx.request({
-      url: 'http://119.3.46.32:8014/fleMar/getOwnProduct',
+      url: 'https://lancai.zekdot.com:8013/fleMar/getOwnProduct',
       method: 'POST',
       header: header,
       data: {
@@ -87,7 +87,7 @@ Page({
     console.log(this.data.goods[id].id)
     let uid = this.data.goods[id].id
     wx.request({
-      url: 'http://119.3.46.32:8014/fleMar/refreshProduct',
+      url: 'https://lancai.zekdot.com:8013/fleMar/refreshProduct',
       method: 'POST',
       header: header,
       data: {
@@ -116,7 +116,7 @@ Page({
     console.log(this.data.goods[id].id)
     let uid = this.data.goods[id].id
     wx.request({
-      url: 'http://119.3.46.32:8014/fleMar/deleteProduct',
+      url: 'https://lancai.zekdot.com:8013/fleMar/deleteProduct',
       method: 'POST',
       header: header,
       data: {

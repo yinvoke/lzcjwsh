@@ -30,7 +30,7 @@ Page({
     else{
       wx.request({
         method: 'POST',
-        url: 'http://119.3.46.32:8014/user/login',
+        url: 'https://lancai.zekdot.com:8013/user/login',
         data: {
           username: username,
           password: password

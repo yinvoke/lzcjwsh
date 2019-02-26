@@ -26,7 +26,7 @@ Page({
     }
     
     wx.request({
-      url: 'http://119.3.46.32:8014/user/infor',
+      url: 'https://lancai.zekdot.com:8013/user/infor',
       method: 'GET',
       header: header,
       success: function (res) {
@@ -130,7 +130,7 @@ Page({
        * 上传基本信息
        */
       wx.request({
-        url: 'http://119.3.46.32:8014/conWall/insertConfession',
+        url: 'https://lancai.zekdot.com:8013/conWall/insertConfession',
         method: 'POST',
         header: header,
         data: {
@@ -177,7 +177,7 @@ Page({
     let imgs = this.data.uploadimgs;
     console.log("uid :" + uid);
     wx.uploadFile({
-      url: 'http://119.3.46.32:8014/conWall/uploadPic',
+      url: 'https://lancai.zekdot.com:8013/conWall/uploadPic',
       filePath: imgs[0],
       header: header,
       name: "file",
@@ -205,7 +205,7 @@ Page({
     console.log("uid :" + uid);
     console.log("url :" + url);
     wx.request({
-      url: 'http://119.3.46.32:8014/conWall/updatePic',
+      url: 'https://lancai.zekdot.com:8013/conWall/updatePic',
       method: 'POST',
       header: header,
       data: {

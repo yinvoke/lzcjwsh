@@ -28,7 +28,7 @@ Page({
       header.Cookie = cookie
     }
     wx.request({
-      url: 'http://119.3.46.32:8014/fleMar/getAllType',
+      url: 'https://lancai.zekdot.com:8013/fleMar/getAllType',
       method: 'GET',
       header: header,
       success: function (res) {
@@ -144,7 +144,7 @@ Page({
        * 上传基本信息
        */
       wx.request({
-        url: 'http://119.3.46.32:8014/fleMar/subProduct',
+        url: 'https://lancai.zekdot.com:8013/fleMar/subProduct',
         method: 'POST',
         header: header,
         data: {
@@ -185,7 +185,7 @@ Page({
       header.Cookie = cookie
     }
     wx.uploadFile({
-      url: 'http://119.3.46.32:8014/fleMar/uploadPic',
+      url: 'https://lancai.zekdot.com:8013/fleMar/uploadPic',
       filePath: data.path[i],
       header: header,
       name: "file",
@@ -229,7 +229,7 @@ Page({
     console.log("uid :" + uid);
     console.log("urls :" + urls);
     wx.request({
-      url: 'http://119.3.46.32:8014/fleMar/updateProduct',
+      url: 'https://lancai.zekdot.com:8013/fleMar/updateProduct',
       method: 'POST',
       header: header,
       data: {

@@ -20,7 +20,7 @@ Page({
       header.Cookie = cookie
     }
     wx.request({
-      url: 'http://119.3.46.32:8014/user/infor',
+      url: 'https://lancai.zekdot.com:8013/user/infor',
       method:'GET',
       header: header,
       success:function(res){
@@ -41,7 +41,7 @@ Page({
       header.Cookie = cookie
     }
     wx.request({
-      url: 'http://119.3.46.32:8014/user/infor',
+      url: 'https://lancai.zekdot.com:8013/user/infor',
       method: 'GET',
       header: header,
       success: function (res) {

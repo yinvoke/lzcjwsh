@@ -40,7 +40,7 @@ Page({
       header.Cookie = cookie
     }
     wx.request({
-      url: 'http://119.3.46.32:8014/fleMar/getAllType',
+      url: 'https://lancai.zekdot.com:8013/fleMar/getAllType',
       method: 'GET',
       header: header,
       success: function (res) {
@@ -61,7 +61,7 @@ Page({
       header.Cookie = cookie
     }
     wx.request({
-      url: 'http://119.3.46.32:8014/fleMar/getAllProduct',
+      url: 'https://lancai.zekdot.com:8013/fleMar/getAllProduct',
       method: 'POST',
       header: header,
       data:{
@@ -206,7 +206,7 @@ Page({
     let urls = this.data.temp.pic;
     let l = this.data.temp.pic.length;
     for (let i = 0; i < l; i++){
-      urls[i] = "http://119.3.46.32:8014/" + urls[i];
+      urls[i] = "https://lancai.zekdot.com:8013/" + urls[i];
     }
     
     wx.previewImage({

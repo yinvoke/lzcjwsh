@@ -28,7 +28,7 @@ Page({
       header.Cookie = cookie
     }
     wx.request({
-      url: 'http://119.3.46.32:8014/inform/getInfor',
+      url: 'https://lancai.zekdot.com:8013/inform/getInfor',
       method: 'GET',
       header: header,
       success: function (res) {
@@ -78,7 +78,7 @@ Page({
       header.Cookie = cookie
     }
     wx.request({
-      url: 'http://119.3.46.32:8014/priSyllabus/getAll',
+      url: 'https://lancai.zekdot.com:8013/priSyllabus/getAll',
       method: 'POST',
       header: header,
       data: {
@@ -151,7 +151,7 @@ Page({
       header.Cookie = cookie
     }
     wx.request({
-      url: 'http://119.3.46.32:8014/priSyllabus/getAll',
+      url: 'https://lancai.zekdot.com:8013/priSyllabus/getAll',
       method: 'POST',
       header: header,
       data: {

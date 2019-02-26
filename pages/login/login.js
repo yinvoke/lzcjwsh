@@ -40,7 +40,7 @@ Page({
       app.showLoadToast('验证中');
       wx.request({
         method: 'POST',
-        url: 'http://119.3.46.32:8014/user/login',
+        url: 'https://lancai.zekdot.com:8013/user/login',
         data: {
           username: that.data.userid,
           password: that.data.passwd

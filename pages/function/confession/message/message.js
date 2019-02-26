@@ -24,7 +24,7 @@ Page({
       header.Cookie = cookie
     }
     wx.request({
-      url: 'http://119.3.46.32:8014/conWall/getMessage',
+      url: 'https://lancai.zekdot.com:8013/conWall/getMessage',
       method: 'GET',
       header: header,
       data: {
@@ -70,7 +70,7 @@ Page({
       header.Cookie = cookie
     }
     wx.request({
-      url: 'http://119.3.46.32:8014/conWall/readMessage',
+      url: 'https://lancai.zekdot.com:8013/conWall/readMessage',
       method: 'POST',
       header: header,
       data: {
@@ -109,7 +109,7 @@ Page({
       header.Cookie = cookie
     }
     wx.request({
-      url: 'http://119.3.46.32:8014/conWall/getConfessionById',
+      url: 'https://lancai.zekdot.com:8013/conWall/getConfessionById',
       method: 'GET',
       header: header,
       data: {
