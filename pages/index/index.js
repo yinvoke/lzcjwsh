@@ -55,20 +55,21 @@ Page({
           app.showLoadToast('请检查您的网络');
         }
       });
+      var that = this;
+      var myAmapFun = new amapFile.AMapWX({ key: '059a42238cba63b188e9589bd8500f4f' });
+      myAmapFun.getWeather({
+        success: function (data) {
+          console.log(data)
+          that.setData({
+            weather: data
+          });
+        },
+        fail: function (info) {
+          app.showErrorModal('天气获取失败', '加载失败')
+        }
+      })
     }
-    var that = this;
-    var myAmapFun = new amapFile.AMapWX({ key: '059a42238cba63b188e9589bd8500f4f' });
-    myAmapFun.getWeather({
-      success: function (data) {
-        console.log(data)
-        that.setData({
-          weather: data
-        });
-      },
-      fail: function (info) {
-        app.showErrorModal('天气获取失败','加载失败')
-      }
-    })
+    
   },
 
  

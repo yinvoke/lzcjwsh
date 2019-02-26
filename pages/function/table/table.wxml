@@ -1,11 +1,12 @@
 <!--pages/table/table.wxml-->
 <view class='coniter'>
+  <view class='anit {{show?"show":""}}'>{{infor}}</view>
   <view class="drawer_box" wx:if="{{ishidden}}">
     <!--drawer content-->
     <view class="drawer_title">请绑定教务网密码以便获取最新的课表</view>
     <view class="drawer_content" style='height:250rpx;'>
       <view class='description'>
-        <input placeholder='请输入教务网密码' bindinput='jwinput' class='jw'/>
+        <input placeholder='请输入教务网密码' bindinput='jwinput' class='jw' />
       </view>
       <view class='description'>
         <button class='jwbind' bindtap='bind'>绑定</button>

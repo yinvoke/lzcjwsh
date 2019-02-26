@@ -12,13 +12,32 @@ Page({
     colorArrays: ["#ffc09f", "#fce38a", "#eaffd0", "#95e1d3", "#FE8F92"],
     showModalStatus: false,
     wlist: [],
-    ishidden:true
+    ishidden:true,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var that = this;
+    let cookie = wx.getStorageSync('cookieKey');
+    let header = {
+      'content-type': 'application/x-www-form-urlencoded; charset=utf-8'
+    };
+    if (cookie) {
+      header.Cookie = cookie
+    }
+    wx.request({
+      url: 'http://119.3.46.32:8014/inform/getInfor',
+      method: 'GET',
+      header: header,
+      success: function (res) {
+        console.log(res)
+        that.setData({
+          infor:res.data.object[0].content
+        })
+      }
+    })
     if(wx.getStorageSync('jwpwd')){
       var timestamp = Date.parse(new Date());
       var temp = (timestamp / 1000 - 1551024000) / 60 / 60 / 24;
@@ -31,12 +50,25 @@ Page({
       let refresh = false;
       this.getclass(now, refresh)
     }
-  
+
+    this.anniu()
+  },
+  anniu: function (e) {
+    if (!this.data.show) {
+      let that = this;
+      this.setData({
+        show: 1
+      })
+      setTimeout(function () {
+        that.setData({
+          show: 0
+        })
+      }, 2000)
+    }
   },
 
 
   getclass: function(now, refresh) {
-    console.log("now" + now)
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');
     let header = {

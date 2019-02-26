@@ -4,13 +4,13 @@
   <view class='main-lunbo'>
     <swiper indicator-dots='true' autoplay='true' interval='4000' class='lunbo'>
       <swiper-item>
-        <image src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/images/2.jpg'></image>
+        <image src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/images/school3.jpg'></image>
       </swiper-item>
       <swiper-item>
-        <image src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/images/3.jpg'></image>
+        <image src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/images/school1.jpg'></image>
       </swiper-item>
       <swiper-item>
-        <image src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/images/4.jpg'></image>
+        <image src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/images/koala.jpg'></image>
       </swiper-item>
     </swiper>
   </view>
