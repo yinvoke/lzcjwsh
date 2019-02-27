@@ -85,7 +85,12 @@ Page({
               message: res.data.message
             })
           }
-          
+          setTimeout(function () {
+            wx.navigateBack({//返回
+              delta: 1
+            })
+
+          }, 2000);
         },
         fail: function (res) {
           app.showErrorModal('请重试', '匹配失败')

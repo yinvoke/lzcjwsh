@@ -15,7 +15,8 @@ page{
   background: red;
   position: absolute;
   color: white;
-  font-size: 30rpx;
+  font-size: 27rpx;
+  font-weight: bold;
   line-height: 70rpx;
   top: -70rpx;
   text-align: center;

@@ -3,7 +3,7 @@
 
   <!--头部-->
   <view class="header">
-    <image class="xs-logo" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/core/aides.png"></image>
+    <image class="xs-logo" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/core/old/aides.png"></image>
     <!--搜索框-->
     <view class="search-input">
       <view class="search-icon-box">

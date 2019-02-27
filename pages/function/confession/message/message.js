@@ -16,7 +16,7 @@ Page({
     this.getmessage(this.data.curid)
   },
   getmessage: function (id) {
-    app.showLoadToast('加载中', 3000);
+    app.showLoadToast('加载中', 2000);
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');
     let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
