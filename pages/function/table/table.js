@@ -156,7 +156,7 @@ Page({
       header: header,
       data: {
         password: that.data.jwpwd,
-        refresh: true,
+        refresh: false,
         weekNum: now
       },
       success: function (res) {
@@ -186,7 +186,7 @@ Page({
     this.util(currentStatu)
     if (currentStatu == "open") {
       let t = this.data.wlist[e.target.dataset.index];
-      t.lessons_time = Number(t.lessons_time) + Number(t.lessons_start);
+      t.lessons_time = Number(t.lessons_time) + Number(t.lessons_start)-1;
       console.log(t)
       this.setData({
         temp: t

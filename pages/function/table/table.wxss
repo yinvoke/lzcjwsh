@@ -74,13 +74,13 @@ page{
   justify-content: center;
   display: flex;
   align-items: center;
-  border-radius: 8px;
+  border-radius: 6rpx;
 }
 
 .smalltext {
-  font-size: 25rpx;
+  font-size: 24rpx;
   color: #1f1a3b;
-  padding-left: 2px;
+  padding-left: 2rpx;
 }
 
 .top {

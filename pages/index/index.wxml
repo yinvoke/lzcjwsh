@@ -4,13 +4,13 @@
   <view class='main-lunbo'>
     <swiper indicator-dots='true' autoplay='true' interval='4000' class='lunbo'>
       <swiper-item>
-        <image src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/images/school3.jpg'></image>
+        <image lazy-load='true' src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/images/zs1.jpg'></image>
       </swiper-item>
       <swiper-item>
-        <image src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/images/school1.jpg'></image>
+        <image lazy-load='true' src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/images/zs2.jpg'></image>
       </swiper-item>
       <swiper-item>
-        <image src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/images/koala.jpg'></image>
+        <image lazy-load='true' src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/images/zs3.jpg'></image>
       </swiper-item>
     </swiper>
   </view>
@@ -18,7 +18,7 @@
   <view class="main-core">
     <block wx:for="{{core}}" wx:key="id">
       <navigator class="main-core-item" url="{{'/pages/function/'+item.id+'/'+item.id}}">
-        <image class="core-item-icon" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/core/{{item.id}}_new.png"></image>
+        <image lazy-load='true'  class="core-item-icon" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/core/anew/{{item.id}}_new.png"></image>
         <text class="tit" style='background-color:{{item.bc}};color: {{item.c}}'>{{item.name}}</text>
       </navigator>
     </block>
