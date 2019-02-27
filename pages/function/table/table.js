@@ -32,7 +32,6 @@ Page({
       method: 'GET',
       header: header,
       success: function (res) {
-        console.log(res)
         that.setData({
           infor:res.data.object[0].content
         })
@@ -88,17 +87,14 @@ Page({
       },
       success: function(res) {
         if(res.data.code ==0){
-          console.log(res)
           that.setData({
             wlist: res.data.object
           })
         }else{
-          console.log(res)
           app.showErrorModal(res.message, '更新失败')
         }
       },
       fail: function(res) {
-        console.log(res)
         app.showErrorModal(res.message, '更新失败')
       }
     })
@@ -141,7 +137,6 @@ Page({
     var timestamp = Date.parse(new Date());
     var temp = (timestamp / 1000 - 1550332800) / 60 / 60 / 24;
     var now = parseInt(temp / 7)+1;
-    console.log('now:' + now)
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');
     let header = {
@@ -161,7 +156,6 @@ Page({
       },
       success: function (res) {
         if (res.data.code == 0) {
-          console.log(res)
           app.showSuccessToast('绑定成功', 1000)
           wx.setStorageSync('jwpwd', that.data.jwpwd)
           that.setData({
@@ -181,13 +175,11 @@ Page({
    * 动画
    */
   powerDrawer: function(e) {
-    console.log(this.data.wlist[e.target.dataset.index])
     var currentStatu = e.currentTarget.dataset.statu;
     this.util(currentStatu)
     if (currentStatu == "open") {
       let t = this.data.wlist[e.target.dataset.index];
       t.lessons_time = Number(t.lessons_time) + Number(t.lessons_start)-1;
-      console.log(t)
       this.setData({
         temp: t
       })

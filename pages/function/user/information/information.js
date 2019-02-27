@@ -55,7 +55,6 @@ Page({
   chooseWxImage: function (type) {
     let that = this;
     let imagename = app.globalData.username + "head";
-    console.log(imagename)
     wx.chooseImage({
       sizeType: ['original', 'compressed'],
       sourceType: [type],
@@ -75,14 +74,12 @@ Page({
           mask: true,
           duration: 500
         })
-        console.log(tempFilePaths[0])
         wx.uploadFile({
           url: 'https://lancai.zekdot.com:8013/user/uploadHead', 
           filePath: tempFilePaths[0],
           header: header,
           name: "head",
           success(res) {
-            console.log(res)
             var d = JSON.parse(res.data)
             app.showSuccessToast('修改成功', 3000)
             that.getinfo()

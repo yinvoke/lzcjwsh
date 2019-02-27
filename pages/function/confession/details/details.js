@@ -97,7 +97,6 @@ Page({
       },
       success: function (res) {
         wx.hideLoading();
-        console.log(res)
         var temp = that.data.comments.concat(res.data.object)
         that.setData({
           comments: temp
@@ -145,7 +144,6 @@ Page({
         comId: comid,
       },
       success: function (res) {
-        console.log(res)
         var temp = that.data.comments[idx].secondComment.concat(res.data.object)
         let vn = 'comments['+idx+'].secondComment';
         that.setData({
@@ -187,7 +185,6 @@ Page({
           conId: that.data.uid
         },
         success:function(res){
-          console.log(res)
           that.setData({
             ['headitem.isThumbUp']:true,
             ['headitem.thumb']:that.data.headitem.thumb+1
@@ -204,7 +201,6 @@ Page({
           conId: that.data.uid
         },
         success: function (res) {
-          console.log(res)
           that.setData({
             ['headitem.isThumbUp']: false,
             ['headitem.thumb']: that.data.headitem.thumb - 1

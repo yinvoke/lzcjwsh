@@ -122,7 +122,6 @@ Page({
 
     // 处理成功返回的数据
     function doSuccess(data, messageDisplay) {
-      console.log(data)
       // 若data===false, 查询没有结果
       if (data === false) {
         return false;
@@ -176,7 +175,6 @@ Page({
         id: that.data.main.curid
       },
       success: function (res) {
-        console.log(res)
         if (res.data.object.length==0 && that.data.main.sum==0){
           let ttt = '抱歉，没有搜索到哦~';
           wx.hideToast();

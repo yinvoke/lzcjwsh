@@ -47,7 +47,6 @@ Page({
     })
   },
   deleteImg: function (e) {
-    console.log(e.target.dataset.index);
     var index = e.target.dataset.index;
     this.data.uploadimgs.splice(index,1)
     this.setData({

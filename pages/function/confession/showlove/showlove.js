@@ -140,8 +140,6 @@ Page({
           desc: that.data.con
         },
         success: function (res) {
-          console.log("上传信息");
-          console.log(res);
           if(that.data.uploadimgs.length>=1){
             uid = res.data.object
             isok = that.subphoto(uid);
@@ -175,7 +173,6 @@ Page({
       header.Cookie = cookie
     }
     let imgs = this.data.uploadimgs;
-    console.log("uid :" + uid);
     wx.uploadFile({
       url: 'https://lancai.zekdot.com:8013/conWall/uploadPic',
       filePath: imgs[0],
@@ -183,8 +180,6 @@ Page({
       name: "file",
       success(res) {
         var url = (JSON.parse(res.data)).object;
-        console.log("上传图片")
-        console.log(res);
         return that.bindall(uid, url);
       },
       fail: function (res) {
@@ -202,8 +197,6 @@ Page({
     if (cookie) {
       header.Cookie = cookie
     }
-    console.log("uid :" + uid);
-    console.log("url :" + url);
     wx.request({
       url: 'https://lancai.zekdot.com:8013/conWall/updatePic',
       method: 'POST',

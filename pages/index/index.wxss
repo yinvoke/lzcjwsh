@@ -55,13 +55,16 @@
   margin: 5rpx;
 }
 .tit{
-  padding-left: 2%;
+  display: flex;
+  font-size: 27rpx;
+  justify-content: center;
+  align-content: center;
   height: 36rpx;
   width: 128rpx;
   font-weight: bold;
   position: fixed;
-  background-color: rgb(0, 17, 110);
-  color: #7ab9ec;
+  background-color: rgb(24, 45, 161);
+  color: #c1e3ff;
 }
 
 

@@ -21,7 +21,6 @@ Page({
       method: 'GET',
       header: header,
       success: function(res) {
-        console.log(res)
         if (res.data.code == 1) {
           that.setData({
             tips: '接下来，你可以输入喜欢的人的姓名，我们将会为您匹配，当Ta也填写后我们会通知您~~',
@@ -76,7 +75,6 @@ Page({
         },
         success: function (res) {
           wx.hideLoading()
-          console.log(res)
           if(res.data.object){
             that.setData({
               message: res.data.message,
@@ -104,7 +102,6 @@ Page({
         },
         success: function(res) {
           wx.hideLoading()
-          console.log(res)
           if (res.data.object) {
             that.setData({
               message: res.data.message,

@@ -36,7 +36,6 @@ Page({
       },
       success: function (res) {
         wx.hideLoading();
-        console.log(res)
         var temp = that.data.goods.concat(res.data.object)
         that.setData({
           goods: temp
@@ -84,7 +83,6 @@ Page({
       header.Cookie = cookie
     }
     var id = e.currentTarget.id;
-    console.log(this.data.goods[id].id)
     let uid = this.data.goods[id].id
     wx.request({
       url: 'https://lancai.zekdot.com:8013/fleMar/refreshProduct',
@@ -113,7 +111,6 @@ Page({
       header.Cookie = cookie
     }
     var id = e.currentTarget.id;
-    console.log(this.data.goods[id].id)
     let uid = this.data.goods[id].id
     wx.request({
       url: 'https://lancai.zekdot.com:8013/fleMar/deleteProduct',

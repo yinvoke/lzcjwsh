@@ -34,9 +34,7 @@ Page({
       method: 'GET',
       header: header,
       success: function (res) {
-        console.log(res)
         if (res.data.code == 1) {
-          console.log(res)
           wx.navigateTo({
             url: '../confession/matching/matching',
           })
@@ -48,7 +46,6 @@ Page({
       method: 'GET',
       header: header,
       success: function (res) {
-        console.log(res)
         that.setData({
           weidunum:res.data.object
         })
@@ -74,7 +71,6 @@ Page({
       },
       success: function (res) {
         wx.hideToast()
-        console.log(res)
         var temp = that.data.timeline.concat(res.data.object)
         that.setData({
           timeline: temp

@@ -34,7 +34,6 @@ Page({
       success: function (res) {
         let temp = res.data.object;
         temp.shift();
-        console.log(temp)
         that.setData({
           tabs:temp
         })
@@ -174,7 +173,6 @@ Page({
    * 上传图片
    */
   subphotos: function (data) {
-    console.log(data);
     var that = this;
     let i = data.i ? data.i : 0;//当前上传的哪张图片
     let success = data.success ? data.success : 0;//上传成功的个数
@@ -190,20 +188,16 @@ Page({
       header: header,
       name: "file",
       success: (resp) => {
-        console.log(resp)
         success++;
         let url = (JSON.parse(resp.data)).object;
         data.urls = data.urls.concat(url)
       },
       fail: (res) => {
-        console.log(res)
         fail++;
       },
       complete: () => {
         i++;//这个图片执行完上传后，开始上传下一张
-        if (i == data.path.length) {   //当图片传完时，停止调用          
-          console.log('执行完毕');
-          console.log('成功：' + success + " 失败：" + fail);
+        if (i == data.path.length) {   //当图片传完时，停止调用      
           that.bindall(data)
         } else {//若图片还没有传完，则继续调用函数
           data.i = i;
@@ -226,8 +220,6 @@ Page({
     if (cookie) {
       header.Cookie = cookie
     }
-    console.log("uid :" + uid);
-    console.log("urls :" + urls);
     wx.request({
       url: 'https://lancai.zekdot.com:8013/fleMar/updateProduct',
       method: 'POST',
@@ -237,7 +229,6 @@ Page({
         picUrl: urls
       },
       success: function (res) {
-        console.log(res);
         app.showSuccessToast('发布成功', 1000)
         wx.navigateBack({
           delta: 1

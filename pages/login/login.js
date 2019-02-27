@@ -3,11 +3,6 @@
 var app = getApp();
 Page({
   data: {
-    help_status: false,
-    userid_focus: false,
-    passwd_focus: false,
-    userid:null,
-    passwd:null,
     angle:0
   },
   onReady: function () {
@@ -51,13 +46,11 @@ Page({
         success: function (res) {
           if(res && res.header && res.header['Set-Cookie']){
             wx.setStorageSync('cookieKey', res.header['Set-Cookie'])
-            console.log(res.header['Set-Cookie'])
           }
           if (res.data.message == "success") {
             wx.setStorageSync('username', that.data.userid);
             wx.setStorageSync('password', that.data.passwd);
             //登录
-            console.log(res)
             wx.redirectTo({
               url: '../index/index',
             })

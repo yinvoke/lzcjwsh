@@ -33,7 +33,6 @@ Page({
       success: function (res) {
         
         wx.hideLoading()
-        console.log(res)
         var obs = res.data.object
         var temp = [];
         for( let i = 0; i < obs.length; i++){
@@ -116,7 +115,6 @@ Page({
         conId: id
       },
       success: function (res) {
-        console.log(res)
         ob = res.data.object
         wx.navigateTo({
           url: '../details/details?ob=' + JSON.stringify(ob),

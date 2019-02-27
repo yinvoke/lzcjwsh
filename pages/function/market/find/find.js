@@ -40,7 +40,6 @@ Page({
       },
       success: function (res) {
         wx.hideToast();
-        console.log(res)
         var temp = that.data.goods.concat(res.data.object)
         that.setData({
           goods: temp
