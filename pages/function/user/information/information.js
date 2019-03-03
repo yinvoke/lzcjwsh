@@ -80,11 +80,17 @@ Page({
           header: header,
           name: "head",
           success(res) {
-            var d = JSON.parse(res.data)
-            app.showSuccessToast('修改成功', 3000)
-            that.getinfo()
+            if(res.statusCode==200){
+              var d = JSON.parse(res.data)
+              app.showSuccessToast('修改成功', 3000)
+              that.getinfo()
+            }else{
+              app.showErrorModal('图片过大，请重新上传', '修改失败')
+            }
+            
           },
           fail(res){
+            var d = JSON.parse(res.data)
             app.showErrorModal(d.message, '上传失败')
           }
 
@@ -132,12 +138,13 @@ Page({
     })
   },
   confirmname: function(){
-    app.showLoadToast('修改中', 3000);
+    
     var that = this
     if (that.data.name == null) {
       app.showErrorModal('请输入有效昵称修改失败', '请输入有效昵称')
     }
     else{
+      app.showLoadToast('修改中', 2000);
       let cookie = wx.getStorageSync('cookieKey');
       let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
       if (cookie) {
@@ -151,7 +158,7 @@ Page({
           nickname: that.data.name
         },
         success: function (res) {
-          app.showSuccessToast('修改成功', 3000)
+          app.showSuccessToast('修改成功', 1500)
           that.getinfo()
         },
         fail: function (res) {
@@ -167,7 +174,7 @@ Page({
 
   },
   confirmpwd: function () {
-    app.showLoadToast('修改中', 3000);
+    
     var that = this
     if (this.data.oldpwd != app.globalData.pwd){
       app.showErrorModal('旧密码输入错误','修改失败')
@@ -176,6 +183,7 @@ Page({
       app.showErrorModal('两次密码输入不一致', '修改失败')
     }
     else{
+      app.showLoadToast('修改中', 2000);
       let cookie = wx.getStorageSync('cookieKey');
       let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
       if (cookie) {
@@ -190,7 +198,10 @@ Page({
         },
         success: function (res) {
           app.showSuccessToast('修改成功', 1300)
-          that.getinfo()
+          wx.clearStorageSync();
+          wx.reLaunch({
+            url: '../../../login/login',
+          })
         },
         fail: function (res) {
           app.showErrorModal('修改失败', res.message)

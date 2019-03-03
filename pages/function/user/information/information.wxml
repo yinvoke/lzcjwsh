@@ -58,13 +58,13 @@
       </view>
       <view class='toast-main'>
         <view class='toast-input'>
-          <input placeholder='请输入旧密码' bindinput='oldinput'></input>
+          <input password='true' placeholder='请输入旧密码' bindinput='oldinput'></input>
         </view>
         <view class='toast-input'>
-          <input placeholder='请输入新密码' bindinput='newinput'></input>
+          <input password='true' placeholder='请输入新密码' bindinput='newinput'></input>
         </view>
         <view class='toast-input'>
-          <input placeholder='请重新输入新密码' bindinput='reinput'></input>
+          <input password='true' placeholder='请重新输入新密码' bindinput='reinput'></input>
         </view>
       </view>
       <view class='toast-button'>

@@ -32,9 +32,11 @@ Page({
       method: 'GET',
       header: header,
       success: function (res) {
-        that.setData({
-          infor:res.data.object[0].content
-        })
+        if (res.data.object.length>0){
+          that.setData({
+            infor: res.data.object[0].content
+          })
+        }
       }
     })
     if(wx.getStorageSync('jwpwd')){
