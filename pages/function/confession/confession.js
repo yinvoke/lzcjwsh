@@ -8,7 +8,7 @@ Page({
   data: {
     core: [
       { id: 'message', name: '消息中心' },
-      { id: 'showlove', name: '发起表白' },
+      { id: 'showlove', name: 'showlove' },
       { id: 'matching', name: '心动匹配' }
     ],
     selectData: ['查看全部', '只看实名', '只看匿名'],
