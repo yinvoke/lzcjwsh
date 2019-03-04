@@ -68,23 +68,23 @@ Page({
    * 内容提交
    */
   submit:function(){
-    app.showLoadToast('提交中', 3000);
+    app.showLoadToast('提交中', 2000);
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');
-    let header = {};
+    let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8'};
     if (cookie) {
       header.Cookie = cookie
     }
     wx.request({
       url: 'https://lancai.zekdot.com:8013/suggest/insertSug',
-      method: 'GET',
+      method: 'POST',
       header: header,
       data:{
-        insertSug:that.data.description,
+        content:that.data.description,
         contact:that.data.qq
       },
       success: function (res) {
-        app.showSuccessToast('提交成功', 3000)
+        app.showSuccessToast('提交成功', 1000)
         wx.navigateBack({
           delta: 1
         })

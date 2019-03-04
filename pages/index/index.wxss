@@ -84,9 +84,9 @@
 }
 .card image{
   margin-left: 20rpx;
-  padding-top:60rpx;
-  width: 190rpx;
-  height: 190rpx;
+  padding-top:50rpx;
+  width: 175rpx;
+  height: 175rpx;
 }
 .title{
   padding-left: 35rpx;

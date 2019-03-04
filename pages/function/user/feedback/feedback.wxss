@@ -10,7 +10,7 @@ text{
   border-top: 2rpx solid #afafaf;
   border-bottom: 2rpx solid #afafaf;
   padding: 3%;
-  width: 100%;
+  width: 94%;
   background-color: #fff;
 }
 .fankui input{
@@ -27,5 +27,5 @@ text{
   color: #fff;
   width: 95%;
   height: 80rpx;
-  line-height: 250%;
+  line-height: 230%;
 }

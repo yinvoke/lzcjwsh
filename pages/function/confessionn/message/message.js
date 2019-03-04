@@ -1,4 +1,4 @@
-// pages/function/market/mine/mine.js
+// pages/function/confession/message/message.js
 var app = getApp()
 Page({
 
@@ -6,21 +6,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    curid: 0,
-    goods: [],
+    curid:0,
+    huifu:[],
   },
-
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function (options) {
-    this.getGoods(this.data.curid)
+  onShow: function () {
+    this.getmessage(this.data.curid)
   },
-  /**
-   * 获取类型商品
-   */
-  getGoods: function (lastid) {
-    app.showLoadToast('加载中', 3000);
+  getmessage: function (id) {
+    app.showLoadToast('加载中', 2000);
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');
     let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
@@ -28,22 +24,28 @@ Page({
       header.Cookie = cookie
     }
     wx.request({
-      url: 'https://lancai.zekdot.com:8013/fleMar/getOwnProduct',
-      method: 'POST',
+      url: 'https://lancai.zekdot.com:8013/conWall/getMessage',
+      method: 'GET',
       header: header,
       data: {
-        lastId: lastid
+        id: id
       },
       success: function (res) {
-        wx.stopPullDownRefresh();
-        wx.hideLoading();
-        var temp = that.data.goods.concat(res.data.object)
+        
+        wx.hideLoading()
+        var obs = res.data.object
+        var temp = [];
+        for( let i = 0; i < obs.length; i++){
+          temp = temp.concat(JSON.parse(obs[i].message))
+          that.readme(obs[i].id);
+        }
+        var t = that.data.huifu.concat(temp)
         that.setData({
-          goods: temp
+          huifu: t
         })
         let l = res.data.object.length;
         let cid = res.data.object[l - 1].id;
-        if (l - 1 < 19) {
+        if (l - 1 < 9) {
           that.setData({
             curid: cid,
             remind: '没有更多啦！',
@@ -59,74 +61,66 @@ Page({
       }
     })
   },
-  //上滑加载更多
-  onReachBottom: function () {
-    if (this.data.more) {
-      this.getGoods(this.data.curid);
-    }
-  },
-  //下拉刷新
-  onPullDownRefresh: function () {
-    this.setData({
-      curid: 0,
-      goods: []
-    });
-    this.getGoods(this.data.curid)
-  },
-  /**
-   * 重新上架
-   */
-  resale:function(e){
-    var that =this;
-    let cookie = wx.getStorageSync('cookieKey');
-    let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
-    if (cookie) {
-      header.Cookie = cookie
-    }
-    var id = e.currentTarget.id;
-    let uid = this.data.goods[id].id
-    wx.request({
-      url: 'https://lancai.zekdot.com:8013/fleMar/refreshProduct',
-      method: 'POST',
-      header: header,
-      data: {
-        id: uid
-      },
-      success: function (res) {
-        that.setData({
-          curid:0,
-          goods:[]
-        })
-        that.getGoods(that.data.curid)
-      }
-    })
-  },
-  /**
-   * 删除物品
-   */
-  deleteit:function(e){
+  readme:function(id){
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');
     let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
     if (cookie) {
       header.Cookie = cookie
     }
-    var id = e.currentTarget.id;
-    let uid = this.data.goods[id].id
     wx.request({
-      url: 'https://lancai.zekdot.com:8013/fleMar/deleteProduct',
+      url: 'https://lancai.zekdot.com:8013/conWall/readMessage',
       method: 'POST',
       header: header,
       data: {
-        id: uid
+        id: id
       },
       success: function (res) {
-        that.setData({
-          curid: 0,
-          goods: []
-        })
-        that.getGoods(that.data.curid)
       }
     })
-  }
+  },
+  //上滑加载更多
+  onReachBottom: function () {
+    var that = this;
+    if (that.data.more) {
+      that.getmessage(that.data.curid);
+    }
+  },
+  //下拉刷新
+  onPullDownRefresh: function () {
+    var that = this;
+    that.setData({
+      curid: 0,
+      huifu: []
+    });
+    that.getmessage(that.data.curid)
+  },
+  /**
+   * 评论跳转功能
+   */
+  jumpDetails: function (e) {
+    let id = e.currentTarget.id
+    let ob =null;
+    var that = this;
+    let cookie = wx.getStorageSync('cookieKey');
+    let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
+    if (cookie) {
+      header.Cookie = cookie
+    }
+    wx.request({
+      url: 'https://lancai.zekdot.com:8013/conWall/getConfessionById',
+      method: 'GET',
+      header: header,
+      data: {
+        conId: id
+      },
+      success: function (res) {
+        ob = res.data.object
+        wx.navigateTo({
+          url: '../details/details?ob=' + JSON.stringify(ob),
+        })
+      }
+    })
+    
+  },
 })

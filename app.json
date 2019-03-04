@@ -1,8 +1,15 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/function/confessionn/matching/matching",
+    
+    "pages/function/confessionn/confessionn",
     "pages/login/login",
     "pages/function/table/table",
+    "pages/function/confessionn/details/details",
+    
+    "pages/function/confessionn/showlove/showlove",
+    "pages/function/confessionn/message/message",
     "pages/function/aides/aides",
     "pages/function/market/market",
     "pages/function/market/mine/mine",

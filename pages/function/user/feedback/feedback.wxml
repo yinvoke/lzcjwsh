@@ -1,7 +1,7 @@
 <!--pages/feedback/feedback.wxml-->
 <view class='container'>
   <text>问题描述</text>
-  <textarea placeholder='请输入对问题的描述，可输入1000字' class='fankui' bindinput='wti'></textarea>
+  <textarea placeholder='请输入对问题的描述，可输入120字' class='fankui' bindinput='wti'></textarea>
   <!--<text>图片上传（最多三张）</text>
   <view class='fankui'>
     <view class="img-upload">

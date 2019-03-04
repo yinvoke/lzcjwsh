@@ -69,6 +69,7 @@ Page({
         typeId:typeid
       },
       success: function (res) {
+        wx.stopPullDownRefresh();
         wx.hideToast();
         var temp = that.data.goods.concat(res.data.object)
         that.setData({

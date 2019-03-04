@@ -8,12 +8,12 @@
         <input class='kuang-input' bindinput='sname'/>
       </view>
       <view class='kuang'>
-        <text class='kuang-text'>价格: </text>
-        <input class='kuang-input' bindinput='sprice'/>
+        <text class='kuang-text' >价格: </text>
+        <input class='kuang-input' type='digit' bindinput='sprice'/>
       </view>
       <view class='kuang'>
         <text class='kuang-text'>几成新: </text>
-        <input class='kuang-input' bindinput='squan' placeholder='请填入1~10之间的数字'/>
+        <input class='kuang-input' type='number' bindinput='squan' placeholder='请填入1~10之间的数字'/>
       </view>
       <view class='kuang'>
         <text class='kuang-text'>类型: </text>

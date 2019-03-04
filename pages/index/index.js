@@ -26,6 +26,12 @@ Page({
         c: '#A3E4D7'
       },
       {
+        id: 'confessionn',
+        name: '表白墙',
+        bc: '#78281F',
+        c: '#F5B7B1'
+      },
+      {
         id: 'user',
         name: '用户中心',
         bc: '#9C640C',
