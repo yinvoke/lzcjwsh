@@ -14,6 +14,9 @@
       </swiper-item>
     </swiper>
   </view>
+  <view wx:if="{{infor}}" class="tongzhi">
+    <text style='color:red'>[通知]:</text><text>{{infor}}</text>
+  </view>
   <!--功能导航-->
   <view class="main-core">
     <block wx:for="{{core}}" wx:key="id">

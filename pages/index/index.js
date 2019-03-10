@@ -55,6 +55,25 @@ Page({
         url: '../login/login',
       })
     } else {
+      let cookie = wx.getStorageSync('cookieKey');
+      let header = {
+        'content-type': 'application/x-www-form-urlencoded; charset=utf-8'
+      };
+      if (cookie) {
+        header.Cookie = cookie
+      }
+      wx.request({
+        url: 'https://lancai.zekdot.com:8013/inform/getInfor',
+        method: 'GET',
+        header: header,
+        success: function (res) {
+          if (res.data.object.length > 0) {
+            that.setData({
+              infor: res.data.object[0].content
+            })
+          }
+        }
+      })
       wx.request({
         method: 'POST',
         url: 'https://lancai.zekdot.com:8013/user/login',
@@ -62,9 +81,7 @@ Page({
           username: username,
           password: password
         },
-        header: {
-          'content-type': 'application/x-www-form-urlencoded; charset=utf-8'
-        },
+        header: header,
         success: function(res) {
           if (res && res.header && res.header['Set-Cookie']) {
             wx.setStorageSync('cookieKey', res.header['Set-Cookie'])

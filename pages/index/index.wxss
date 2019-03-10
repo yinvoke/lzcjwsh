@@ -6,6 +6,16 @@
   background-size: 100% auto; 
   background-position: bottom center;
 }
+.tongzhi{
+  margin-top:15rpx;
+  border-top: solid 2rpx #e7e7e7;
+  border-bottom: solid 2rpx #e7e7e7;
+  background-color: white;
+  color: black;
+  font-size: 27rpx;
+  padding-left: 10rpx;
+  font-weight: bold;
+}
 /**轮播**/
 .main-lunbo{
   top:0;

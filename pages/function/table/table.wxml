@@ -1,8 +1,8 @@
 <!--pages/table/table.wxml-->
 <view class='coniter'>
-  <view wx:if="{{infor}}"  class='anit {{show?"show":""}}'>{{infor}}</view>
   <view class="drawer_box" wx:if="{{ishidden}}">
     <!--drawer content-->
+    <view class="guanbi" bindtap='guanbi'>X</view>
     <view class="drawer_title">请绑定教务网密码以便获取最新的课表</view>
     <view class="drawer_content" style='height:250rpx;'>
       <view class='description'>

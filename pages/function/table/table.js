@@ -27,18 +27,7 @@ Page({
     if (cookie) {
       header.Cookie = cookie
     }
-    wx.request({
-      url: 'https://lancai.zekdot.com:8013/inform/getInfor',
-      method: 'GET',
-      header: header,
-      success: function (res) {
-        if (res.data.object.length>0){
-          that.setData({
-            infor: res.data.object[0].content
-          })
-        }
-      }
-    })
+    
     if(wx.getStorageSync('jwpwd')){
       var timestamp = Date.parse(new Date());
       var temp = (timestamp / 1000 - 1551024000) / 60 / 60 / 24;
@@ -124,8 +113,14 @@ Page({
    * 刷新
    */
   refresh:function(){
-    app.showLoadToast('同步中', 6000)
-    this.getclass(Number(this.data.weekIndex) + 1, true)
+    this.setData({
+      ishidden:true
+    })
+  },
+  guanbi:function(){
+    this.setData({
+      ishidden: false
+    })
   },
   /**
    * 绑定
@@ -153,7 +148,7 @@ Page({
       header: header,
       data: {
         password: that.data.jwpwd,
-        refresh: false,
+        refresh: true,
         weekNum: now
       },
       success: function (res) {
