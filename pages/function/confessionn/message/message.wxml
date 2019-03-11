@@ -1,12 +1,12 @@
 <!--pages/function/confession/message/message.wxml-->
 <view>
-  <view class='top'><text>我的消息</text></view>
+  <view class='top'>我的消息</view>
   <scroll-view scroll-y="true" bindscrolltolower="scrollToLower" class="timeline" scroll-top="{{scrollTop}}" bindscroll="scroll">
     <view class="tweet-container" wx:for="{{huifu}}"  wx:key="item.id" >
       <!--用户-->
       <view  wx:if="{{item.status==0||item.status==1}}" bindtap="jumpDetails" id='{{item.conId}}'>
         <view class="top-container flex-row">
-          <image class="card-avatar" src="http://119.3.46.32:8014/{{item.head}}"></image>
+          <image lazy-load='true' class="card-avatar" src="http://119.3.46.32:8014/{{item.head}}"></image>
           <view class="user-container">
             <text class="card-id">{{item.nickname}}</text>
             <text class="card-time">{{item.time}}</text>
@@ -23,7 +23,7 @@
       <!--系统-->
       <view  wx:if="{{item.status==2}}">
         <view class="top-container flex-row">
-          <image class="card-avatar" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/core/adies.png"></image>
+          <image lazy-load='true' class="card-avatar" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/core/adies.png"></image>
           <view class="user-container">
             <text class="card-id">表白墙小助手</text>
             <text class="card-time">{{item.time}}</text>

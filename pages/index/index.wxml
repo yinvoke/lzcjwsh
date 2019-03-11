@@ -9,13 +9,10 @@
       <swiper-item>
         <image lazy-load='true' src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/images/zs2.jpg'></image>
       </swiper-item>
-      <swiper-item>
-        <image lazy-load='true' src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/images/zs3.jpg'></image>
-      </swiper-item>
     </swiper>
   </view>
   <view wx:if="{{infor}}" class="tongzhi">
-    <text style='color:red'>[通知]:</text><text>{{infor}}</text>
+    <text style='color:red'>[通知]:</text>{{infor}}
   </view>
   <!--功能导航-->
   <view class="main-core">
@@ -30,31 +27,31 @@
   
   <view class='tianqi'>
     <view class='card'>
-      <view class='tit'><text>天气状况</text></view>
-      <image src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/weather/{{weather.weather.data}}.png"></image>
+      <view class='tit'>天气状况</view>
+      <image lazy-load='true' src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/weather/{{weather.weather.data}}.png"></image>
       <view>
         <view class='title'>
-          <text>今日天气</text>
+          今日天气
         </view>
         <view class='desc'>
-          <text>{{weather.city.text}}：</text>
-          <text>{{weather.city.data}}</text>
+          {{weather.city.text}}：
+          {{weather.city.data}}
         </view>
         <view class='desc'>
-          <text>{{weather.weather.text}}：</text>
-          <text>{{weather.weather.data}}</text>
+          {{weather.weather.text}}：
+          {{weather.weather.data}}
         </view>
         <view class='desc'>
-          <text>{{weather.temperature.text}}：</text>
-          <text>{{weather.temperature.data}}℃</text>
+          {{weather.temperature.text}}：
+          {{weather.temperature.data}}℃
           <text style='margin-left:25%;'>{{weather.humidity.text}}：</text>
-          <text>{{weather.humidity.data}}</text>
+          {{weather.humidity.data}}
         </view>
         <view class='desc'>
-          <text>{{weather.winddirection.text}}：</text>
-          <text>{{weather.winddirection.data}}</text>
+          {{weather.winddirection.text}}：
+          {{weather.winddirection.data}}
           <text style='margin-left:20%;'>{{weather.windpower.text}}：</text>
-          <text>{{weather.windpower.data}}</text>
+          {{weather.windpower.data}}
         </view>
       </view>
     </view>

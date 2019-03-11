@@ -1,11 +1,14 @@
 // pages/user/user.js
 var amapFile = require('../../libs/amap-wx.js');
 var app = getApp();
+var cookie = wx.getStorageSync('cookieKey');
+var header = {
+  'content-type': 'application/x-www-form-urlencoded; charset=utf-8'
+};
+if (cookie) {
+  header.Cookie = cookie
+}
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     core: [{
         id: 'table',
@@ -44,83 +47,41 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var username = wx.getStorageSync('username');
-    var password = wx.getStorageSync('password');
     var that = this;
     var myAmapFun = new amapFile.AMapWX({
       key: '059a42238cba63b188e9589bd8500f4f'
     });
-    if (!username) {
-      wx.redirectTo({
-        url: '../login/login',
-      })
-    } else {
-      let cookie = wx.getStorageSync('cookieKey');
-      let header = {
-        'content-type': 'application/x-www-form-urlencoded; charset=utf-8'
-      };
-      if (cookie) {
-        header.Cookie = cookie
+    wx.request({
+      url: 'https://lancai.zekdot.com:8013/inform/getInfor',
+      method: 'GET',
+      header: header,
+      success: function(res) {
+        myAmapFun.getWeather({
+          success: function (data) {
+            if (res.data.object.length > 0) {
+              that.setData({
+                infor: res.data.object[0].content,
+                weather: data
+              })
+            }
+          },
+          fail: function (info) {
+            app.showErrorModal('天气获取失败', '加载失败')
+          }
+        })
+        
       }
-      wx.request({
-        url: 'https://lancai.zekdot.com:8013/inform/getInfor',
-        method: 'GET',
-        header: header,
-        success: function (res) {
-          if (res.data.object.length > 0) {
-            that.setData({
-              infor: res.data.object[0].content
-            })
-          }
-        }
-      })
-      wx.request({
-        method: 'POST',
-        url: 'https://lancai.zekdot.com:8013/user/login',
-        data: {
-          username: username,
-          password: password
-        },
-        header: header,
-        success: function(res) {
-          if (res && res.header && res.header['Set-Cookie']) {
-            wx.setStorageSync('cookieKey', res.header['Set-Cookie'])
-          }
-          if (res.data.message == "success") {
-            myAmapFun.getWeather({
-              success: function(data) {
-                that.setData({
-                  weather: data
-                });
-              },
-              fail: function(info) {
-                app.showErrorModal('天气获取失败', '加载失败')
-              }
-            })
-          } else {
-            app.showErrorModal('请检查教务网密码是否更改', '加载失败');
-            wx.redirectTo({
-              url: '../login/login',
-            })
-          }
-        },
-        fail: function(res) {
-          app.showLoadToast('请检查您的网络');
-        }
-      });
-
-
-    }
-
+    })
+    
   },
+
+
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
 
   },
-
-  
 
 
 })

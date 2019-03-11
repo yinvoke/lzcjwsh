@@ -1,5 +1,4 @@
 // pages/login/login.js
-//获取应用实例
 var app = getApp();
 Page({
   data: {
@@ -23,12 +22,6 @@ Page({
     if (!that.data.userid || !that.data.passwd) {
       app.showErrorModal('账号及密码不能为空', '提醒');
     }
-    
-    /**if(that.data.userid=='010' && that.data.passwd == '010'){
-      wx.redirectTo({
-        url: '../index/index',
-      })
-    }*/
     else{
       app.globalData.username = that.data.userid
       app.globalData.pwd = that.data.passwd
@@ -50,7 +43,6 @@ Page({
           if (res.data.message == "success") {
             wx.setStorageSync('username', that.data.userid);
             wx.setStorageSync('password', that.data.passwd);
-            //登录
             wx.redirectTo({
               url: '../index/index',
             })
@@ -61,7 +53,6 @@ Page({
         },
         fail: function (res) {
           app.showLoadToast('请检查您的网络');
-          app.showErrorModal(res.data.message, '登录失败');
         }
       });
     }
@@ -115,6 +106,4 @@ Page({
       'help_status': false
     });
   },
-
-  
 });

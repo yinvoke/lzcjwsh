@@ -22,12 +22,12 @@
             <input password="true" id="passwd" placeholder="默认为初始密码" bindinput="passwdInput" bindfocus="inputFocus" bindblur="inputBlur" />
           </view>
           <view class="login-help" bindtap="showHelp">
-            <text>帮助</text>
+            帮助
             <image class="login-help-img" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/more/help.png"></image>
           </view>
         </form>
         <view class="confirm-btn" bindtap="bind">
-            <text>开始旅程</text>
+            开始旅程
         </view>
       </view>
 

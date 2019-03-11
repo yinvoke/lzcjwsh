@@ -2,16 +2,9 @@
 var app = getApp();
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-    userinfo:null,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');
@@ -30,9 +23,6 @@ Page({
       }
     })
   },
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');
@@ -52,9 +42,6 @@ Page({
     })
   },
 
-  /**
-   * 信息修改跳转
-   */
   jumpInformation:function(){
     let ob = this.data.userinfo
     wx.navigateTo({
@@ -62,34 +49,22 @@ Page({
     })
   },
 
-  /**
-   * 意见反馈跳转
-   */
   jumpFeedback:function(){
     wx.navigateTo({
       url: '../user/feedback/feedback',
     })
   },
 
-  /**
-   * 关于我们跳转
-   */
   jumpAbout: function () {
     wx.navigateTo({
       url: '../user/about/about',
     })
   },
-  /**
-   * 产品信息跳转
-   */
   jumpProduct: function () {
     wx.navigateTo({
       url: '../user/product/product',
     })
   },
-  /**
-   * 注销账号跳转
-   */
   jumpLogin: function () {
     wx.clearStorageSync();
     wx.reLaunch({

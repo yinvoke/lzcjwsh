@@ -113,7 +113,7 @@ Page({
   },
   //上滑加载更多
   loadmore: function () {
-    app.showLoadToast('加载中', 1200);
+    app.showLoadToast('加载中', 600);
     let typeid = Number(this.data.clickid);
     if (this.data.more) {
       this.getGoods(this.data.curid,typeid);

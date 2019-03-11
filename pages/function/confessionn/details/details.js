@@ -1,5 +1,11 @@
 // pages/function/confession/details/details.js
 var app = getApp();
+
+var cookie = wx.getStorageSync('cookieKey');
+var header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
+if (cookie) {
+  header.Cookie = cookie
+}
 Page({
 
   /**
@@ -7,9 +13,6 @@ Page({
    */
   data: {
     comments:[],
-    headitem:null,
-    //表白id
-    uid: null,
     //页面标记id
     curid:0,
     nickname:'楼主'
@@ -19,7 +22,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.showLoadToast('加载中', 500);
+    app.showLoadToast('加载中', 400);
     this.setData({
       headitem: JSON.parse(options.ob),
       uid: JSON.parse(options.ob).id,
@@ -38,11 +41,6 @@ Page({
   },
   deleteit:function(){
     var that = this;
-    let cookie = wx.getStorageSync('cookieKey');
-    let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
-    if (cookie) {
-      header.Cookie = cookie
-    }
     wx.request({
       url: 'https://lancai.zekdot.com:8013/conWall/deleteConfession',
       method: 'POST',
@@ -61,33 +59,15 @@ Page({
   },
   //上滑加载更多
   onReachBottom: function () {
-    var that = this;
-    if (that.data.more) {
-      that.getmessage(that.data.curid);
+    if (this.data.more) {
+      this.getmessage(this.data.curid);
     }
-    app.showLoadToast('加载中', 1500);
-  },
-  //下拉刷新
-  onPullDownRefresh: function () {
-    var that = this;
-    that.setData({
-      curid: 0,
-      comments: []
-    });
-    that.getmessage(that.data.curid)
-    app.showLoadToast('加载中', 1800);
   },
   /**
    * 获取评论
    */
   getmessage:function(curid){
-    
     var that = this;
-    let cookie = wx.getStorageSync('cookieKey');
-    let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
-    if (cookie) {
-      header.Cookie = cookie
-    }
     wx.request({
       url: 'https://lancai.zekdot.com:8013/conWall/getCommentByConId',
       method: 'POST',
@@ -98,29 +78,29 @@ Page({
       },
       success: function (res) {
         wx.hideLoading();
-        var temp = that.data.comments.concat(res.data.object)
-        that.setData({
-          comments: temp
-        })
+        var temp = that.data.comments.concat(res.data.object);
         let l = res.data.object.length;
         if (l==0) {
           that.setData({
             remind: '没有更多啦！',
-            more: false
+            more: false,
+            comments: temp
           })
         } else if (l - 1 < 9){
           let cid = res.data.object[l - 1].id;
           that.setData({
             curid: cid,
             remind: '没有更多啦！',
-            more: false
+            more: false,
+            comments: temp
           })
         } else {
           let cid = res.data.object[l - 1].id;
           that.setData({
             curid: cid,
             remind: '下拉加载更多！',
-            more: true
+            more: true,
+            comments: temp
           })
         }
       }
@@ -131,11 +111,6 @@ Page({
    */
   getmoresecond: function (scurid, comid, idx){
     var that = this;
-    let cookie = wx.getStorageSync('cookieKey');
-    let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
-    if (cookie) {
-      header.Cookie = cookie
-    }
     wx.request({
       url: 'https://lancai.zekdot.com:8013/conWall/getMoreSecComment',
       method: 'POST',
@@ -147,18 +122,17 @@ Page({
       success: function (res) {
         var temp = that.data.comments[idx].secondComment.concat(res.data.object)
         let vn = 'comments['+idx+'].secondComment';
-        that.setData({
-          [vn]: temp
-        })
         let l = res.data.object.length;
         let vnn = 'comments[' + idx + '].more';
         if (l - 1 < 9) {
           that.setData({
             [vnn]: false,
+            [vn]: temp
           })
         } else {
           that.setData({
             [vnn]: true,
+            [vn]: temp
           })
         }
       }
@@ -171,13 +145,12 @@ Page({
    * 喜欢
    */
   likedislike: function(){
-    var that = this;
-    let cookie = wx.getStorageSync('cookieKey');
-    let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
-    if (cookie) {
-      header.Cookie = cookie
-    }
+    var that = this
     if (this.data.headitem.isThumbUp == false){
+      this.setData({
+        ['headitem.isThumbUp']: true,
+        ['headitem.thumb']: that.data.headitem.thumb + 1
+      })
       wx.request({
         url: 'https://lancai.zekdot.com:8013/conWall/thumbUp',
         method: 'POST',
@@ -185,15 +158,13 @@ Page({
         data: {
           conId: that.data.uid
         },
-        success:function(res){
-          that.setData({
-            ['headitem.isThumbUp']:true,
-            ['headitem.thumb']:that.data.headitem.thumb+1
-          })
-        }
       })
     }
     else{
+      this.setData({
+        ['headitem.isThumbUp']: false,
+        ['headitem.thumb']: that.data.headitem.thumb - 1
+      })
       wx.request({
         url: 'https://lancai.zekdot.com:8013/conWall/thumbDown',
         method: 'POST',
@@ -201,12 +172,6 @@ Page({
         data: {
           conId: that.data.uid
         },
-        success: function (res) {
-          that.setData({
-            ['headitem.isThumbUp']: false,
-            ['headitem.thumb']: that.data.headitem.thumb - 1
-          })
-        }
       })
     }
   },
@@ -238,52 +203,52 @@ Page({
   },
   send:function(){
     var that = this;
-    let cookie = wx.getStorageSync('cookieKey');
-    let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
-    if (cookie) {
-      header.Cookie = cookie
+    if (this.data.hf){
+      if (this.data.nickname == '楼主') {
+        wx.request({
+          url: 'https://lancai.zekdot.com:8013/conWall/comConfession',
+          method: 'POST',
+          header: header,
+          data: {
+            conId: that.data.headitem.id,
+            content: that.data.hf
+          },
+          success: function (res) {
+            app.showSuccessToast('回复成功！', 800);
+            that.setData({
+              curid: 0,
+              inputValue: null,
+              comments: [],
+              hf:null,
+            })
+            that.getmessage(that.data.curid)
+          }
+        })
+      }
+      else {
+        wx.request({
+          url: 'https://lancai.zekdot.com:8013/conWall/comComment',
+          method: 'POST',
+          header: header,
+          data: {
+            isFirst: that.data.isFirst,
+            comId: that.data.comid,
+            content: that.data.hf
+          },
+          success: function (res) {
+            app.showSuccessToast('回复成功！', 800)
+            that.setData({
+              curid: 0,
+              inputValue: null,
+              comments: [],
+              hf: null,
+            })
+            that.getmessage(that.data.curid)
+          }
+        })
+      }
     }
-    if(this.data.nickname=='楼主'){
-      wx.request({
-        url: 'https://lancai.zekdot.com:8013/conWall/comConfession',
-        method: 'POST',
-        header: header,
-        data: {
-          conId: that.data.headitem.id,
-          content: that.data.hf
-        },
-        success: function (res) {
-          app.showSuccessToast('回复成功！',800)
-          that.setData({
-            curid: 0,
-            inputValue: null,
-            comments:[]
-          })
-          that.getmessage(that.data.curid)
-        }
-      })
-    }
-    else{
-      wx.request({
-        url: 'https://lancai.zekdot.com:8013/conWall/comComment',
-        method: 'POST',
-        header: header,
-        data: {
-          isFirst: that.data.isFirst,
-          comId: that.data.comid,
-          content: that.data.hf
-        },
-        success: function (res) {
-          app.showSuccessToast('回复成功！', 800)
-          that.setData({
-            curid:0,
-            inputValue:null,
-            comments: []
-          })
-          that.getmessage(that.data.curid)
-        }
-      })
-    }
+    
   },
   getmore:function(e){
     let comid=e.target.dataset.id

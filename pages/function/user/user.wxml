@@ -2,7 +2,7 @@
 <view class="container">
   <view class="wx-cells">
     <view class="wx-cell-inner flex-row " data-route="../information/information" bindtap="jumpInformation">
-      <image class="wx-cell-icon user-avatar" src="http://119.3.46.32:8014/{{userinfo.head}}"></image>
+      <image lazy-load='true' class="wx-cell-icon user-avatar" src="http://119.3.46.32:8014/{{userinfo.head}}"></image>
       <view class="user-info">
         <text class="user-info-text user-info-uid">欢迎您, {{userinfo.nickname}} ！</text>
       </view>
@@ -46,24 +46,24 @@
   </view>
   <view class="wx-cells">
     <view class="wx-cell" data-route="../feedback/feedback" bindtap="jumpFeedback">
-      <image class="wx-cell-icon" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/user/issue.png"></image>
+      <image lazy-load='true' class="wx-cell-icon" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/user/issue.png"></image>
       <text class="wx-cell-text">意见反馈</text>
-      <image class="wx-cell-arrow" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/user/right-gray.png"></image>
+      <image lazy-load='true' class="wx-cell-arrow" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/user/right-gray.png"></image>
     </view>
     <view class="wx-cell" data-route="../about/about" bindtap="jumpAbout" style='border-top: 1rpx solid #d9d9d9;'>
-      <image class="wx-cell-icon" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/user/about.png"></image>
+      <image lazy-load='true' class="wx-cell-icon" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/user/about.png"></image>
       <text class="wx-cell-text">关于我们</text>
-      <image class="wx-cell-arrow" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/user/right-gray.png"></image>
+      <image lazy-load='true' class="wx-cell-arrow" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/user/right-gray.png"></image>
     </view>
     <view class="wx-cell" data-route="../product/product" bindtap="jumpProduct" style='border-top: 1rpx solid #d9d9d9;'>
-      <image class="wx-cell-icon" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/user/product.png"></image>
+      <image lazy-load='true' class="wx-cell-icon" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/user/product.png"></image>
       <text class="wx-cell-text">产品信息</text>
-      <image class="wx-cell-arrow" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/user/right-gray.png"></image>
+      <image lazy-load='true' class="wx-cell-arrow" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/user/right-gray.png"></image>
     </view>
     <view class="wx-cell" data-route="../../login/login" bindtap="jumpLogin" style='border-top: 1rpx solid #d9d9d9;'>
-      <image class="wx-cell-icon" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/user/exit.png"></image>
+      <image lazy-load='true' class="wx-cell-icon" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/user/exit.png"></image>
       <text class="wx-cell-text">注销登录</text>
-      <image class="wx-cell-arrow" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/user/right-gray.png"></image>
+      <image lazy-load='true' class="wx-cell-arrow" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/user/right-gray.png"></image>
     </view>
   </view>
 </view>

@@ -35,18 +35,25 @@ Page({
   },
 
   bindSearchInput: function (e) {
-    this.setData({
-      'header.inputValue': e.detail.value,
-      'main.total': 0,
-      'main.sum': 0,
-      'main.curid': 0,
-      'main.message': '上滑加载更多',
-      'testData': []
-    });
     if (!this.data.messageObj.messageDisplay) {
       this.setData({
+        'header.inputValue': e.detail.value,
+        'main.total': 0,
+        'main.sum': 0,
+        'main.curid': 0,
+        'main.message': '上滑加载更多',
+        'testData': [],
         'messageObj.messageDisplay': true,
         'messageObj.message': ''
+      });
+    }else{
+      this.setData({
+        'header.inputValue': e.detail.value,
+        'main.total': 0,
+        'main.sum': 0,
+        'main.curid': 0,
+        'main.message': '上滑加载更多',
+        'testData': []
       });
     }
     return e.detail.value;

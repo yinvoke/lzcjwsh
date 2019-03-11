@@ -1,5 +1,10 @@
 // pages/function/confession/confession.js
 var app = getApp();
+var cookie = wx.getStorageSync('cookieKey');
+var header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
+if (cookie) {
+  header.Cookie = cookie
+}
 Page({
 
   /**
@@ -23,11 +28,6 @@ Page({
   onLoad: function () {
     
     var that = this;
-    let cookie = wx.getStorageSync('cookieKey');
-    let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
-    if (cookie) {
-      header.Cookie = cookie
-    }
     if (wx.getStorageSync('isfirst')){
       wx.navigateTo({
         url: '../confessionn/matching/matching',
@@ -50,11 +50,6 @@ Page({
   getmessage:function(id){
     app.showLoadToast('加载中', 3000);
     var that = this;
-    let cookie = wx.getStorageSync('cookieKey');
-    let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
-    if (cookie) {
-      header.Cookie = cookie
-    }
     wx.request({
       url: 'https://lancai.zekdot.com:8013/conWall/getConfessionList',
       method: 'POST',
@@ -66,22 +61,21 @@ Page({
         wx.stopPullDownRefresh();
         wx.hideToast()
         var temp = that.data.timeline.concat(res.data.object)
-        that.setData({
-          timeline: temp
-        })
         let l = res.data.object.length;
         let cid = res.data.object[l - 1].id;
         if(l-1<19){
           that.setData({
             curid: cid,
             remind:'没有更多啦！',
-            more:false
+            more:false,
+            timeline: temp
           })
         }else{
           that.setData({
             curid: cid,
             remind: '下拉加载更多！',
-            more: true
+            more: true,
+            timeline: temp
           })
         }
       }
@@ -89,19 +83,17 @@ Page({
   },
   //上滑加载更多
   onReachBottom: function () {
-    var that = this;
-    if (that.data.more) {
-      that.getmessage(that.data.curid);
+    if (this.data.more) {
+      this.getmessage(this.data.curid);
     }
   },
   //下拉刷新
   onPullDownRefresh: function () {
-    var that = this;
-    that.setData({
+    this.setData({
       curid:0,
       timeline:[]
     });
-    that.getmessage(that.data.curid)
+    this.getmessage(0)
   },
   // 点击下拉显示框
   selectTap:function() {
@@ -132,27 +124,5 @@ Page({
       url: '../confessionn/showlove/showlove',
     })
   },
-  /**
-   * 回到顶部
-   */
-  // 获取滚动条当前位置
-  scroll: function (e, res) {
-    // 容器滚动时将此时的滚动距离赋值给 this.data.scrollTop
-    if (e.detail.scrollTop > 500) {
-      this.setData({
-        floorstatus: true
-      });
-    } else {
-      this.setData({
-        floorstatus: false
-      });
-    }
-  },
-  //回到顶部
-  goTop: function (e) {
-    this.setData({
-      scrollTop: 0
-    })
-  }
 
 })

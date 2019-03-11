@@ -3,9 +3,9 @@
   <scroll-view scroll-y="true" bindscrolltolower="scrollToLower" class="timeline">
     <view class="tweet-container" >
       <view class="top-container flex-row">
-        <image wx:if="{{headitem.isAnonym==false}}" class="card-avatar" src="http://119.3.46.32:8014/{{headitem.head}}"></image>
-        <image wx:if="{{headitem.isAnonym==true && headitem.gender==0}}" class="card-avatar" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/main/woman.png"></image> 
-        <image wx:if="{{headitem.isAnonym==true && headitem.gender==1}}" class="card-avatar" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/main/man.png"></image>              
+        <image lazy-load='true' wx:if="{{headitem.isAnonym==false}}" class="card-avatar" src="http://119.3.46.32:8014/{{headitem.head}}"></image>
+        <image lazy-load='true' wx:if="{{headitem.isAnonym==true && headitem.gender==0}}" class="card-avatar" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/main/woman.png"></image> 
+        <image lazy-load='true' wx:if="{{headitem.isAnonym==true && headitem.gender==1}}" class="card-avatar" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/main/man.png"></image>              
         <view class="user-container">
           <text class="card-id">{{headitem.src}}</text>
           <text class="card-time">{{headitem.time}}</text>
@@ -16,7 +16,7 @@
         <view wx:if="{{headitem.self}}" class='del' bindtap='deleteit'><text>删除此贴</text></view>
         <text class="card-name">To:{{headitem.dst}}</text>
         <text class="message-text" style='margin-left:0;width:100%'>{{headitem.description}}</text>
-        <image class="message-image"
+        <image lazy-load='true' class="message-image"
           wx:if="{{headitem.picUrl}}" 
           src="http://119.3.46.32:8014/{{headitem.picUrl}}" 
           mode="aspectFill"
@@ -25,12 +25,12 @@
       </view>
       <view class="bottom-container flex-row" >
         <button class="bottom-tool flex-row flex-rest-width bu" bindtap='likedislike'>
-          <image wx:if="{{headitem.isThumbUp}}"  src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/confession/like.png' class='bottom-tool-image'></image>
-          <image wx:else  src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/confession/dislike.png' class='bottom-tool-image'></image>
+          <image lazy-load='true' wx:if="{{headitem.isThumbUp}}"  src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/confession/like.png' class='bottom-tool-image'></image>
+          <image lazy-load='true' wx:else  src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/confession/dislike.png' class='bottom-tool-image'></image>
           <text class="bottom-tool-text">{{headitem.thumb}}</text>
         </button>
         <button class="bottom-tool flex-row flex-rest-width bu" open-type="share">
-            <image src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/confession/forword.png' class='bottom-tool-image'></image>
+            <image lazy-load='true' src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/confession/forword.png' class='bottom-tool-image'></image>
             <text class="bottom-tool-text">分享</text>
         </button>
       </view>
@@ -38,7 +38,7 @@
     <view class="charu"><text>全部评论</text></view>
     <view class="tweet-container2" wx:for="{{comments}}" wx:key="{{item.id}}" wx:for-index="aindex"> 
       <view class="top-container flex-row">
-        <image class="card-avatar" src="http://119.3.46.32:8014/{{item.head}}"></image>
+        <image lazy-load='true' class="card-avatar" src="http://119.3.46.32:8014/{{item.head}}"></image>
         <view class="user-container" >
           <text class="card-id" >{{item.nickname}}</text>
           <text class="card-time">{{item.time}}</text>
@@ -73,8 +73,8 @@
     <!--<textarea placeholder='回复 {{touser}}' bindinput='hfinput'></textarea>-->
     <button bindtap='send'>发送</button>
     <view bindtap='likedislike'>
-      <image wx:if="{{headitem.isThumbUp}}"  src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/confession/like.png' class='like'></image>
-      <image wx:else  src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/confession/dislike.png' class='like'></image>
+      <image lazy-load='true' wx:if="{{headitem.isThumbUp}}"  src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/confession/like.png' class='like'></image>
+      <image lazy-load='true' wx:else  src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/confession/dislike.png' class='like'></image>
     </view>
   </view>
 </view>

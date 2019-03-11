@@ -16,7 +16,6 @@ Page({
     this.getmessage(this.data.curid)
   },
   getmessage: function (id) {
-    app.showLoadToast('加载中', 2000);
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');
     let header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
@@ -81,6 +80,7 @@ Page({
   },
   //上滑加载更多
   onReachBottom: function () {
+    app.showLoadToast('加载中', 500);
     var that = this;
     if (that.data.more) {
       that.getmessage(that.data.curid);
@@ -88,6 +88,7 @@ Page({
   },
   //下拉刷新
   onPullDownRefresh: function () {
+    app.showLoadToast('加载中', 1500);
     var that = this;
     that.setData({
       curid: 0,
