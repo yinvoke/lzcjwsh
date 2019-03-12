@@ -15,7 +15,6 @@ Page({
     selectData: ['查看全部', '只看实名', '只看匿名'],
     mode:0,
     timeline:[],
-    scrollTop: 0,
     curid:0,
     weidunum:0
   },
@@ -24,21 +23,14 @@ Page({
    * 生命周期函数--页面显示
    */
   onLoad: function () {
-    
     var that = this;
-    if (wx.getStorageSync('isfirst')){
-      wx.navigateTo({
-        url: '../confessionn/matching/matching',
-      })
-    }
-    
     wx.request({
       url: 'https://lancai.zekdot.com:8013/conWall/getNoReMesNum',
       method: 'GET',
       header: header,
       success: function (res) {
         that.setData({
-          weidunum:res.data.object
+          weidunum: res.data.object
         })
       },
     })

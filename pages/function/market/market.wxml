@@ -32,7 +32,7 @@
       <scroll-view wx:if="{{goods.length>=1}}" scroll-y="true" class='you' bindscrolltolower="loadmore">
         <block wx:for="{{goods}}" wx:key="item.id">
           <view id="{{index}}" class='card' bindtap="powerDrawer" data-statu="open">
-            <image lazy-load='true' src='http://119.3.46.32:8014/{{item.pic[0]}}'></image>
+            <image lazy-load='true' mode="widthFix" src='http://119.3.46.32:8014/{{item.pic[0]}}'></image>
             <view>
               <view class='title'>
                 {{item.name}}
@@ -96,13 +96,13 @@
                 发布人联系方式：{{temp.contact}}
               </view>
               <view class='images' wx:for='{{temp.pic}}' wx:for-index="index" bindtap='previewImage'>
-                <image src='http://119.3.46.32:8014/{{item}}' data-index="{{index}}"></image>
+                <image lazy-load='true' mode="widthFix" src='http://119.3.46.32:8014/{{item}}' data-index="{{index}}"></image>
               </view>
             </view>
           </view>
           <view class="btn_ok" bindtap="powerDrawer" data-statu="close">确定</view>
         </view>
-        <image lazy-load='true' src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/market/fatie.png' class='fatie' bindtap="jumprelease" style='opacity:0.6' />
+        <image lazy-load='true' src='/icon/market/fatie.png' class='fatie' bindtap="jumprelease" style='opacity:0.6' />
         <text class="content-ending">{{remind}}</text>
       </scroll-view>
       <view wx:else class='you'>

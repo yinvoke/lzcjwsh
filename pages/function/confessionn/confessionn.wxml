@@ -6,7 +6,7 @@
         <navigator class="main-core-item" url="{{'/pages/function/confessionn/'+item.id+'/'+item.id}}">
           <view wx:if="{{item.id=='message'}}">
             <view wx:if="{{weidunum>0}}" class='weidu'>
-              <text>{{weidunum}}</text>
+              {{weidunum}}
             </view>
             <view  class="core-item-icon1" ></view>
             <text class="core-item-name">{{item.name}}</text>

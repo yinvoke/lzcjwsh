@@ -20,7 +20,6 @@ Page({
       header: header,
       success: function(res) {
         if (res.data.code == 1) {
-          wx.setStorageSync('isfirst', false);
           that.setData({
             tips: '欢迎来到表白墙，这是我们的匹配功能，接下来，你可以输入喜欢的人的姓名，我们将会为您匹配~~',
             ir:0

@@ -174,8 +174,8 @@
 }
 .noc{
   width: 420rpx;
-  margin-top: 70%;
-  margin-left: 100rpx;
+  margin-top: 50%;
+  margin-left: 33%;
   font-size: 36rpx;
   font-weight: bold;
 }

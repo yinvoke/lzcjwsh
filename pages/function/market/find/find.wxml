@@ -13,7 +13,7 @@
       <scroll-view wx:if="{{goods.length>=1}}" scroll-y="true" class='you' bindscrolltolower="loadmore">
         <block wx:for="{{goods}}" wx:key="item.id">
           <view id="{{index}}" class='card' bindtap="powerDrawer" data-statu="open">
-            <image src='http://119.3.46.32:8014/{{item.pic[0]}}'></image>
+            <image mode="widthFix" lazy-load='true' src='http://119.3.46.32:8014/{{item.pic[0]}}'></image>
             <view>
               <view class='title'>
                 <text>{{item.name}}</text>
@@ -77,7 +77,7 @@
                 <text>发布人联系方式：{{temp.contact}}</text>
               </view>
               <view class='images' wx:for='{{temp.pic}}' wx:for-index="index" bindtap='previewImage'>
-                <image src='http://119.3.46.32:8014/{{item}}' data-index="{{index}}"></image>
+                <image mode="widthFix" lazy-load='true' src='http://119.3.46.32:8014/{{item}}' data-index="{{index}}"></image>
               </view>
             </view>
           </view>
@@ -85,10 +85,8 @@
         </view>
         <text class="content-ending">{{remind}}</text>
       </scroll-view>
-      <view wx:else class='you'>
-        <view class='noc'>
-          <text>什么都没有找到哦~</text>
-        </view>
+      <view wx:else class='noc'>
+          什么都没有找到哦~
       </view>
     </view>
   </view>
