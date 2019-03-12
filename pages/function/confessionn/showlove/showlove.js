@@ -2,9 +2,6 @@
 const app = getApp();
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     uploadimgs: [],
     editable: false,
@@ -14,9 +11,6 @@ Page({
     con:null,
     isAnonym:false,
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (e) {
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');
@@ -38,9 +32,6 @@ Page({
     })
     
   },
-  /**
-   * 输入处理
-   */
   frominput:function(e){
     this.setData({
       fromname: e.detail.value
@@ -61,9 +52,6 @@ Page({
       isAnonym: e.detail.value
     })
   },
-  /**
-   * 图片处理
-   */
   chooseImage: function () {
     let _this = this;
     if (this.data.uploadimgs.length == 0){

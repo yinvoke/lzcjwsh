@@ -7,9 +7,6 @@ if (cookie) {
 }
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     core: [
       { id: 'message', name: '消息中心' },
@@ -20,6 +17,7 @@ Page({
     timeline:[],
     scrollTop: 0,
     curid:0,
+    weidunum:0
   },
 
   /**

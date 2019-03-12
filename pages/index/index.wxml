@@ -44,13 +44,13 @@
         <view class='desc'>
           {{weather.temperature.text}}：
           {{weather.temperature.data}}℃
-          <text style='margin-left:25%;'>{{weather.humidity.text}}：</text>
+          <text style='margin-left:20%;'>{{weather.humidity.text}}：</text>
           {{weather.humidity.data}}
         </view>
         <view class='desc'>
           {{weather.winddirection.text}}：
           {{weather.winddirection.data}}
-          <text style='margin-left:20%;'>{{weather.windpower.text}}：</text>
+          <text style='margin-left:18%;'>{{weather.windpower.text}}：</text>
           {{weather.windpower.data}}
         </view>
       </view>

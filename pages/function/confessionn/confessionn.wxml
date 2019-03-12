@@ -8,11 +8,11 @@
             <view wx:if="{{weidunum>0}}" class='weidu'>
               <text>{{weidunum}}</text>
             </view>
-            <image lazy-load='true' class="core-item-icon" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/confession/{{item.id}}.png"></image>
+            <view  class="core-item-icon1" ></view>
             <text class="core-item-name">{{item.name}}</text>
           </view>
           <view wx:else>
-            <image lazy-load='true' class="core-item-icon" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/confession/{{item.id}}.png"></image>
+            <view  class="core-item-icon2" ></view>
             <text class="core-item-name">{{item.name}}</text>
           </view>
         </navigator>
@@ -20,7 +20,7 @@
     </view>
     <view class='flex-row flex-rest-width' style='display:flex;justify-content:space-between'>
       <view>
-        <image lazy-load='true' src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/confession/tiezi.png' style='width:40rpx;height:40rpx;margin-top:-10rpx;margin-left:15rpx;'></image>
+        <image src='/icon/confession/tiezi.png' style='width:40rpx;height:40rpx;margin-top:-10rpx;margin-left:15rpx;'></image>
         <text style='margin-top:-15rpx'>帖子列表</text>
       </view>
       <view>
@@ -36,8 +36,8 @@
       <view wx:if="{{mode==0 || (mode==1&&item.isAnonym==false) || (mode==2&&item.isAnonym==true)}}">
         <view class="top-container flex-row">
           <image lazy-load='true' wx:if="{{item.isAnonym==false}}" class="card-avatar" src="http://119.3.46.32:8014/{{item.head}}"></image>
-          <image lazy-load='true' wx:if="{{item.isAnonym==true && item.gender==0}}" class="card-avatar" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/main/woman.png"></image>
-          <image lazy-load='true' wx:if="{{item.isAnonym==true && item.gender==1}}" class="card-avatar" src="cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/main/man.png"></image>
+          <image wx:if="{{item.isAnonym==true && item.gender==0}}" class="card-avatar" src="/icon/main/woman.png"></image>
+          <image wx:if="{{item.isAnonym==true && item.gender==1}}" class="card-avatar" src="/icon/main/man.png"></image>
           <view class="user-container">
             <text class="card-id">{{item.src}}</text>
           </view>
@@ -53,12 +53,12 @@
           </view>
           <view class="bottom-tool flex-row flex-rest-width">
             <view style='margin:20rpx;'>
-              <image lazy-load='true' wx:if="{{islike}}" src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/confession/like.png' class='bottom-tool-image'></image>
-              <image lazy-load='true' wx:else src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/confession/dislike.png' class='bottom-tool-image'></image>
+              <image wx:if="{{islike}}" src='/icon/confession/like.png' class='bottom-tool-image'></image>
+              <image  wx:else src='/icon/confession/dislike.png' class='bottom-tool-image'></image>
               <text class="bottom-tool-text">{{item.thumb}}</text>
             </view>
             <view>
-              <image lazy-load='true' src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/confession/comment.png' class='bottom-tool-image'></image>
+              <image src='/icon/confession/comment.png' class='bottom-tool-image'></image>
               <text class="bottom-tool-text">{{item.comNum}}</text>
             </view>
           </view>
@@ -68,7 +68,7 @@
     </view>
 
 
-    <image src='cloud://lzcjwsh-sdx.6c7a-lzcjwsh-sdx/assets/market/fatie.png' class='fatie' bindtap="jumprelease" style='opacity:0.6' />
+    <image src='/icon/market/fatie.png' class='fatie' bindtap="jumprelease" style='opacity:0.6' />
     <!--提醒消息-->
     <text class="content-ending">{{remind}}</text>
 

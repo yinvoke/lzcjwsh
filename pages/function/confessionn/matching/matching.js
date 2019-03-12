@@ -3,9 +3,6 @@ var md5 = require('../../../../libs/MD5.js')
 var app = getApp();
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {},
   onLoad: function(e) {
     
@@ -42,18 +39,12 @@ Page({
       }
     })
   },
-  /**
-   * 输入处理
-   */
   toinput: function(e) {
     this.setData({
       toname: e.detail.value
     })
   },
 
-  /**
-   * 提交
-   */
   submit: function() {
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');

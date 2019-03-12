@@ -106,7 +106,7 @@
   height: 40rpx;
 }
 .desc{
-  width: 400rpx;
+  width: 420rpx;
   padding-left: 35rpx;
   padding-top: 8rpx;
   font-size: 27rpx;

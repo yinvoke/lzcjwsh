@@ -66,6 +66,20 @@ view, scroll-view, input, text{
   height: 85rpx;
   margin: 15rpx 30rpx;
 }
+.core-item-icon1{
+  display: block;
+  width: 85rpx;
+  height: 85rpx;
+  margin: 15rpx 30rpx;
+  background-color: rgb(11, 206, 255);
+}
+.core-item-icon2{
+  display: block;
+  width: 85rpx;
+  height: 85rpx;
+  margin: 15rpx 30rpx;
+  background-color: rgb(172, 0, 149);
+}
 .core-item-name{
   display: block;
   margin: 5rpx;

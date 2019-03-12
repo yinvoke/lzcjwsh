@@ -8,9 +8,6 @@ if (cookie) {
 }
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     comments:[],
     //页面标记id
@@ -18,9 +15,6 @@ Page({
     nickname:'楼主'
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     app.showLoadToast('加载中', 400);
     this.setData({
@@ -33,9 +27,6 @@ Page({
 
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
     this.getmessage(this.data.curid)
   },
@@ -50,7 +41,7 @@ Page({
       },
       success: function (res) {
         wx.hideLoading();
-        app.showSuccessToast('删除成功',700)
+        app.showSuccessToast('删除成功',400)
         wx.navigateBack({
           delta: 1
         })
