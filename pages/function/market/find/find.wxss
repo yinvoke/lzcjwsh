@@ -155,12 +155,15 @@
   overflow-y: scroll; /*超出父盒子高度可滚动*/
 }
 .drawer_content .description{
-  margin-left: 20rpx;
-  margin-bottom: 8rpx;
-  font-size: 27rpx;
+  margin-left: 8rpx;
+  margin-bottom: 12rpx;
+  font-size: 28rpx;
+  width: 95%;
 }
 .drawer_content image{
-  margin-left: 15rpx;
+  width: 95%;
+  margin-left: 8rpx;
+  margin-top: 10rpx;
 }
 
 .btn_ok{

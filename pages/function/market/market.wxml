@@ -32,7 +32,7 @@
       <scroll-view wx:if="{{goods.length>=1}}" scroll-y="true" class='you' bindscrolltolower="loadmore">
         <block wx:for="{{goods}}" wx:key="item.id">
           <view id="{{index}}" class='card' bindtap="powerDrawer" data-statu="open">
-            <image lazy-load='true' mode="widthFix" src='http://119.3.46.32:8014/{{item.pic[0]}}'></image>
+            <image lazy-load='true' mode="aspectFit" src='http://119.3.46.32:8014/{{item.pic[0]}}'></image>
             <view>
               <view class='title'>
                 {{item.name}}
@@ -84,18 +84,18 @@
           <view class="drawer_content">
             <view>
               <view class='description'>
-                产品描述：{{temp.content}}
+                <text style='font-weight:bold'>产品描述：</text>{{temp.content}}
               </view>
               <view class='description'>
-                崭新程度：{{temp.quality}}成新
+                <text style='font-weight:bold'>崭新程度：</text>{{temp.quality}}成新
               </view>
               <view class='description'>
-                价格：{{temp.price}} RMB
+                <text style='font-weight:bold'>价格：</text>{{temp.price}} RMB
               </view>
               <view class='description'>
-                发布人联系方式：{{temp.contact}}
+                <text style='font-weight:bold'>发布人联系方式：</text>{{temp.contact}}
               </view>
-              <view class='images' wx:for='{{temp.pic}}' wx:for-index="index" bindtap='previewImage'>
+              <view wx:for='{{temp.pic}}' wx:for-index="index" bindtap='previewImage'>
                 <image lazy-load='true' mode="widthFix" src='http://119.3.46.32:8014/{{item}}' data-index="{{index}}"></image>
               </view>
             </view>
