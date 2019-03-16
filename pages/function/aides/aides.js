@@ -158,7 +158,6 @@ Page({
     function doFail(err) {
       var message = typeof err === 'undefined' ? '未搜索到相关结果' : err;
       setMessageObj(false, message);
-      app.showErrorModal(message, '出错啦~')
     }
 
     that.setData({
@@ -207,7 +206,43 @@ Page({
         doFail(res.data.message);
       }
     });
-
+    wx.request({
+      url: 'https://lancai.zekdot.com:8013/syllabus/querySyllabus',
+      method: 'POST',
+      header: header,
+      data: {
+        name: null,
+        teacher: that.data.header.inputValue,
+        room: null,
+        id: that.data.main.curid
+      },
+      success: function (res) {
+        console.log(res)
+        if (res.data.object.length == 0 && that.data.main.sum == 0) {
+          let ttt = '抱歉，没有搜索到哦~';
+          wx.hideToast();
+          doFail(ttt)
+        } else if (res.data.object.length == 20) {
+          that.setData({
+            'main.message': '上滑加载更多',
+          });
+        } else {
+          that.setData({
+            'main.message': '已全部加载',
+          });
+        }
+        if (res.data.code == 0) {
+          doSuccess(res.data.object, true);
+        } else {
+          wx.hideToast();
+          doFail(res.data.message);
+        }
+      },
+      fail: function (res) {
+        wx.hideToast();
+        doFail(res.data.message);
+      }
+    });
   },
 
   // main——最优

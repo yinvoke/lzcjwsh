@@ -1,12 +1,7 @@
 // pages/function/confession/confession.js
 var app = getApp();
-var cookie = wx.getStorageSync('cookieKey');
-var header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
-if (cookie) {
-  header.Cookie = cookie
-}
-Page({
 
+Page({
   data: {
     core: [
       { id: 'message', name: '消息中心' },
@@ -23,22 +18,37 @@ Page({
    * 生命周期函数--页面显示
    */
   onLoad: function () {
+    this.getmessage(0);
+    this.getmc();
+  },
+
+  getmc:function(){
+    var cookie = wx.getStorageSync('cookieKey');
+    var header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
+    if (cookie) {
+      header.Cookie = cookie
+    }
     var that = this;
     wx.request({
       url: 'https://lancai.zekdot.com:8013/conWall/getNoReMesNum',
       method: 'GET',
       header: header,
       success: function (res) {
+        console.log(res)
         that.setData({
           weidunum: res.data.object
         })
-      },
+      }
     })
-    this.getmessage(0)
   },
 
   getmessage:function(id){
     app.showLoadToast('加载中', 3000);
+    var cookie = wx.getStorageSync('cookieKey');
+    var header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
+    if (cookie) {
+      header.Cookie = cookie
+    }
     var that = this;
     wx.request({
       url: 'https://lancai.zekdot.com:8013/conWall/getConfessionList',
@@ -49,7 +59,7 @@ Page({
       },
       success: function (res) {
         wx.stopPullDownRefresh();
-        wx.hideToast()
+        wx.hideToast();
         var temp = that.data.timeline.concat(res.data.object)
         let l = res.data.object.length;
         let cid = res.data.object[l - 1].id;

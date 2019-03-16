@@ -1,11 +1,7 @@
 // pages/function/confession/details/details.js
 var app = getApp();
 
-var cookie = wx.getStorageSync('cookieKey');
-var header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
-if (cookie) {
-  header.Cookie = cookie
-}
+
 Page({
 
   data: {
@@ -31,6 +27,11 @@ Page({
     this.getmessage(this.data.curid)
   },
   deleteit:function(){
+    var cookie = wx.getStorageSync('cookieKey');
+    var header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
+    if (cookie) {
+      header.Cookie = cookie
+    }
     var that = this;
     wx.request({
       url: 'https://lancai.zekdot.com:8013/conWall/deleteConfession',
@@ -58,6 +59,11 @@ Page({
    * 获取评论
    */
   getmessage:function(curid){
+    var cookie = wx.getStorageSync('cookieKey');
+    var header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
+    if (cookie) {
+      header.Cookie = cookie
+    }
     var that = this;
     wx.request({
       url: 'https://lancai.zekdot.com:8013/conWall/getCommentByConId',
@@ -101,6 +107,12 @@ Page({
    * 获取二级评论
    */
   getmoresecond: function (scurid, comid, idx){
+    console.log("scurid:"+scurid+" comid:"+comid)
+    var cookie = wx.getStorageSync('cookieKey');
+    var header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
+    if (cookie) {
+      header.Cookie = cookie
+    }
     var that = this;
     wx.request({
       url: 'https://lancai.zekdot.com:8013/conWall/getMoreSecComment',
@@ -111,6 +123,7 @@ Page({
         comId: comid,
       },
       success: function (res) {
+        console.log(res)
         var temp = that.data.comments[idx].secondComment.concat(res.data.object)
         let vn = 'comments['+idx+'].secondComment';
         let l = res.data.object.length;
@@ -136,6 +149,11 @@ Page({
    * 喜欢
    */
   likedislike: function(){
+    var cookie = wx.getStorageSync('cookieKey');
+    var header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
+    if (cookie) {
+      header.Cookie = cookie
+    }
     var that = this
     if (this.data.headitem.isThumbUp == false){
       this.setData({
@@ -193,6 +211,11 @@ Page({
     })
   },
   send:function(){
+    var cookie = wx.getStorageSync('cookieKey');
+    var header = { 'content-type': 'application/x-www-form-urlencoded; charset=utf-8' };
+    if (cookie) {
+      header.Cookie = cookie
+    }
     var that = this;
     if (this.data.hf){
       if (this.data.nickname == '楼主') {

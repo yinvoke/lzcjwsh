@@ -1,13 +1,7 @@
 // pages/user/user.js
 var amapFile = require('../../libs/amap-wx.js');
 var app = getApp();
-var cookie = wx.getStorageSync('cookieKey');
-var header = {
-  'content-type': 'application/x-www-form-urlencoded; charset=utf-8'
-};
-if (cookie) {
-  header.Cookie = cookie
-}
+
 Page({
   data: {
     core: [{
@@ -47,6 +41,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var cookie = wx.getStorageSync('cookieKey');
+    var header = {
+      'content-type': 'application/x-www-form-urlencoded; charset=utf-8'
+    };
+    if (cookie) {
+      header.Cookie = cookie
+    }
     var that = this;
     var myAmapFun = new amapFile.AMapWX({
       key: '059a42238cba63b188e9589bd8500f4f'
