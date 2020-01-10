@@ -4,6 +4,7 @@ var app = getApp();
 
 Page({
   data: {
+    weather:null,
     core: [{
         id: 'table',
         name: '课表查询',
@@ -16,7 +17,7 @@ Page({
         bc: '#4A235A',
         c: '#D7BDE2'
       },
-      {
+/*       {
         id: 'market',
         name: '跳蚤市场',
         bc: '#0E6655',
@@ -27,7 +28,7 @@ Page({
         name: '表白墙',
         bc: '#78281F',
         c: '#F5B7B1'
-      },
+      },*/
       {
         id: 'user',
         name: '用户中心',
@@ -59,10 +60,13 @@ Page({
       success: function(res) {
         myAmapFun.getWeather({
           success: function (data) {
+            console.log(data)
+            that.setData({
+              weather: data
+            })
             if (res.data.object.length > 0) {
               that.setData({
-                infor: res.data.object[0].content,
-                weather: data
+                infor: res.data.object[0].content
               })
             }
           },

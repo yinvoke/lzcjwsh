@@ -30,7 +30,7 @@ Page({
     
     if(wx.getStorageSync('jwpwd')){
       var timestamp = Date.parse(new Date());
-      var temp = (timestamp / 1000 - 1551024000) / 60 / 60 / 24;
+      var temp = (timestamp / 1000 - 1567353600) / 60 / 60 / 24;
       var now = parseInt(temp / 7)+1;
       this.setData({
         weekIndex: now-1,
@@ -132,7 +132,7 @@ Page({
   }, 
   bind:function(e){
     var timestamp = Date.parse(new Date());
-    var temp = (timestamp / 1000 - 1550332800) / 60 / 60 / 24;
+    var temp = (timestamp / 1000 - 1567353600) / 60 / 60 / 24;
     var now = parseInt(temp / 7)+1;
     var that = this;
     let cookie = wx.getStorageSync('cookieKey');

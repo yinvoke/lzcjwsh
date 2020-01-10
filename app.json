@@ -2,12 +2,10 @@
   "pages": [
     "pages/index/index",
     "pages/function/confessionn/matching/matching",
-    
     "pages/function/confessionn/confessionn",
     "pages/login/login",
     "pages/function/table/table",
     "pages/function/confessionn/details/details",
-    
     "pages/function/confessionn/showlove/showlove",
     "pages/function/confessionn/message/message",
     "pages/function/aides/aides",
@@ -31,5 +29,6 @@
     "scope.userLocation": {
       "desc": "您的位置信息将用于天气获取"
     }
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

@@ -95,7 +95,6 @@ page{
 }
 
 /*图片处理*/
-
 .img-upload{
 	padding: 10rpx;
 	font-size: 0;

@@ -102,6 +102,7 @@ Page({
         }
       }
     })
+    
   },
   /**
    * 获取二级评论
@@ -183,6 +184,7 @@ Page({
         },
       })
     }
+    console.log(this.data.comments)
   },
 
   /**

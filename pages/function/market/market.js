@@ -16,7 +16,6 @@ Page({
    * 页面加载
    */
   onLoad:function(){
-
     app.showLoadToast('加载中', 1200);
     this.getType();
     
